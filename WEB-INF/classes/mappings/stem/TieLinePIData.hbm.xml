@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.grid.model">
+
+    <class name="TieLinePIData" table="STEM_TIELINE_PITAGS">
+        <id name="id" type="long">
+        	<generator class="native"/>
+        </id>
+        <property name="tieLineName" type="string" column="TIELINE_NAME"/>
+        <property name="voltage" type="string" column="VOLTAGE"/>
+        <property name="piTag" type="string" column="TIELINE_PI_TAG"/>
+    </class>
+
+</hibernate-mapping>

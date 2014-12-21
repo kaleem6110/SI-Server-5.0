@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.platform.model">
+    <class name="AlertMessage" table="STI_P_ALERTS">
+       
+         <composite-id> 
+            <key-property name="message" type="string" column="MESSAGE" />
+             <key-property name="sourceName" type="string" column="SOURCENAME"/>
+             <key-property name="priority" type="string" column="PRIORITY"/>
+             <key-property name="eventDate" type="timestamp" column="EVENT_DATE"/> 
+             <key-property name="eventId" type="string" column="EVENT_ID" />
+        </composite-id>
+        <property name="color" type="string" column="COLOR"/>
+        <property name="longitude" type="double" column="LONGITUDE"/>
+        <property name="latitude" type="double" column="LATITUDE"/>
+        <property name="notes" type="string" column="NOTES"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="altitude" type="double" column="ALTITUDE" />
+        <property name="altitudeMode" type="string" column="ALTITUDE_MODE" />
+        <property name="heading" type="double" column="HEADING" />
+        <property name="tilt" type="double" column="TILT" />
+        <property name="range" type="double" column="RANGE_1" />
+        <property name="flytoMode" type="string" column="FLY_TO_MODE" />
+        <property name="flytoDuration" type="integer" column="FLY_TO_DURATION" />
+        <property name="waitDuration" type="integer" column="WAIT_DURATION" />
+        <property name="data" type="string" length="2048" column="DATA"/>
+        <property name="favorite" type="string" column="FAVORITE"/>
+		<property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+    </class>
+</hibernate-mapping>

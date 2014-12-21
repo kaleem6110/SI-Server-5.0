@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+
+	<class name="Datasource" table="STI_C_DATASOURCES">
+		<id name="id" type="long" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="datasourceName" column="NAME" type="string" length="45"/>
+        <property name="datasourceTypeId" column="TYPE_ID" type="long"/>
+        <!--
+        <property name="configuration" column="CONFIGURATION" type="com.enterprisehorizons.hibernate.StringClobType" />
+        -->
+        <property name="configuration" column="CONFIGURATION" type="text" />
+        <property name="description" column="DESCRIPTION" type="string" length="500"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+
+</hibernate-mapping>

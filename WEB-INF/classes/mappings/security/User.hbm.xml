@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.security.model">
+
+	<class name="User" table="STI_S_USER">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>	
+		<property name="loginId" type="string" column="LOGIN_ID" not-null="true" />
+		<property name="password" type="string" column="PASSWORD" not-null="true"/>
+		<property name="firstName" type="string" column="FIRST_NAME" />
+		<property name="lastName" type="string" column="LAST_NAME" />
+		<property name="email" type="string" column="EMAIL" />
+		<property name="phoneNo" type="string" column="PHONE_NO" />
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>		
+        <property name="changePassword" type="boolean" column="CHANGE_PASSWORD" />
+        <property name="active" type="boolean" column="ACTIVE" />
+        <property name="organizationId" type="long" column="ORGANIZATION_ID"/>
+        <property name="firstStreet" type="string" column="FIRST_STREET"/>
+        <property name="secondStreet" type="string" column="SECOND_STREET"/>
+        <property name="city" type="string" column="CITY"/>
+        <property name="state" type="string" column="STATE"/>
+        <property name="country" type="string" column="COUNTRY"/>
+        <property name="zipCode" type="string" column="ZIPCODE"/>
+		<property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+		<property name="masterLangRecordId" type="long" column="MST_LANG_REC_ID" />
+	</class>
+
+</hibernate-mapping>

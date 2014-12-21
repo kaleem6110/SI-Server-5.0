@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.platform.model">
+
+    <class name="UserAudit" table="STI_A_USER_AUDIT">
+		
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		
+		<property name="loginId" type="string" column="LOGIN_ID" not-null="false" />
+		<property name="sessionId" type="string" column="SESSION_ID" />
+        <property name="loginTime" type="timestamp" column="LOGIN_TIME" />
+        <property name="logoutTime" type="timestamp" column="LOGOUT_TIME" />
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+    </class>
+
+</hibernate-mapping>

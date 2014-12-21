@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.platform.model">
+
+	<class name="Risk" table="STI_P_RISK">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+	    <property name="domainId" type="long" column="DOMAIN_ID"/>
+        <property name="riskCategoryId" type="long" column="RISK_CATEGORY_ID"  />
+	 	<property name="riskTypeId" type="long" column="RISK_TYPE_ID" />
+		<property name="eventTypeId" type="long" column="EVENT_TYPE_ID" />
+        <property name="isPessimisticBias" type="boolean" column="IS_PESSIMISTIC_BIAS" />
+        
+        <!-- Oracle column name size limit is 30 characters so column names are contracted -->
+         
+		<property name="defaultHazardArtifactId" type="long" column="DFLT_HZRD_ARTIFACT_ID"  />
+		<property name="defaultHazardArtifactTypeId" type="long" column="DFLT_HZRD_ARTIFACT_T_ID" />
+        <property name="defaultVulnerableArtifactId" type="long" column="DFLT_VLNR_ARTIFACT_ID"  />
+        <property name="defaultVulnerableArtifactTypeId" type="long" column="DFLT_VLNR_ARTIFACT_T_ID"  />
+		<property name="defaultMitigationTypeId" type="long" column="DFLT_MITIGATION_TYPE_ID"  />
+		
+	</class>
+
+</hibernate-mapping>

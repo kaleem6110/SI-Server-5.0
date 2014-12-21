@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.platform.model">
+
+	<class name="Characterization" table="STI_P_CHARACTERIZATION">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+		<property name="name" type="string" column="NAME" length="25" not-null="true"/>
+		<property name="description" type="string" column="DESCRIPTION" length="100" not-null="true"/>
+        <property name="counter" type="integer" column="COUNTER" not-null="true" />
+		<property name="objectName" type="string" column="OBJECT_NAME" length="100" not-null="true"/>		
+		<property name="objectValue" type="string" column="OBJECT_VALUE" length="100" not-null="true" />
+					
+	</class>
+
+</hibernate-mapping>

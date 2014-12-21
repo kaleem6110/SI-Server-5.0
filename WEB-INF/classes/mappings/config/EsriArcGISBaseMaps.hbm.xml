@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+
+	<class name="EsriArcGISBaseMaps" table="STI_C_ESRI_ARCGIS_BASE_MAPS">
+		<id name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="mapName" type="string" column="MAPNAME" not-null="true" length="20" />
+		<property name="mapUrl" type="string" column="MAPURL" length="255" not-null="true"/>
+		<property name="bgColor" type="string" column="BGCOLOR" length="20"/>
+		<property name="opacity" type="double" column="OPACITY"/>
+		<property name="isDefault" type="boolean" column="ISDEFAULT"/>
+		<property name="minDisplayZoomLevel" type="int" column="MIN_DEFAULT_ZOOM_LEVEL"/>
+		<property name="maxDisplayZoomLevel" type="int" column="MAX_DEFAULT_ZOOM_LEVEL"/>
+		<property name="customParameters" type="string" column="CUSTOM_PARAMETERS" length="255"/>
+		<property name="domainId" type="long" column="DOMAIN_ID" not-null="true" />
+		<property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>		
+	</class>
+
+</hibernate-mapping>

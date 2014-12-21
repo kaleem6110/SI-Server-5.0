@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.platform.model">
+
+	<class name="RiskType" table="STI_P_RISK_TYPE">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="domainId" type="long" column="DOMAIN_ID"/>
+		<property name="name" type="string" column="NAME" length="25"/>
+		<property name="description" type="string" column="DESCRIPTION" length="100"/>		
+	</class>
+	
+</hibernate-mapping>

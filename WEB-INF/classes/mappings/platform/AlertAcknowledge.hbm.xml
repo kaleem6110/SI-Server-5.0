@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.platform.model">
+    <class name="AlertAcknowledge" table="STI_P_ALERT_ACKNOWLEDGE">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="alertId" type="long" column="ALERT_ID" />
+        <property name="groupId" type="long" column="GROUP_ID" />
+        <property name="userId" type="long" column="USER_ID"/>
+        <property name="alertStatus" type="string" column="ALERT_STATUS"/>
+        <property name="deviceType" type="long" column="DEVICE_TYPE"/>
+        <property name="acknowledgeDate" type="timestamp" column="ACKNOWLEDGE_DATE"/>
+   		<property name="deletedDate" type="timestamp" column="DELETED_DATE"/>
+   		<property name="createdDate" type="timestamp" column="CREATED_DATE" />
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE" /> 
+ 		<property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/> 
+    </class>
+</hibernate-mapping>

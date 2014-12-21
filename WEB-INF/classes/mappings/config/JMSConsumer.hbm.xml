@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+
+	<class name="JMSConsumer" table="STI_C_JMSConsumers">
+		<id name="id" type="long" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="consumerName" column="CONSUMER_NAME" type="string" not-null="true" unique="true"/>
+        <property name="connectionName" column="CONNECTION_NAME" type="string" not-null="true"/>
+        <property name="destinationName" column="DESTINATION_NAME" type="string" not-null="true"/>
+        <property name="consumerClass" column="CONSUMER_CLASS" type="string" length="500" not-null="true"/>
+        <property name="messageFilters" column="FILTERS_OR_SELECTORS" type="string" length="2000" />
+        <property name="domainId" type="long" column="DOMAIN_ID"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" />
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+
+</hibernate-mapping>

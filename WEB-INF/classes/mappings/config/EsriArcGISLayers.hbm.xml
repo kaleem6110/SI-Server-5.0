@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+
+	<class name="EsriArcGISLayers" table="STI_C_ESRI_ARCGIS_LAYERS">
+		<id name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="layerName" type="string" column="LAYERNAME" not-null="true" length="255"/>
+		<property name="layerUrl" type="string" column="LAYERURL"  not-null="true"  length="255"/>
+		<property name="opacity" type="double" column="OPACITY"/>
+		<property name="selected" type="boolean" column="IS_SELECTED"/>
+		<property name="minScale" type="int" column="MINSCALE"/>
+		<property name="maxScale" type="int" column="MAXSCALE"/>
+		<property name="layerType"  type="string" column="LAYERTYPE" not-null="true" length='255'/>
+		<property name="customParams" type="string" column="CUSTOMPARAMS" length="255"/>
+		
+		<property name="domainId" type="long" column="DOMAIN_ID" not-null="true" />
+		<property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>		
+	</class>
+</hibernate-mapping>

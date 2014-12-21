@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping package="com.spacetimeinsight.db.scheduler.model">
+    <class name="JobTaskMapping" table="STI_JOB_TASK_MAPPING">
+        <id name="id" type="long">
+			<generator class="native" />
+		</id>
+        <property name="jobId" type="long" column="JOB_ID" not-null="true" />
+        <property name="taskId" type="long" column="TASK_ID" not-null="true" />
+        <property name="runType" type="string" column="RUN_TYPE" not-null="true" />
+        <property name="taskType" type="string" column="TASK_TYPE" not-null="true" />
+        <property name="parameters" type="string" column="PARAMETERS" length="5000"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="executedDate" type="timestamp" column="EXECUTED_DATE"/>
+        
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/> 
+    </class>
+</hibernate-mapping>

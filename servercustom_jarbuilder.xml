@@ -1,0 +1,36 @@
+<project name="ServerCustomJarBuilder" default="build" basedir=".">
+
+    <property file="servercustom_jarbuilder.properties" />
+    <property file="war_deployer.properties" />
+    <target name="package" description="Packages ${server.project}.jar file">
+        <echo message="Packaging the ${server.project}.jar file...." />
+
+        <jar destfile="${dist}/${server.project}.jar" basedir="${basedir}/${bin}" includes="**/*.class"
+            excludes="**/*.svn*"/>
+
+        <echo message="copying the ${server.project}.jar jar...." />
+
+        <copy file="${dist}/${server.project}.jar" todir="${server.config.lib.dir}" overwrite="true" />
+        <copy file="${dist}/${server.project}.jar" todir="SIServercore/WEB-INF/lib/" overwrite="true" />
+        <copy file="${dist}/${server.project}.jar" todir="${SIServer.webapps.dir}/WEB-INF/lib/" overwrite="true" />
+    </target>
+
+    <target name="refresh" description="refreshes the updated directories">
+        <echo message="refreshing the ${server.project}.jar in the referenced projects...." />
+        <eclipse.refreshLocal resource="${server.project}" depth="infinite" />
+    </target>
+
+
+    <target name="clean" description="deletes the dist directory">
+        <delete dir="${dist}" />
+    </target>
+
+    <target name="prepare" description="Creates the required directories">
+        <echo message="Creating the required directories...." />
+        <mkdir dir="${dist}" />
+    </target>
+
+    <target name="buildwithoutrefresh" depends="prepare,package,clean" />
+
+    <target name="build" depends="prepare,package,refresh,refresh" />
+</project>

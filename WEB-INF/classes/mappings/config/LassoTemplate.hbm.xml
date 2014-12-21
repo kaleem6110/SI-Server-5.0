@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wfp.db.platform.model">
+
+	<class name="LassoTemplate" table="FLS_FENCE_ALERTS" >
+
+		<!--  Unique ID Auto Generated -->
+		<id name="id" type="long" column="ID">
+			<generator class="native" />
+		</id>
+
+
+		<!--  Static Unique Name to identify the rubber band -->
+		<property name="name" type="string" column="NAME"  length="255" />
+
+		<!--  Label that is displayed to the user -->
+		<property name="label" type="string" column="LABEL" length="255" />
+
+		<!-- A short description for users to understand the rubber band -->
+		<property name="description" type="string" column="DESCRIPTION" length="255" />
+
+		<!-- XML representation of Lasso -->
+
+
+		<property name="listType" type="string" column="LIST_TYPE" />
+
+		<!-- Audit Fields : following fields will be updated on create and every change.-->
+
+		<property name="owner" type="string" column="OWNER" />
+
+		<property name="createdBy" type="string" column="CREATED_BY" />
+		<property name="createdDate" type="timestamp" column="CREATED_DATE" />
+
+		<property name="modifiedBy" type="string" column="MODIFIED_BY" />
+		<property name="modifiedDate" type="timestamp" column="MODIFIED_DATE" />
+
+		<property name="subject" type="string" column="SUBJECT" />
+		<property name="message" type="string" column="MESSAGE" />
+
+		<property name="recurrence" type="integer" column="RECUERENCE" />
+		<property name="interval" type="integer" column="TIMEINTERVAL" />
+
+		<property name="includeEmail" type="string" column="INCLUDE" />
+		<property name="excludeEmail" type="string" column="EXCLUDE" />
+
+		<property name="moduleId" type="integer" column="MODULE_ID" />
+		<property name="languageId" type="integer" column="LANGUAGE_ID" />
+		<property name="domainId" type="integer" column="DOMAIN_ID" />
+		
+		<property name="userUniqueId" type="string" column="USER_UNIQUE_ID" />
+		
+		<property name="startDate"  type="timestamp" column="STARTDATE" />
+		<property name="endDate" type="timestamp" column="ENDDATE" 	/>
+
+	</class>
+
+</hibernate-mapping>

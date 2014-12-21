@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+     
+<hibernate-mapping
+    package="com.spacetimeinsight.db.compliance.model">
+    <class name="ComplianceReportEOP004" table="STI_C_CMPL_REPORT_EOP004">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="incidentId" type="long" column="INCIDENT_ID" not-null="true"/>
+        <property name="conditionId" type="long" column="CONDITION_ID" not-null="true"/>
+        <property name="conditionTypeId" type="long" column="CONDITION_TYPE_ID" not-null="true"/>
+        <property name="dataKeySet" type="long" column="DATA_KEY_ID" not-null="true"/>
+       	<property name="reportedOn" type="timestamp" column="REPORTED_ON" length="7" not-null="true" />
+	  	<property name="createdOn" type="timestamp" column="CREATED_ON" length="7" not-null="true" />
+
+        
+        <property name="orgFilingReport" type="string" column="ORG_FILING_REPORT" length="100" not-null="true"/>
+        <property name="filingPersonName" type="string" column="PERSON_FILING_REPORT" length="100" not-null="true"/>
+        <property name="telephoneNumber" type="string" column="TELEPHONE_NUMBER" length="100" not-null="true"/>
+    	<property name="isDisturbanceInSystem" type="string" column="IS_DISTURBANCE" length="50" not-null="true"/>
+    	<property name="causeActionPlan" type="string" column="CAUSE_ACTION_PLAN" length="200" not-null="true"/>
+    	<property name="generationTrippedMVTotal" type="string" column="GENERATION_TRIPPED_MV_TOTAL" length="100"/>
+    	<property name="listGenerationTripped" type="string" column="LIST_GENERATION_TRIPPED" length="100"/>
+    	<property name="frequencyPriorDisturbance" type="string" column="FREQ_PRIOR_DISTURBANCE" length="100"/>
+    	<property name="frequencyAfterDisturbanceMax" type="string" column="FREQ_AFTER_DISTURBANCE_MAX" length="100"/>
+    	<property name="frequencyAfterDisturbanceMin" type="string" column="FREQ_AFTER_DISTURBANCE_MIN" length="100"/>
+    	
+    	<property name="listTransmissionLine" type="string" column="LIST_TRANSMISSION_LINE" length="200" />
+        <property name="firmDemandTripped" type="string" column="FIRM_DEMAND_TRIPPED" length="50" />
+        <property name="interruptibleDemandTripped" type="string" column="INTERRUPTABLE_DEMAND_TRIPPED" length="200" />
+        
+        <property name="noOffFirmCustomersEffected" type="string" column="NO_OF_FIRM_CUST_AFFECTED" length="100"/>
+        <property name="noOffInterruptibleCustomersEffected" type="string" column="NO_OF_INTR_CUST_AFFECTED" length="100"/>
+        
+        <property name="firmDemandLoss" type="string" column="FIRM_DEMAND_LOSS" length="100"/>
+        <property name="interruptibleDemandLoss" type="string" column="INTR_DEMAND_LOSS" length="100"/>
+        
+        <property name="initialTransmission" type="string" column="INITIAL_TRANSMISSION" length="100" />
+        <property name="finalTransmission" type="string" column="FINAL_TRANSMISSION" length="100" />
+        <property name="initialGeneration" type="string" column="INITIAL_GENERATION" length="100" />
+        <property name="finalGeneration" type="string" column="FINAL_GENERATION" length="100" />
+        <property name="initialDemand" type="string" column="INITIAL_DEMAND" length="100" />
+        <property name="finalDemand" type="string" column="FINAL_DEMAND" length="100" />
+     	<property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+    </class>
+</hibernate-mapping>

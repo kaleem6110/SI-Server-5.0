@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="WEB-INF/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/activation-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/ant-antlr-1.6.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/antlr-runtime-3.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/asm-attrs.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/asm.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/atmosphere-runtime.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axiom-api-1.2.11.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axiom-impl-1.2.11.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis-ant.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-adb-1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-adb-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-adb-codegen-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-ant-plugin-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-clustering-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-codegen-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-corba-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-fastinfoset-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-java2wsdl-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-jaxbri-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-jaxws-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-jibx-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-json-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-kernel-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-metadata-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-mtompolicy-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-saaj-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-soapmonitor-servlet-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-spring-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-transport-http-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-transport-local-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/axis2-xmlbeans-1.6.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/backport-util-concurrent-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/batik-css.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/batik-svggen.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/batik-util.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/bsf.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/bsh-2.0b4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/c3p0-0.9.1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/c3p0-oracle-thin-extras-0.9.1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/castor-0.9.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/cfgatewayadapter.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/cglib-2.1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/cluster-gvm-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.enterprisehorizons.common.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.enterprisehorizons.magma.stace.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.analytics.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.businesspackages.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.cep.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.dynamicdatasource.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.esri.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.external.services.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.geocoder.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.inmemory.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.json.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.pi.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.renderer.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.reports.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.rules.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.security.extensions.tc.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.security.jaas.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.security.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/com.spacetimeinsight.server.common.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-beanutils.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-codec-1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-collections-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-dbcp-1.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-digester-1.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-discovery.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-fileupload-1.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-httpclient-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-io-1.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-jexl-1.0-dev.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-lang-2.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-logging-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-math-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-net-1.4.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-pool-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/commons-validator.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/concurrent.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/DDConnectionBroker.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/ecs-1.4.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/esapi-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/fileupload-ext.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/filterbuilder.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/flex-messaging-common.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/flex-messaging-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/flex-messaging-opt.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/flex-messaging-proxy.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/flex-messaging-remoting.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/fontbox-0.8.0-incubating.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/ftp.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/geoapi-nogenerics-2.1-M4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/geodb-0.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/geodb-app-0.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/geonames-1.0-java5.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/georss-rome-0.9.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/geronimo-stax-api_1.0_spec-1.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/google-collect-1.0-rc1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/gt-jdbc-h2-8.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/gt2-api-2.4-M2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/gt2-main-2.4-M2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/gt2-metadata-2.4-M2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/gt2-referencing-2.4-M2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/gt2-shapefile-2.4-M2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/h2-1.3.176.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/hatbox-1.0.b7.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/hibernate-dialect.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/hibernate3.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/htmllexer.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/htmlparser.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/httpcore-4.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/icu4j-4_0_1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/intgclient.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/iso-relax.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/iText-2.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jackson-all-1.9.11.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jakarta-oro-2.0.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jakarta-regexp-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jasperreports-3.7.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/java-libpst.0.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/java-xmlbuilder-0.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/javapns-jdk16-161.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/javaproj-1.0.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/javassist.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jaxen-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jaxrpc.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jboss-aop.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jboss-common-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jboss-logging-log4j.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jboss-logging-spi.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jboss-mdr.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jboss-reflect.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jbosscache-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jbosscache-pojo.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jcip-annotations.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jcommon-1.0.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jdom-1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jfreechart-1.0.8a.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jgeocoder-0.4.1-jar-with-dependencies.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jgrapht-jdk1.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jgroups.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jing.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/js.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jsqlparser.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jsr108-0.01.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jsr94.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jstl.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jta-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jts-1.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/junit.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/jython.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/log4j-1.2.15.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/lps-4.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/lucene-core-3.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/mail-1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/msbase.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/mssqlserver.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/msutil.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/multipartrequest.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/mysql-connector-java-5.1.22.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/neethi-2.0.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/ojdbc14.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/opencsv-2.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/poi-3.8-20120326.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/poi-examples-3.8-20120326.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/poi-excelant-3.8-20120326.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/poi-ooxml-3.8-20120326.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/poi-ooxml-schemas-3.8-20120326.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/poi-scratchpad-3.8-20120326.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/postgis-1.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/postgresql-9.3-1101.jdbc41.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/proxool-0.9.0RC3.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/qdox.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/qname.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/quartz-all-1.6.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/REngine.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/rome-0.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/Rserve.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/Rsession.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/saaj.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/sac.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/sam.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/sax2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/saxon-6.5.3-lz-p1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/serializer.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/sigar.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/slf4j-log4j12-1.5.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/spnego-r5.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/spring-2.5.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/sqljdbc4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/standard.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/STILicenseChecker.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/struts.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/swflib.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/thumbelina.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/tools.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/trove.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/truelicense.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/truexml.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/vecmath-1.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/visualization-datasource-1.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/woden-api-1.0M9.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/wsdl4j-1.6.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/wstx-asl-3.2.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/xalan-2.7.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/xerces.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/xmlbeans-2.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/xmlrpc-1.2-b1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/XmlSchema-1.4.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/xmlsec-1.4.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="SIServercore/WEB-INF/lib/xpp3-1.1.3.4d_b4.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/com.enterprisehorizons.magma.runtime.models.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/com.enterprisehorizons.magma.admin.jar"/>
+	<classpathentry kind="src" path="SIServercore/WEB-INF/src"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.common.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.spacetimeinsight.businesspackages.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.spacetimeinsight.cep.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.spacetimeinsight.custom.server.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.spacetimeinsight.external.services.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.spacetimeinsight.server.common.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.conversion.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.db.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.magma.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.magma.recipes.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.magma.runtime.models.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.magma.server.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.magma.services.jar"/>
+	<classpathentry kind="lib" path="D:/SIResources/config/lib/com.enterprisehorizons.magma.stace.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>

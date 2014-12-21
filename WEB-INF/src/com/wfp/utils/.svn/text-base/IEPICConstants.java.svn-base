@@ -1,0 +1,139 @@
+package com.wfp.utils;
+
+import java.text.SimpleDateFormat;
+
+public interface IEPICConstants {
+	  
+	public static final String PAKISTAN ="Pakistan";
+	public static final String DUBAI ="Dubai";
+	public static final String ROME ="Italy";
+	public static final String KEY_PAKISTAN="ISL";
+	public static final String KEY_DUBAI ="DXB";
+	public static final String KEY_ROME ="ROM";
+	 
+	//model constants
+	public static final String PARAM_ID ="id";
+	public static final String PARAM_NAME ="name";
+	public static final String PARAM_DEVICEID ="deviceId";
+	
+	//cache constants
+	public static final String CACHE_STAFF_TRACKING ="$staff_tracking$";
+	public static final String CACHE_REST_SERVICE = "$REST_Service$";
+	//ecosystem properties
+	public static final String PARAM_TIME ="time";
+	public static final String PARAM_XPR = "/gpx/wpt";
+	
+	//date formatter
+	public static final String EPIC_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";	
+	public static final String PORTAL_DATE_FORMAT = "MM/dd/yyyy HH:mm:ss";
+	public static final SimpleDateFormat PORTAL_SIMPLE_FORMAT = new SimpleDateFormat(PORTAL_DATE_FORMAT);
+	
+	//data filtering
+	public static final String LAYER_STAFF = "Staff";
+	public static final String LAYER_VEHICLE = "Vehicle";
+	public static final String LAYER_AIRPLANE= "Airplane";
+	public static final String DEVICE_STAFF = "trackMe";
+	public static final String DEVICE_VEHICLE = "EMS";
+	
+	//Export pakistan risk zones job
+	public static final String DEFAULT_FILEPATH = "C:\\Magma\\data\\excel\\Pakistan risk zones.xls";
+	public static final String DEFAULT_DATASOURCE = "wfp_datasource";
+	public static final String SINGLE_QUOTE = "'";
+	public static final String PARAM_FILEPATH = "filepath";
+	public static final String PARAM_DATASOURCE = "datasource";
+	
+	//Warehouse & Stocks renderer
+	public static final String WAREHOUSE_FILEPATH = "whfilepath";
+	public static final String HEADER_ROW = "headerrowindex";
+	public static final String PARAM_WAREHOUSE = "Warehouse";
+	public static final String PARAM_WAYBILL = "waybillFile";
+	public static final String PARAM_DATECORRECTION = "datecorrection";
+	public static final String PARAM_LATITUDE = "latitude";
+	public static final String PARAM_COORDINATES = "coordinates";
+	
+	//LDAP Utilities
+	public static final String INITIAL_LDAP_CONNECTION_FACTORY = "com.sun.jndi.ldap.LdapCtxFactory";
+	public static final String LDAP_SECURITY_AUTHENTICATION = "simple";
+	public static String LDAP_HOST_PROPERTY = "ldap.service.emergency.lu:389";
+	public static String LDAP_ADMIN_NAME_PROPERTY = "cn=ldapadmin,dc=emergency,dc=lu";
+	public static String LDAP_ADMIN_PASSWORD = "TargeTc0mf0rt";
+	public static String LDAP_BASE = "ou=users,ou=people,dc=emergency,dc=lu";
+	public static String SEARCH_FILTER = "(&(objectClass=user)(CN=ldapadmin))";
+	public static String STR_LDAP_PROTOCOL = "ldap://";
+	public static final String CACHE_LDAPUSER_DTLS = "$LDAPUSER_DTLS$";
+	public static final String FILTER_GRP_NAMES = "(member=cn=<deviceId>,ou=devices,dc=emergency,dc=lu)";
+	public static final String REPLACE_DEVICE_TOKEN = "<deviceId>";
+	public static final String DOMAIN_GRP_NAMES = "ou=groups,dc=emergency,dc=lu";
+	public static final String[] CONSTRAINT_MEMBER = new String[] {"member"};
+	public static final String PARAM_UID = "uid=";
+	public static final String FILTER_MW_DEVICES =  "(objectClass=mwdevice)";
+	public static final String DEVICES_SEARCHBASE =  "ou=devices,dc=emergency,dc=lu";
+	public static final String FILTER_LDAP_USERS =  "(objectClass=person)";
+	public static final String FILTER_LDAP_VEHICLES =  "(objectClass=vehicle)";
+	public static final String USERS_SEARCHBASE =  "ou=users,ou=people,dc=emergency,dc=lu";
+	public static final String[] CONSTRAINT_ATTR_USERS= new String[] {"mail", "homePhone", "mobile", "uid", "cn", "communicationUri", "sn", "description", "licensePlate", "o", "communicationURI", "title", "telephoneNumber"};
+	public static final String PROPERTY_CN =  "cn";
+	public static final String PROPERTY_HOME_PHONE =  "homePhone";
+	public static final String PROPERTY_MAIL =  "mail";
+	public static final String PROPERTY_MOBILE =  "telephoneNumber";
+	public static final String PROPERTY_PAGER =  "communicationUri";
+	public static final String PROPERTY_ORGANIZATION =  "o";
+	public static final String PROPERTY_DESCRIPTION =  "description";
+	public static final String PROPERTY_LICENSE_PLATE =  "licensePlate";
+	public static final String PROPERTY_UID =  "uid";
+	public static final String PROPERTY_SN =  "sn";
+	public static final String PROPERTY_TITLE = "title";
+	public static final String PROPERTY_MEMBER_OF = "memberOf";
+	public static final String PARAM_ALLGROUPS=  "ldapGroups";
+	
+	//WFP Config Utils
+	public static final String LDAP = "ldap";
+	public static final String LDAP_CONTEXT_FACTORY = "LDAPContextFactory";
+	public static final String LDAP_SERVER_NAME = "LDAPServerName";
+	public static final String LDAP_SERVER_PORT = "LDAPServerPort";
+	public static final String LDAP_DOMAIN_NAME = "LDAPDomainName";
+	public static final String LDAP_USER_LOGIN = "LDAPSuperUserLogin";
+	public static final String LDAP_USER_PWD = "LDAPSuperUserPassword";
+	
+	//image constants
+	public static final String SKYPE_CALL_IMG = "serverresources/epic/s.png";
+	public static final String MOBILE_IMG = "serverresources/epic/p.png";
+	public static final String GTALK_IM = "serverresources/epic/g.png";
+	public static final String MSN_IM = "serverresources/epic/m.png";
+	public static final String CONTACT = "serverresources/epic/co.png";
+	public static final String EMAIL= "serverresources/epic/e.png";
+	public static final String SIP_CALL_IMG = "serverresources/icons/comm.jpg";
+	
+	//Rest response reading constants
+	public static final String ATTR_LAT = "lat";
+	public static final String ATTR_LNG = "lon";
+	
+	//Rest Tracking Keys
+	public static final String KEY_STAFF = "staff";
+	public static final String KEY_VEHICLE = "vehicle";
+	public static final String KEY_AIRPLANE = "airplane";
+	
+	//Tracking User Renderer constants
+	public static final String PARAM_FILENAME = "filename";
+	public static final String ATTR_ORGANIZATION = "Organization";
+	public static final String ATTR_CALL_SIGN = "Call Sign";
+	public static final String ATTR_UNIT= "Unit";
+	public static final String ATTR_FLEET = "Fleet";
+	public static final String NULL_STR = "NULL";
+
+	//Warehouse waybill & stock  Renderer constants
+	public static final String PARAM_DASHBOARD_ID = "dashboardid";
+	public static final String PARAM_BYPASS_ID = "bypassid";
+	public static final String SUB_KEY_FILTER_BY = "Waybill::";
+	public static final String KEY_WH_STOCK_MAP = "$WH_STOCK_MAP$";
+	public static final String KEY_WH_WAYBILL_MAP = "$WH_WAYBILL_MAP$";
+	public static final String KEY_STR = "key";
+	
+	//Alert Service Utils constants
+	public static final String PROPERTY_TEMPLATE_ID = "templateId";
+	public static final String PROPERTY_MSG_TO= "userId";
+	public static final String PROPERTY_SEND_ON = "sendOn";
+	
+	public static final String CACHE_WAREHOUSES_KEY = "$warehouses$";
+	
+}

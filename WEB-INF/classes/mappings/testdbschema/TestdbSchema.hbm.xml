@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.test.model">
+
+	<class name="TestDbschema" table="STI_TEST_DB_SCHEMA">
+		<id name="id" type="long">
+            <generator class="native" />
+        </id>
+		<property name="dbText" 					type="string" 		column="DB_TEXT" 					not-null="true"/>
+		<property name="dbTextArea" 				type="string" 		column="DB_TEXT_AREA" 				not-null="true"/>
+		<property name="dbTextAreaLimitedLength" 	type="string" 		column="DB_TEXT_AREALIMITED_LENGTH" not-null="true"/>
+		<property name="dbCheckBox" 				type="boolean" 		column="DB_CHECK_BOX" 				not-null="false"/>
+		<property name="dbListBox" 					type="string" 		column="DB_LIST_BOX" 				not-null="true"/>
+		<property name="dbListBoxQuery" 			type="string" 		column="DB_LIST_BOX_QUERY" 			not-null="true"/>
+		<property name="dbComboBox" 				type="string" 		column="DB_COMBO_BOX" 				not-null="true"/>
+		<property name="dbComboBoxQuery" 			type="string" 		column="DB_COMBO_BOX_QUERY" 		not-null="true"/>
+		<property name="dbRadioBtn" 				type="string" 		column="DB_RADIO_BTN" 				not-null="false"/>
+		<property name="dbDateMMddYY" 				type="date" 		column="DB_DATE_MMDDYY" 			not-null="true"/>
+		<property name="dbDateMMddYYTime" 			type="date" 	column="DB_DATE_MMDDYYTIME" 		not-null="true"/>
+		<property name="dbIntegerValue" 			type="integer" 		column="DB_INTEGER_VALUE" 			not-null="false"/>
+		<property name="dbDoubleValue" 				type="double" 		column="DB_DOUBLE_VALUE" 			not-null="false"/>
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.rules.model">
+	<class name="RuleApplication" table="STI_R_APPLICATION">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="applicationName" type="string" column="APPLICATION_NAME" not-null="true"/>
+		<property name="applicationVersion" type="string" column="APPLICATION_VERSION" not-null="false"/>
+		<property name="rulesetName" type="string" column="RULESET_NAME" not-null="true"/>
+		<property name="ruleName" type="string" column="RULE_NAME" not-null="true"/>
+		<property name="rulesetVersion" type="string" column="RULESET_VERSION" not-null="false"/>
+		<property name="createDate" type="timestamp" column="CREATED_DATE" not-null="true" />
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+	    <property name="modifiedBy" type="string" column="MODIFIED_BY"/>  
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.config.alerts.model">
+    <class name="AlertMode" table="STI_C_ALERT_MODE_MASTER">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        
+        <property name="name" type="string" column="NAME" not-null="true" unique="true" length="25" />
+        <property name="iconURL" column="ICON_URL" type="string" length="250" />
+        <property name="description" type="string" column="DESCRIPTION" length="100"/>        
+        <property name="implementationClass" type="string" column="IMPLEMENTATION_CLASS" length="150"/>        
+        <property name="isPredefined" type="boolean" column="IS_PREDEFINED"></property>
+        <property name="messageFilters" column="FILTERS_OR_SELECTORS" type="string" length="2000" />
+        
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true" />
+        <property name="languageId" type="long" column="LANGUAGE_ID" />
+        <property name="createdDate" type="timestamp" column="CREATED_DATE" />
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE" />
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>            
+    </class>
+</hibernate-mapping>

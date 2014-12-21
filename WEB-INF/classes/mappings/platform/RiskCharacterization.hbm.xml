@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.platform.model">
+
+	<class name="RiskCharacterization" table="STI_P_RISK_CATEGORIZATION">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="domainId" type="long" column="DOMAIN_ID"/>
+		<property name="riskTypeId" type="long" column="RISK_TYPE_ID" />
+		<property name="characterizationName" type="string" column="CHARACTERIZATION_NAME" />
+		<property name="isBenifitRisk" type="boolean" column="IS_BENIFIT_RISK" />
+		<property name="isCostRisk" type="boolean" column="IS_COST_RISK" />
+		<property name="isOptimumBias" type="boolean" column="IS_OPTIMUM_BIAS" />
+	</class>
+
+</hibernate-mapping>

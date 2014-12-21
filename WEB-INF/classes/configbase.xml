@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration name="configbase">
+    <!-- This section contains all the config files used by the application -->
+    <section name="CONFIG_FILES">
+        <value>admin_config.xml</value>
+        <value>cache_config.xml</value>
+        <value>common_config.xml</value>
+        <value>db_models_config.xml</value>
+    </section>
+
+    <!-- Configuration directory that holds all the configuration files -->
+    <section name="CONFIG_DIRECTORY">
+        <value>server_config/</value>
+    </section>
+</configuration>

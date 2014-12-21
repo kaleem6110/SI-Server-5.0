@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="remoting-service" 
+    class="flex.messaging.services.RemotingService">
+
+    <adapters>
+        <adapter-definition id="java-object" class="flex.messaging.services.remoting.adapters.JavaAdapter" default="true"/>
+    </adapters>
+
+    <default-channels>
+        <channel ref="my-amf"/>
+         <channel ref="my-secure-amf"/>
+    </default-channels>
+ 	<destination id="reviewServicesImpl" >
+ 		<properties>
+  		<source>com.spacetimeinsight.arra.services.ReviewServicesImpl</source> 
+ 	 </properties>
+  	</destination>
+	<destination id="reportElementServicesImpl" >
+ 		<properties>
+  			<source>com.spacetimeinsight.arra.services.ReportElementServicesImpl</source> 
+ 		</properties>
+  	</destination>
+	<destination id="submissionService" >
+		<properties>
+		<source>com.spacetimeinsight.arra.services.SubmissionServicesImpl</source>
+		</properties>
+	</destination>
+	<destination id="checklistItemsService" >
+		<properties>
+		<source>com.spacetimeinsight.arra.services.ChecklistItemServicesImpl</source>
+		</properties>
+	</destination>
+	<destination id="dataReportService" >
+		<properties>
+		<source>com.spacetimeinsight.arra.services.DataReportServiceImpl</source>
+		</properties>
+	</destination>
+	<destination id="projectService" >
+		<properties>
+		<source>com.spacetimeinsight.arra.services.ProjectServicesImpl</source>
+		</properties>
+	</destination>
+	<destination id="ruleService" >
+		<properties>
+		<source>com.spacetimeinsight.rules.services.RuleServiceImpl</source>
+		</properties>
+	</destination>
+	<destination id="myPlacesService" >
+		<properties>
+		<source>com.spacetimeinsight.stas.myplaces.services.MyPlacesServiceImpl</source>
+		</properties>
+	</destination>
+	<!--  Alert Messaging Systems AMS -->
+	<destination id="alertMessagingService" >
+		<properties>
+		<source>com.spacetimeinsight.alerts.services.AlertMessagingService</source>
+		</properties>
+	</destination>
+	<destination id="piServerDetails" >
+		<properties>
+		<source>com.spacetimeinsight.pi.services.PIServerImpl</source>
+		</properties>
+	</destination>
+	<!-- Rubberbanding Service -->
+	<destination id="rbRegionsService" >
+		<properties>
+		<source>com.spacetimeinsight.stas.rubberband.services.BaseRBRegionServiceImpl</source>
+		</properties>
+	</destination>
+	<!-- Favorites Service -->
+	<destination id="favoritesService" >
+		<properties>
+		<source>com.spacetimeinsight.stas.favorites.services.FavoriteServiceImpl</source>
+		</properties>
+	</destination> 
+	<destination id="dashboardService" >
+        <properties>
+        <source>com.spacetimeinsight.services.dashboard.DashboardRemoteService</source>
+        </properties>
+    </destination>
+	 <destination id="piNotificationService" >
+        <properties>
+        <source>com.spacetimeinsight.pi.services.PINotificationServiceImpl</source>
+        </properties>
+    </destination>
+    <destination id="dashboardFavoritesService" >
+        <properties>
+        <source>com.spacetimeinsight.dashboard.services.DashboardFavoriteImpl</source>
+        </properties>
+    </destination>
+    <destination id="correlationConfigService" >
+        <properties>
+        <source>com.spacetimeinsight.services.cep.CorrelationConfigService</source>
+        </properties>
+    </destination>    
+    <destination id="piAFEventGroupService">
+        <properties>
+       				<source>com.spacetimeinsight.pi.services.af.PIAFEventGroupService</source>
+        </properties>
+    </destination>  
+     <destination id="ldapUserGroupService">
+        <properties>
+                    <source>com.spacetimeinsight.security.service.LdapUserGroupService</source>
+        </properties>
+    </destination>  
+    <destination id="dbUserGroupService">
+        <properties>
+                    <source>com.spacetimeinsight.security.service.DBUserGroupService</source>
+        </properties>
+    </destination>
+     <destination id="privilegesService">
+		<properties>
+				<source>com.spacetimeinsight.stas.privileges.services.BasePrivilegesServiceImpl</source>
+		</properties>
+	</destination>	
+	<destination id="fileUploadMessagingService">
+        <properties>
+                    <source>com.spacetimeinsight.admin.fileupload.services.FileUploadMessagingService</source>
+        </properties>
+    </destination> 	
+    <destination id="loggerService">
+		<properties>
+				<source>com.spacetimeinsight.admin.logger.service.LoggerService</source>
+		</properties>
+	</destination>
+	<destination id="preferencesService">
+		<properties>
+				<source>com.spacetimeinsight.preferences.PreferencesService</source>
+		</properties>
+	</destination>	
+    <destination id="auditMessagingService">
+        <properties>
+                    <source>com.spacetimeinsight.audit.services.AuditLogService</source>
+        </properties>
+    </destination>
+    <destination id="classPathService">
+        <properties>
+                   <source>com.spacetimeinsight.admin.logger.service.ClassPathService</source>
+        </properties>
+    </destination>
+    <destination id="resourceBundleService">
+        <properties>
+                   <source>com.spacetimeinsight.resourcebundle.ResourceBundleService</source>
+        </properties>
+    </destination>
+   	<destination id="searchService">
+   		<properties>
+   			<source>com.spacetimeinsight.search.service.SearchInputService</source>
+   		</properties>
+   	</destination>
+</service>

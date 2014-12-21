@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.security.model">
+    <class name="AuditLog" table="STI_S_AUDIT_LOG">       
+         <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="tableName" type="string" column="TABLE_NAME" length="50" />
+       	<property name="action" type="string" column="ACTION" length="20"/>
+        <property name="dateTime" type="timestamp" column="DATE_TIME"/>
+        <property name="loginId" type="string" column="LOGIN_ID" length="255"/>
+        <property name="description" type="text" column="DESCRIPTION"/>
+        <!--  property name="domainId" type="long" column="DOMAIN_ID" not-null="true" />
+        <property name="createdDate" type="timestamp" column="CREATED_DATE" not-null="true" />
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>   
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>	 -->
+    </class>
+</hibernate-mapping>

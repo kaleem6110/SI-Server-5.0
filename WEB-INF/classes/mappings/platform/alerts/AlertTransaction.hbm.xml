@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.platform.alerts.model">
+	<class name="AlertTransaction" table="STI_P_ALERT_TRANSACTION">
+		<id name="id" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="alertId" type="long" column="ALERT_ID" not-null="true" ></property>
+		<property name="priorityId" type="long" column="PRIORITY_ID" not-null="true" ></property>
+		<property name="message" type="string" column="MESSAGE" length="500"></property>
+		<property name="description" type="string" column="DESCRIPTION" length="250"></property>
+		<property name="location" type="string" column="LOCATION" length="500"></property>
+		<property name="sourceTypeId" type="long" column="SOURCE_TYPE_ID" not-null="true" ></property>
+		<property name="sourceId" type="string" column="SOURCE_ID" ></property>
+		<property name="alertTime" type="timestamp" column="ALERT_TIME" not-null="true" ></property>
+		<property name="modes" type="string" column="MODES" ></property>
+		<property name="groupProp" type="string" column="GROUP_PROP" ></property>
+		<property name="moduleProp" type="string" column="MODULE_PROP" ></property>
+		<property name="ackProperty" type="string" column="ACK_PROP" ></property>
+		<property name="jsFunction" type="string" column="JS_FUNCTION" ></property>
+		<property name="tourFunction" type="string" column="TOUR_FUNCTION" ></property>		
+		<property name="tourWaitTime" type="string" column="TOUR_WAIT_TIME" ></property>
+		
+		<property name="domainId" type="long" column="DOMAIN_ID" not-null="true"></property>
+		<property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"></property>
+		<property name="createdDate" type="timestamp" column="CREATED_DATE" not-null="true"></property>
+		<property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"></property>
+		<property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+</hibernate-mapping>

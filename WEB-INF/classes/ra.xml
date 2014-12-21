@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+This deployment descriptor provides the default
+configuration of the Rule Execution Server Execution Unit (XU) for JCA 1.5 and
+documents when and how to alter the descriptor.
+
+* In J2EE a descriptor file that contains the default configuration parameters is embedded in the META-INF directory 
+of the XU archive (jrules-res-xu-XXXX.rar).
+If you want to modify the behavior of the XU in J2EE you should edit the specific JCA
+descriptors, for example weblogic-ra.xml, or use
+the administration console of the J2EE application server.
+
+* In J2SE this file can be added to your classpath in order to
+change the default XU configuration. This file will override the default_ra.xml descriptor
+provided in the jrules-res-execution.jar.
+-->
+<connector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/connector_1_5.xsd" version="1.5">
+  <description>The ILOG JRules Rule Engine Resource Adapter handles the low-level
+details of ruleset execution and provides management access to its
+resources. Configuration and run-time data is exposed through a JMX
+MBean</description>
+
+  <display-name>XU</display-name>
+
+  <vendor-name>ILOG S.A.</vendor-name>
+  <eis-type>XU</eis-type>
+  <resourceadapter-version>ILOG JRules 7.0.0</resourceadapter-version>
+
+  <license>
+    <description>
+     This software and documentation is made available only pursuant to the
+     terms of an ILOG license agreement. By installing it and using it, you
+     are agreeing to the terms and conditions of the license agreement and
+     any addenda.
+    </description>
+
+    <license-required>true</license-required>
+  </license>
+
+  <resourceadapter>
+    <resourceadapter-class>ilog.rules.res.xu.spi.IlrXUResourceAdapter</resourceadapter-class>
+    
+    <outbound-resourceadapter>
+      <connection-definition>
+        <managedconnectionfactory-class>ilog.rules.res.xu.spi.IlrManagedXUConnectionFactory</managedconnectionfactory-class>  
+
+
+<!-- Do NOT change the value of this parameter. Changing the value of this parameter could produce unpredictable results.
+-->
+    <config-property>
+<config-property-name>XuDumpSchedulerEnabled</config-property-name>
+<config-property-type>java.lang.Boolean</config-property-type>
+<config-property-value>false</config-property-value>
+</config-property>
+
+
+<!-- Do NOT change the value of this parameter. Changing the value of this parameter could produce unpredictable results.
+-->
+    <config-property>
+<config-property-name>XuDumpSchedulerInterval</config-property-name>
+<config-property-type>java.lang.Long</config-property-type>
+<config-property-value>10000</config-property-value>
+</config-property>
+
+
+<!-- Do NOT change the value of this parameter. Changing the value of this parameter could produce unpredictable results.
+-->
+    <config-property>
+<config-property-name>ConcurrentOpenClose</config-property-name>
+<config-property-type>java.lang.Boolean</config-property-type>
+<config-property-value>false</config-property-value>
+</config-property>
+
+<!-- Do NOT change the value of this parameter. Changing the value of this parameter could produce unpredictable results.
+-->
+    <config-property>
+<config-property-name>JdkLoggingEnabled</config-property-name>
+<config-property-type>java.lang.Boolean</config-property-type>
+<config-property-value>false</config-property-value>
+</config-property>
+
+<!-- Do NOT change the value of this parameter. Changing the value of this parameter could produce unpredictable results.
+-->
+    <config-property>
+<config-property-name>RulesetFactoryProperties</config-property-name>
+<config-property-type>java.lang.String</config-property-type>
+<config-property-value>ilog.rules.res.xu.ruleset.IlrSerializedRulesetFactory.cacheDir=.</config-property-value>
+</config-property>
+
+
+    <!-- 
+     To allow a ruleset execution to continue during the parsing
+     of a ruleset update, set the asynchronousRulesetParsing property to
+     true.  When a ruleset is updated and this property is set to
+     true, the next ruleset execution will parse the new
+     ruleset. Executions that are started will use the old ruleset
+     until the new one is parsed.  The default value for this property
+     is false. This behavior prevents the use of an old ruleset by
+     blocking all ruleset executions until the ruleset parsing is
+     finished.
+     -->
+    <config-property>
+<config-property-name>AsynchronousRulesetParsing</config-property-name>
+<config-property-type>java.lang.Boolean</config-property-type>
+<config-property-value>false</config-property-value>
+</config-property> 
+
+
+        <!--
+          To change the trace level of the XU replace the default value of FINE (debug messages, errors, and warnings) with one of the
+          following: 
+            * OFF : no trace
+            * SEVERE : only errors
+            * WARNING : only errors and warnings
+            * INFO : informational messages, errors, and warnings
+        -->
+        <config-property>
+<config-property-name>TraceLevel</config-property-name>
+<config-property-type>java.lang.String</config-property-type>
+<config-property-value>FINE</config-property-value>
+</config-property>
+
+        <!-- To flush the log stream each time a message is written change the value to true.
+-->
+        <config-property>
+<config-property-name>TraceAutoFlush</config-property-name>
+<config-property-type>java.lang.Boolean</config-property-type>
+<config-property-value>false</config-property-value>
+</config-property>
+
+        <!-- To disable profiling change the value to false. -->
+        <config-property>
+<config-property-name>ProfilingEnabled</config-property-name>
+<config-property-type>java.lang.Boolean</config-property-type>
+<config-property-value>true</config-property-value>
+</config-property>
+
+        <!--
+          To change the parameters of the persistence mode, replace the value with one of the following.
+            * File persistence:
+              <config-property-value>file</config-property-value>
+    
+            * Database persistence in J2SE:
+              <config-property-value>jdbc</config-property-value>
+
+            * Database persistence with a DataSource:
+              <config-property-value>datasource</config-property-value>
+        -->
+        <config-property>
+<config-property-name>PersistenceType</config-property-name>
+<config-property-type>java.lang.String</config-property-type>
+<config-property-value>datasource</config-property-value>
+</config-property>
+
+        <!--
+          To change the parameters of the persistence mode, replace the value with one of the following:
+          * For database persistence in J2SE:
+            <config-property-value>
+              DRIVER_CLASS_NAME=com.pointbase.jdbc.jdbcUniversalDriver,
+              URL=jdbc:pointbase:server://computer/database,
+              USER=pbpublic,
+              PASSWORD=pbpublic 
+            </config-property-value>
+            Where:
+              * DRIVER_CLASS_NAME: A driver implementation class to establish a connection with the database.
+              * URL: The JDBC URL to establish a connection with the database.
+              * USER: Login to use with the database connection.
+              * PASSWORD: A password to use with the database connection.
+          
+          * For database persistence with a DataSource:
+            <config-property-value>JNDI_NAME=jdbc/resdatasource</config-property-value>
+            Where JNDI_NAME is the JNDI name of the datasource.
+      
+          * For file persistence:
+            <config-property-value>DIRECTORY=res_data
+            </config-property-value>
+            Where the path to the top directory containing rulesets is res_data.     
+
+          * For both persistence types the property CONCURRENT_PERSISTENCE_ACCESS specifies whether persistence access can be concurrent.
+            For example, add the property to the configuration of the ruleset provider.
+            <config-property-value>
+              JNDI_NAME=jdbc/resdatasource,
+              CONCURRENT_PERSISTENCE_ACCESS=false
+            </config-property-value>  
+        -->
+        <config-property>
+<config-property-name>PersistenceProperties</config-property-name>
+<config-property-type>java.lang.String</config-property-type>
+<config-property-value>JNDI_NAME=java:/comp/env/jdbc/resdatasource</config-property-value>
+</config-property>
+
+        <!--
+          To modify the list of the XU event plug-ins, add each new plug-in to the plugins property. 
+          Each entry is separated by a comma ',' and plug-in parameters are
+          described by a set of key/value pairs. The special key 'pluginClass'
+          specifies the implementation class of the plug-in property.
+        
+          The following element declares no plug-ins:
+            <config-property-value>{}</config-property-value> means no plugins
+    
+          By default, the XU MBean plug-in is used for execution statistics and ruleset update
+          notification by the Rule Execution Server Console. You should not remove this
+          plug-in if you want to use the Rule Execution Server Console.
+    
+          Here is an example modification:
+            <config-property>
+              <config-property-name>plugins</config-property-name>
+              <config-property-type>java.lang.String</config-property-type>
+              <config-property-value>
+                {pluginClass=ilog.rules.res.xu.management.IlrManagementMBeanPlugin,xuName=default},
+                {pluginClass=mypackage.MyPlugin,a_property_key=the_value}
+              </config-property-value>
+            </config-property>
+        -->
+        <config-property>
+<config-property-name>Plugins</config-property-name>
+<config-property-type>java.lang.String</config-property-type>
+<config-property-value>{pluginClass=ilog.rules.res.xu.management.IlrManagementMBeanPlugin,xuName=default},{pluginClass=ilog.rules.res.rsm.plugin.IlrExecutionTracePlugin},{pluginClass=ilog.rules.res.decisionservice.plugin.IlrWsdlGeneratorPlugin}</config-property-value>
+</config-property>
+
+        <!--
+          To change the parameters of the ConnectionManager provided by the XU edit the property values.
+    
+          In J2EE, the ConnectionManager that implements the connection pooling is provided
+          by the application server. In J2SE, the ConnectionManager implemented by the XU is used.
+    
+          The properties separator is a comma ','.
+        
+
+        * pool.maxSize = maximum number of connections in the pool
+        * pool.class = name of the class implementing the pool (must implement the interface ilog.rules.bres.xu.cmanager.IlrPool)
+    -->
+    <config-property>
+<config-property-name>DefaultConnectionManagerProperties</config-property-name>
+<config-property-type>java.lang.String</config-property-type>
+<config-property-value>pool.maxSize=10</config-property-value>
+</config-property>
+
+           <connectionfactory-interface>javax.resource.cci.ConnectionFactory</connectionfactory-interface>
+           <connectionfactory-impl-class>ilog.rules.res.xu.cci.IlrXUConnectionFactory</connectionfactory-impl-class>
+           <connection-interface>javax.resource.cci.Connection</connection-interface>
+           <connection-impl-class>ilog.rules.res.xu.cci.IlrXUConnection</connection-impl-class>
+
+
+
+
+
+         </connection-definition>
+
+
+         <transaction-support>LocalTransaction</transaction-support>
+
+         <authentication-mechanism>
+           <authentication-mechanism-type>BasicPassword</authentication-mechanism-type>
+             <credential-interface>javax.resource.spi.security.PasswordCredential</credential-interface>
+           </authentication-mechanism>
+         <reauthentication-support>false</reauthentication-support>
+       </outbound-resourceadapter>
+
+    </resourceadapter>
+</connector>

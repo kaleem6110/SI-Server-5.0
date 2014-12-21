@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.rules.model">
+	<class name="RulesetAssetMap" table="STI_R_ASSET_MAP">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="ruleApplicationId" type="long" column="RULE_APPLICATION_ID" not-null="true"/>
+		<property name="assetTypeId" type="long" column="ASSET_TYPE_ID" not-null="false"/>
+		<property name="assetName" type="string" column="ASSET_NAME" not-null="true"/>
+		<property name="ecosystemName" type="string" column="ECOSYSTEM_NAME"/>
+		<property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+		<property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+	    <property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+</hibernate-mapping>

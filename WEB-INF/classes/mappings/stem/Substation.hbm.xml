@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.grid.model">
+
+    <class name="Substation" table="STEM_SUBSTATIONS">
+    	<id name="id" type="long">
+        	<generator class="native"/>
+        </id>
+        <property name="name" type="string" column="NAME"/>
+        <property name="abbrName" type="string" column="ABBR_NAME"/>
+        <property name="coordinates" type="text" column="COORDINATES"/>
+        <property name="voltage" type="string" column="VOLTAGE"/>
+        <property name="ownedBy" type="string" column="OWNED_BY"/>
+    </class>
+
+</hibernate-mapping>

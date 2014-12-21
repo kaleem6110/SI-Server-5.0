@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.security.model">
+
+	<class name="UserRole" table="STI_S_USERROLE">
+		<composite-id>
+			<key-property name="userId" column="LOGIN" />
+			<key-property name="role" column="ROLE" />
+		</composite-id>
+	</class>
+
+</hibernate-mapping>

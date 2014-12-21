@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.grid.model">
+
+    <class name="TieLine" table="STEM_TIELINES">
+        <id name="id" type="long">
+        	<generator class="native"/>
+        </id>
+        <property name="name" type="string" column="NAME"/>
+        <!-- -->
+        <property name="coordinates" type="text" column="COORDINATES"/>
+        <!-- Oracle 9i 
+		<property name="coordinates" type="com.enterprisehorizons.hibernate.StringClobType" column="COORDINATES"/>
+        -->
+        <property name="ratedVoltage" type="string" column="RATED_VOLTAGE"/>
+        <property name="ownedBy" type="string" column="OWNED_BY"/>
+        <property name="visibility" type="string" column="VISIBILITY"/>
+        <property name="tieLineId" type="string" column="TIELINE_ID"/>
+        <property name="lengthInMeters" type="double" column="LINE_LENGTH"/>
+        <property name="lengthInFeet" type="double" column="LINE_LENGTH_IN_FEET"/>
+        <property name="lengthInMiles" type="double" column="LINE_LENGTH_IN_MILES"/>
+        
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.rules.model">
+	<class name="RuleIncidentProperties" table="STI_R_INCIDENT_PROPERTIES">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="incidentId" type="long" column="INCIDENT_ID" not-null="true"/>
+		<property name="incidentType" type="long" column="INCIDENT_TYPE_ID" not-null="true"/>
+		<property name="incidentConditionId" type="long" column="INCIDENT_CONDITION_ID" not-null="true"/>
+		<property name="conditionMap" type="string" column="CONDITION_MAP" not-null="true"/>
+		<property name="propertyName" type="string" column="PROPERTY_NAME" not-null="true"/>
+		<property name="propertyValue" type="string" column="PROPERTY_VALUE" not-null="true"/>
+		<property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+</hibernate-mapping>

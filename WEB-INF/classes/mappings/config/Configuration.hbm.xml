@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.config.model">
+    <class name="Configuration" table="STI_C_CONFIGURATION">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="xmlId" column="XML_ID" type="long"/>
+        <property name="xmlName" type="string" column="XML_NAME"/>
+        <property name="displayName" type="string" column="DISPLAY_NAME"/>
+       
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true" />
+        <property name="displayOrder" type="long" column="DISPLAY_ORDER"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>             
+    </class>
+</hibernate-mapping>

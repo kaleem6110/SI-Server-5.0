@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.pi.model">
+    <class name="PiEventGroup" table="STI_P_PI_EVENT_GROUP">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="name" type="string" column="NAME" not-null="true" unique="true"/>
+      <!--   <many-to-one name="pi_server_id"  class="com.spacetimeinsight.db.pi.model.PiServer" column="PI_SERVER_ID" cascade="all" not-null="true" /> --> 
+    <property name="piServerId" type="long" column="PI_SERVER_ID"/> 
+        <property name="description" type="string" column="DESCRIPTION" length="500"/>
+        <property name="isValue" type="boolean" column="IS_VALUE"/>
+        <property name="piTagsXml" type="text" column="PI_TAGS_XML"/>
+        <property name="filterConfigXml" type="text" column="FILTER_CONFIG_XML"/>
+      
+         <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY" />
+		<property name="modifiedBy" type="string" column="MODIFIED_BY" />
+     </class>
+</hibernate-mapping>
+   
+
+
+ 

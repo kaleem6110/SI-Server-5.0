@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.pi.model">
+    <class name="PIServerGroup" table="STI_P_PI_SERVER_GRP">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="name" type="string" column="NAME" unique="true" not-null="true"/>
+        <property name="serverDtls" type="string" column="SERVER_DTLS" length="1000"/>
+        
+         <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+	    <property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+     </class>
+</hibernate-mapping>
+   
+ 

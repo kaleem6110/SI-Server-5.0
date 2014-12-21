@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.rules.model">
+	<class name="RuleStatement" table="STI_R_STATEMENT">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="listenerId" type="long" column="LISTENER_ID"/>
+		<property name="statementName" type="string" column="STATEMENT_NAME" not-null="true"/>
+		<property name="statementQuery" type="string" column="STATEMENT_QUERY" not-null="true"/>
+		<property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+</hibernate-mapping>

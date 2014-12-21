@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs
+END
+GeoFenceFlagJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/GeoFenceFlagJob.java
+END
+SoapTrackingJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/SoapTrackingJob.java
+END
+WarehouseStockExcelJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/WarehouseStockExcelJob.java
+END
+AlertServiceJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/AlertServiceJob.java
+END
+CacheClearJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/CacheClearJob.java
+END
+CustomInboxReaderJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/CustomInboxReaderJob.java
+END
+RestTrackingJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/RestTrackingJob.java
+END
+LDAPServiceJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/LDAPServiceJob.java
+END
+EventServiceJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/EventServiceJob.java
+END
+ExcelImport2DBJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/jobs/ExcelImport2DBJob.java
+END

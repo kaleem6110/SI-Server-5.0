@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+
+	<class name="MyPlaces" table="STI_C_MY_PLACES">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>	
+        <property name="userId" column="USER_ID" type="string" not-null="true"/>
+        <property name="moduleId" column="MODULE_ID" type="long" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="xmlData" column="XML_DATA" type="text"/>
+        <property name="ecoexpml" column="ECOEXPML" type="string" length="100"/>
+        <property name="name" column="NAME" type="string" not-null="true"/>
+        
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+
+</hibernate-mapping>

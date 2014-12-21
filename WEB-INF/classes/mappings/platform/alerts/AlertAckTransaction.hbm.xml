@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.platform.alerts.model">
+	<class name="AlertAckTransaction" table="STI_P_ALERT_ACK_TRANSACTION">
+		<id name="id" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="alertTransId" type="long" column="ALERT_TRANS_ID" not-null="true" unique="true" ></property>
+		<property name="comments" type="string" column="COMMENTS" length="200" not-null="true"></property>
+		<property name="userId" type="long" column="USER_ID" not-null="true" ></property>
+		<property name="ackTime" type="timestamp" column="ACK_TIME"  ></property>
+		<property name="snoozeInterval" type="string" column="SNOOZE_INTERVAL" ></property>
+		<property name="mode" type="string" column="MODE_ID" ></property>
+		<property name="userUniqueId" type="string" column="USER_UNIQUE_ID" ></property>
+		
+		<property name="domainId" type="long" column="DOMAIN_ID" not-null="true"></property>
+		<property name="createdDate" type="timestamp" column="CREATED_DATE" not-null="true"></property>
+		<property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"></property>
+		<property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+</hibernate-mapping>

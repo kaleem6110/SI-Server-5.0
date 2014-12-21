@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.mobile.model">
+	<class name="UserMobileDeviceMap"
+		table="STI_M_USER_MOBILE_DEVICE_MAP">
+		<composite-id>
+			<key-property name="userId" type="long" column="USER_ID" />
+			<key-property name="deviceToken" type="string"
+				column="DEVICE_TOKEN" />
+		</composite-id>
+		<property name="providerType" type="long" column="PROVIDER_TYPE"
+			not-null="true" />
+		<property name="createdDate" type="timestamp"
+			column="CREATED_DATE" />
+		<property name="modifiedDate" type="timestamp"
+			column="MODIFIED_DATE" />
+		<property name="createdBy" type="string" column="CREATED_BY" />
+		<property name="modifiedBy" type="string" column="MODIFIED_BY" />
+	</class>
+</hibernate-mapping>

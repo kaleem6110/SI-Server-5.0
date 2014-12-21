@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/synchronize/db/config/model
+END
+SynchronizationTrailLog.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/synchronize/db/config/model/SynchronizationTrailLog.java
+END
+SynchronizationStatusMaster.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/synchronize/db/config/model/SynchronizationStatusMaster.java
+END
+SynchronizationOprTypesMaster.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/synchronize/db/config/model/SynchronizationOprTypesMaster.java
+END
+SynchronizationTrailStatusLog.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/synchronize/db/config/model/SynchronizationTrailStatusLog.java
+END
+SynchronizationDataTypeMaster.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/synchronize/db/config/model/SynchronizationDataTypeMaster.java
+END

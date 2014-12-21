@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+
+	<class name="DatabaseConfigurations" table="STI_C_DBCONFIGURATIONS">
+		<id name="id" type="long" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="databaseConnectionTypeId" column="DB_CONN_TYPE_ID" type="long" not-null="true"/>
+        <property name="datasourceName" column="DB_DATASOURCE_NAME" type="string" unique="true"/>
+		<property name="description" column="DESCRIPTION" type="string" length="500"/>
+		<property name="databaseTypeId" column="DATABASE_TYPE_ID" type="long" not-null="true"/>
+        <property name="userName" column="USERNAME" type="string" />
+        <property name="password" column="PASSWORD" type="string" />
+        <property name="url" column="URL" type="string" not-null="true"/>        
+        <property name="connectionProperties" column="CONNECTION_PROPERTIES" type="string" />
+        <property name="defaultAutoCommit" column="DEFAULT_AUTO_COMMIT" type="boolean" />
+        <property name="initialSize" column="INITIAL_SIZE" type="long" />
+        <property name="maxActive" column="MAX_ACTIVE" type="long" />
+        <property name="maxIdle" column="MAX_IDLE" type="long" />
+        <property name="minIdle" column="MIN_IDLE" type="long" />
+        <property name="maxWait" column="MAX_WAIT" type="long" />
+        <property name="validationQuery" column="VALIDATION_QUERY" type="string" />
+        <property name="testOnBorrow" column="TEST_ON_BORROW" type="boolean" />       
+       	<property name="testWhileIdle" column="TEST_WHILE_IDLE" type="boolean" />
+       	      
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+
+</hibernate-mapping>

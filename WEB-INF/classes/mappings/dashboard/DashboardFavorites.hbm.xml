@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.dashboard.model">
+
+    <class name="DashboardFavorites" table="STI_C_DASHBOARD_FAVORITES">
+        <id name="id" type="long" column="ID">
+            <generator class="native"/>
+        </id>
+        
+        <property name="name" type="string" column="NAME" not-null="true" />
+        <property name="favoriteXML" type="text" column="FAVORITE_XML"/>
+        <property name="dashboardId" type="string" column="DASBOARD_ID" not-null="true"/>
+        <property name="layerId" column="LAYER_ID" type="long" not-null="true"/>
+        
+        <property name="userId" column="USER_ID" type="long" not-null="true"/>
+        <property name="userUniqueId" column="USER_UNIQUE_ID" type="string"/>
+        <property name="moduleId" column="MODULE_ID" type="long" not-null="true"/>
+        <property name="isDefault" column="IS_DEFAULT" type="boolean" not-null="true"/>
+        
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>     
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+		<property name="isShare" type="boolean" column="IS_SHARE"/>
+		<property name="orderId" type="long" column="ORDER_ID"/>
+    </class>
+
+</hibernate-mapping>

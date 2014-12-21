@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.platform.model">
+
+    <class name="UserAttempts" table="STI_A_USER_ATTEMPTS">
+		
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="loginId" type="string" column="LOGIN_ID" not-null="false" />
+		<property name="clientId" type="string" column="CLIENT_ID" />
+        <property name="domainId" type="long" column="DOMAIN_ID" />
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+    </class>
+
+</hibernate-mapping>

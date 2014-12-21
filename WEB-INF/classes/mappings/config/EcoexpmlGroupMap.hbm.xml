@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+
+	<class name="EcoexpmlGroupMap" table="STI_C_ECOEXPMLGROUP">
+		<id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="groupId" type="long" column="GROUP_ID" />
+        <property name="ecoexpml" column="ECOEXPML" type="string" length="100"/>
+        <property name="moduleId"  type="long" column="MODULE_ID"/>
+        <property name="ecoexpmlOrder" type="int" column="ECOEXPML_ORDER" />
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="ecoDisplayName" type="string" column="ECO_DISPLAY_NAME" length="100"/>
+        <property name="ecoParameters" type="string" column="ECO_PARAMETERS" length="5000"/>
+        <property name="ecoCategory" type="long" column="ECO_CATEGORY" length="100"/>
+        <property name="selected" type="boolean" column="SELECTED"/>
+        <property name="iconURI" type="string" column="ICON_URI"/>
+        <property name="style" type="string" column="STYLE"/>
+        <property name="serverUrl" type="string" column="SERVER_URL"/>                
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+ 		<property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+
+</hibernate-mapping>

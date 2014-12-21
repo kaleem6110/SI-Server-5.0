@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.config.alerts.model">
+    <class name="AlertNavigation" table="STI_C_ALERT_TOUR_NAV_MASTER">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        
+        <property name="name" type="string" column="NAME" not-null="true" unique="true" length="25"/>
+        <property name="description" type="string" column="DESCRIPTION" length="100"/>
+        <property name="altitude" type="double" column="ALTITUDE" />
+        <property name="altitudeMode" type="string" column="ALTITUDE_MODE" length="20"/>
+        <property name="zoomLevel" type="integer" column="ZOOM_LEVEL"></property>
+        <property name="tilt" type="integer" column="TILT"></property>
+        <property name="heading" type="integer" column="HEADING"></property>
+        <property name="wait" type="long" column="WAIT"></property>      
+                
+        <property name="domainId" type="long" column="DOMAIN_ID"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" />
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>               
+    </class>
+</hibernate-mapping>

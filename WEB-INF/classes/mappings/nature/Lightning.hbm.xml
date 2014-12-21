@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.nature.model">
+
+	<class name="Lightning" table="EH_MAGMA_LIGHTNING">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+
+		<property name="latitude" type="double" column="LATITUDE" />
+		<property name="longitude" type="double" column="LONGITUDE" />
+		<property name="altitude" type="double" column="ALTITUDE" />
+		<property name="amplitude" type="double" column="AMPLITUDE" />
+		<property name="formatType" type="int" column="FORMATTYPE" />
+		<property name="ellipseAngle" type="double"
+			column="ELLIP_ANGLE" />
+		<property name="majorAxis" type="double" column="MAJOR_AXIS" />
+		<property name="minorAxis" type="double" column="MINOR_AXIS" />
+		<property name="chisqr" type="double" column="CHISQR" />
+		<property name="occuringDate" type="timestamp"
+			column="OCCURRING_DATE" />
+		<property name="createdDate" type="timestamp"
+			column="CREATED_DATE" />
+		<property name="modifiedDate" type="timestamp"
+			column="MODIFIED_DATE" />
+		<property name="createdBy" type="string" column="CREATED_BY" />
+		<property name="modifiedBy" type="string" column="MODIFIED_BY" />
+	</class>
+
+</hibernate-mapping>

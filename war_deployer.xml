@@ -1,0 +1,128 @@
+<project name="MagmaWARBuilder" default="build" basedir=".">
+
+    <property file="war_deployer.properties" />
+
+    <target name="package" description="Packages ${war.name} file">
+        <echo message="Packaging the ${war.name} file...." />
+        <ant antfile="servercustom_jarbuilder.xml"/>
+
+        <war destfile="${dist}/${war.name}" webxml="${SIServercore.dir}/WEB-INF/web.xml" update="true">
+            <lib dir="${SIServercore.dir}/WEB-INF/lib">
+                <include name="*.jar" />
+				<exclude name="tools.jar"/>
+            </lib>
+        	<!-- exclude class files as they will be included in the servercustom jar
+        	-->
+            <classes dir="WEB-INF/classes">
+            	<exclude name="**/*.class" />
+            </classes>
+
+
+
+            <zipfileset dir="${SIServercore.dir}/WEB-INF" prefix="WEB-INF">
+                <include name="**.*" />
+            	<exclude name="tiles-defs-mobile.xml"/> 
+            	<exclude name="struts-config-mobile.xml"/>
+            	<exclude name="validator-mobile.xml"/>
+            </zipfileset>
+
+        	<fileset file="${SIServercore.dir}/**.*" >
+                <exclude name="*deployer*.xml" />
+                <exclude name="*deployer*.properties" />
+                <exclude name="*jarbuilder*.xml" />
+                <exclude name="*jarbuilder*.properties" />
+            </fileset>
+
+            <fileset file="**.*" >
+                <exclude name="*deployer*.xml" />
+                <exclude name="*deployer*.properties" />
+                <exclude name="*jarbuilder*.xml" />
+                <exclude name="*jarbuilder*.properties" />
+            </fileset>
+
+            <zipfileset dir="${SIServercore.dir}/admin/" prefix="admin" />
+            <zipfileset dir="${SIServercore.dir}/common/" prefix="common" />
+            <zipfileset dir="${SIServercore.dir}/dbadmin/" prefix="dbadmin" />
+            <zipfileset dir="${SIServercore.dir}/deploy/" prefix="deploy" />
+            <zipfileset dir="${SIServercore.dir}/ecogroupmapping/" prefix="ecogroupmapping" />          
+            <zipfileset dir="${SIServercore.dir}/ecoweb/" prefix="ecoweb" />
+        	<!--<zipfileset dir="${SIServercore.dir}/esri/" prefix="esri" /> -->
+            <zipfileset dir="${SIServercore.dir}/ge/" prefix="ge" />
+            <zipfileset dir="${SIServercore.dir}/home/" prefix="home" />
+            <zipfileset dir="${SIServercore.dir}/images/" prefix="images">
+        		<exclude name ="mobile/"/>
+        	</zipfileset>
+        	<zipfileset dir="${SIServercore.dir}/media/" prefix="media" />
+        	<zipfileset dir="${SIServercore.dir}/jobs/" prefix="jobs" />
+        	<zipfileset dir="${SIServercore.dir}/jsp/" prefix="jsp" />
+        	<zipfileset dir="${SIServercore.dir}/models/" prefix="models" />
+            <zipfileset dir="${SIServercore.dir}/processmanager/" prefix="processmanager" />
+            <zipfileset dir="${SIServercore.dir}/security/" prefix="security" />
+            <zipfileset dir="${SIServercore.dir}/situationroom" prefix="situationroom" />
+            <zipfileset dir="${SIServercore.dir}/swf/" prefix="swf" />
+            <zipfileset dir="${SIServercore.dir}/uiconfig/" prefix="uiconfig" />
+     	<!--<zipfileset dir="${SIServercore.dir}/ve/" prefix="ve" />
+            <zipfileset dir="${SIServercore.dir}/mobile/" prefix="mobile" />
+            <zipfileset dir="${SIServercore.dir}/charts/" prefix="charts" />
+        	<zipfileset dir="${SIServercore.dir}/tablet/" prefix="tablet" />-->
+
+            <zipfileset dir="${SIServercore.dir}/css/" prefix="css" />
+            <zipfileset dir="${SIServercore.dir}/js/" prefix="js" />
+            <zipfileset dir="${SIServercore.dir}/themes/" prefix="themes" />
+        	<zipfileset dir="${SIServercore.dir}/lib/" prefix="lib" />
+        	<zipfileset dir="${SIServercore.dir}/WEB-INF/services" prefix="WEB-INF/services"/>
+        </war>
+
+        <delete includeemptydirs="true" quiet="true">
+            <fileset dir="${SIServer.webapps.dir}" />
+            <fileset dir="${SIServer.work.dir}" />
+        </delete>
+
+        <echo message="copying the ${war.name} jar...." />
+        <copy file="${dist}/${war.name}" todir="${dest.dir}/" />
+    </target>
+
+    <target name="refresh" description="refreshes the updated directories">
+        <echo message="refreshing the ${war.name} in the referenced projects...." />
+        <eclipse.refreshLocal resource="${server.project}" depth="infinite" />
+    </target>
+
+
+    <target name="clean" description="deletes the dist directory">
+        <delete dir="${dist}" />
+    </target>
+
+    <target name="copyserverlibs" description="copies the server libraries to the config directory">
+        <copy todir="${server.config.lib.dir}">
+            <fileset dir="${SIServercore.dir}/WEB-INF/lib/" includes="com.enterprisehorizons.*.jar"/>
+          </copy>
+        <copy todir="${server.config.lib.dir}">
+           <fileset dir="${SIServercore.dir}/WEB-INF/lib/" includes="com.spacetimeinsight.*.jar"/>
+         </copy>
+    </target>
+
+    <target name="prepare" description="Creates the required directories">
+        <echo message="Creating the required directories...." />
+        <mkdir dir="${dist}" />
+    </target>
+
+    <target name="buildwithoutrefresh" depends="prepare,package,clean" />
+
+    <target name="build" depends="tomcat-stop,prepare,package,clean,refresh,copyserverlibs" />
+
+    <target name="tomcat-start">
+        <java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+            <jvmarg value="-Dcatalina.home=${tomcat.home} -Xms512m -Xmx1024m" />
+        </java>
+    </target>
+
+    <target name="tomcat-stop">
+        <java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+            <jvmarg value="-Dcatalina.home=${tomcat.home}" />
+            <classpath>
+                <pathelement location="${tomcat.home}/lib/catalina.jar" />
+            </classpath>
+            <arg line="stop" />
+        </java>
+    </target>
+</project>

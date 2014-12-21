@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.stem.model">
+
+	<class name="PricingNode" table="STEM_PRICE_NODE">
+		<id name="id" type="long">
+            <generator class="native" />
+        </id>
+		<property name="node" 		type="string" 		column="NODE" 			not-null="true"/>
+		<property name="nodeName" 	type="string" 		column="NODE_NAME" 		not-null="false"/>
+		<property name="longitude" 	type="double" 		column="LONGITUDE"      not-null="true"/>
+		<property name="latitude" 	type="double" 		column="LATITUDE" 		not-null="true"/>
+		<property name="voltage" 	type="string" 		column="VOLTAGE" 		not-null="false"/>
+		<property name="nodeType"   type="string"       column="NODE_TYPE"      not-null="false"/>
+	</class>
+</hibernate-mapping>

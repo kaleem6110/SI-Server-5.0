@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.platform.model">
+
+	<class name="Organization" table="STI_P_ORGANIZATION">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>	
+		
+        <property name="name" type="string" column="NAME" unique="true"/>
+        <property name="firstStreet" type="string" column="FIRST_STREET"/>
+        <property name="secondStreet" type="string" column="SECOND_STREET"/>
+        <property name="city" type="string" column="CITY"/>
+        <property name="state" type="string" column="STATE"/>
+        <property name="country" type="string" column="COUNTRY"/>
+        <property name="zipCode" type="string" column="ZIPCODE"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+		<property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+
+</hibernate-mapping>

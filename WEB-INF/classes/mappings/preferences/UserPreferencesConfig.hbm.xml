@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.preferences">
+
+    <class name="UserPreferencesConfig" table="STI_USER_PREFERENCES_CONFIG">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id> 
+        <property name="moduleURLId" type="long" column="MODULE_URL_ID" not-null="true" />
+        
+        
+        <property name="displayName" type="string" length="250" column="DISPLAY_NAME"  not-null="true"/>
+        <property name="url" type="string" length="100" column="URL" not-null="true"/>
+        <property name="displayOrder" type="string" length="20" column="DISPLAY_ORDER" not-null="true"/>
+        
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/> 
+        <property name="masterLangRecordId" type="long" column="MST_LANG_REC_ID"></property>
+    </class> 
+
+</hibernate-mapping>

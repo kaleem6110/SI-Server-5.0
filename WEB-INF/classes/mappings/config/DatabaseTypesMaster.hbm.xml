@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+
+	<class name="DatabaseTypesMaster" table="STI_C_DB_TYPES_MASTER">
+		<id name="id" type="long" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="driverName" column="DRIVER_NAME" type="string" length="45" not-null="true" unique-key="true"/>
+        <property name="dbConnectionType" column="DBCONNECTION_TYPE" type="long" not-null="true"/>
+        <property name="description" column="DESCRIPTION" type="string" length="500"/>
+        <property name="driverClass" column="DRIVER_CLASS" type="string" length="100" not-null="true"/>
+        <property name="connectionUrl" column="CONNECTION_URL" type="string" length="500" not-null="true"/>
+        <property name="allTablesQry" column="ALL_TABLES_QUERY" type="string" length="500"/>
+        <property name="allColumnsQry" column="ALL_COLUMNS_QUERY" type="string" length="500"/>
+        <property name="defaultImplClass" column="DEFAULT_IMPL_CLASS" type="string" length="500"/>
+        <property name="defaultQueryHelper" column="DEFAULT_QUERY_HELPER" type="string" length="500"/>
+        <property name="batchSize" column="BATCH_SIZE" type="long"/>
+        <property name="geometryColumnName" column="GEOMETRY_COLUMN_NAME" type="string" length="25"/>
+        <property name="geometryColumnType" column="GEOMETRY_COLUMN_TYPE" type="string" length="25"/>
+        <property name="connectionPoolProperties" column="CONNECTION_POOL_PROPERTIES" type="string" length="255"/>
+        
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+    </class>
+
+</hibernate-mapping>

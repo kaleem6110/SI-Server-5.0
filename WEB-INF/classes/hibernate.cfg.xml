@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <!--
+            <property
+            name="connection.driver_class">sun.jdbc.odbc.JdbcOdbcDriver</property>
+            <property name="connection.url">jdbc:odbc:magma</property> 
+            <property name="connection.username">magma</property> <property
+            name="connection.password">magma</property> <property
+            name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+            <property
+            name="connection.url">jdbc:oracle:thin:@asdbc11n1.wepex.net:1526:ADSS1</property>
+            <property name="connection.username">magma</property> <property
+            name="connection.password">tstmagma</property> <property
+            name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+            <property
+            name="connection.url">jdbc:oracle:thin:@fpdb20.wepex.net:1532:GEMP</property>
+            <property name="connection.username">magma</property> <property
+            name="connection.password">easy2find</property> 
+            <property name="connection.username">magma</property> <property
+            name="connection.password">magma</property>
+        -->
+
+        <!--
+            <property
+            name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+            <property
+            name="connection.url">jdbc:oracle:thin:@172.16.32.224:1521:MAGMA</property>
+            <property name="connection.username">magma</property> <property
+            name="connection.password">magma</property>
+        -->
+
+        <!--
+
+            <property
+            name="connection.driver_class">com.mysql.jdbc.Driver</property>
+            <property
+            name="connection.url">jdbc:mysql://localhost:3306/MagmaSecurityDB</property>
+            <property name="connection.username">root</property> <property
+            name="connection.password">rajkiran</property>
+        -->
+
+        <!-- JDBC connection pool (use the built-in)   -->
+        <property name="connection.pool_size">10</property>
+
+
+        <!--
+            <property name="hibernate.c3p0.acquire_increment">1</property>
+            <property name="hibernate.c3p0.min_size">1</property> <property
+            name="hibernate.c3p0.max_size">10</property> <property
+            name="hibernate.c3p0.timeout">3000</property> <property
+            name="hibernate.c3p0.max_statements">50</property> <property
+            name="hibernate.c3p0.idle_test_period">100</property>
+        -->
+        <!--
+            <property name="hibernate.c3p0.min_size">1</property> <property
+            name="hibernate.c3p0.max_size">10</property> <property
+            name="hibernate.c3p0.timeout">1800</property> <property
+            name="hibernate.c3p0.max_statements">50</property>
+        -->
+        <!--
+            SQL dialect <property
+            name="dialect">org.hibernate.dialect.HSQLDialect</property> <property
+            name="dialect">com.hxtt.support.hibernate.HxttAccessDialect</property>
+            <property
+            name="dialect">org.hibernate.dialect.OracleDialect</property>
+                        <property
+            name="dialect">com.enterprisehorizons.dialect.OracleDialect</property>
+            <property
+            name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        -->
+        <property name="connection.datasource">java:comp/env/jdbc/SIServerDB</property>
+        <!--
+            datasource for compliance jasper reports <property
+            name="connection.datasource">java:comp/env/jdbc/REPORTSDB</property>
+        -->
+
+        <!--
+            <property
+            name="dialect">com.enterprisehorizons.dialect.OracleDialect</property>
+        -->
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!--
+            Disable the second-level cache <property
+            name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        -->
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+
+        <!--
+            Drop and re-create the database schema on startup..
+            validate,create,update
+        -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!--
+            Added for Secondary Level Cache <property
+            name="cache.use_second_level_cache">true</property> <property
+            name="hibernate.cache.provider_configuration_file_resource_path">treecache.xml</property>
+            <property name="cache.provider_class">
+            org.hibernate.cache.TreeCacheProvider </property>
+        -->
+        <mapping resource="mappings/security/User.hbm.xml" />
+        <mapping resource="mappings/security/Group.hbm.xml" />
+        <mapping resource="mappings/security/UserGroup.hbm.xml" />
+        <mapping resource="mappings/config/ModuleGroupMap.hbm.xml" />
+        <mapping resource="mappings/config/EcoexpmlGroupAccess.hbm.xml" />
+        <mapping resource="mappings/config/EcoexpmlGroupMap.hbm.xml" />
+        <mapping resource="mappings/config/EcoexpmlModuleMap.hbm.xml" />
+        <mapping resource="mappings/config/EcoexpmlCategory.hbm.xml" />
+        <mapping resource="mappings/config/EcoexpmlCategoryModule.hbm.xml" />
+
+        <!--User Login Logout Mapping  -->
+        <mapping resource="mappings/platform/UserAudit.hbm.xml" />
+           <mapping resource="mappings/platform/UserAttempts.hbm.xml" />
+        <!--
+            <mapping resource="mappings/config/DatasourceType.hbm.xml"/>
+        -->
+
+        <mapping resource="mappings/config/DBConnectionTypeMaster.hbm.xml" />
+        <mapping resource="mappings/config/DatabaseTypesMaster.hbm.xml" />
+        <mapping resource="mappings/config/DatasourceTypesMaster.hbm.xml" />
+        <mapping resource="mappings/config/Datasource.hbm.xml" />
+        <mapping resource="mappings/config/LanguageMaster.hbm.xml" />
+        <mapping resource="mappings/config/ShpToDBMapping.hbm.xml" />
+        <mapping resource="mappings/config/UserPreferences.hbm.xml" />
+        <mapping resource="mappings/config/UserPreferenceTypeMaster.hbm.xml" />
+        <mapping resource="mappings/config/MyPlaces.hbm.xml" />
+        <mapping resource="mappings/config/JMSConsumer.hbm.xml" />
+        <mapping resource="mappings/config/OfflineTileLayerConfiguration.hbm.xml" />
+        
+        <!-- Html Viewer Esri Tables -->
+        <mapping resource="mappings/config/EsriArcGISBaseMaps.hbm.xml" />
+        <mapping resource="mappings/config/EsriArcGISLayers.hbm.xml" />
+        <mapping resource="mappings/config/EsriArcGISLayerTypes.hbm.xml" />
+        
+
+		<mapping resource="mappings/config/LassoTemplate.hbm.xml" />
+		
+        <!--  MAPPINGS SPECIFIC TO ALERTS   -->
+
+        <!--  <mapping resource="mappings/platform/alerts/AlertAcknowledgment.hbm.xml" />
+        <mapping resource="mappings/platform/alerts/AlertNotifications.hbm.xml" /> -->
+        <mapping resource="mappings/mobile/MobileProviderMaster.hbm.xml" />
+        <mapping resource="mappings/mobile/UserMobileDeviceMap.hbm.xml" />
+
+        <!--  MAPPINGS SPECIFIC TO IPAD ALERTS   -->
+        <mapping resource="mappings/platform/AlertMessage.hbm.xml" />
+
+        <mapping resource="mappings/platform/Organization.hbm.xml" />
+        <mapping resource="mappings/platform/Domain.hbm.xml" />
+        <mapping resource="mappings/platform/Module.hbm.xml" />
+
+        <!--
+            <mapping resource="mappings/platform/ArtifactType.hbm.xml"/> <mapping
+            resource="mappings/platform/Characterization.hbm.xml"/> <mapping
+            resource="mappings/platform/ComplianceType.hbm.xml"/> <mapping
+            resource="mappings/platform/Conversation.hbm.xml"/> <mapping
+            resource="mappings/platform/ConversationType.hbm.xml"/> <mapping
+            resource="mappings/platform/ErrorType.hbm.xml"/> <mapping
+            resource="mappings/platform/EventCharacterization.hbm.xml"/> <mapping
+            resource="mappings/platform/EventType.hbm.xml"/> <mapping
+            resource="mappings/platform/MitigationType.hbm.xml"/> <mapping
+            resource="mappings/platform/Risk.hbm.xml"/> <mapping
+            resource="mappings/platform/RiskCategory.hbm.xml"/> <mapping
+            resource="mappings/platform/RiskCharacterization.hbm.xml"/> <mapping
+            resource="mappings/platform/RiskType.hbm.xml"/>
+        -->
+        <mapping resource="mappings/scheduler/IntervalTypeMaster.hbm.xml" />
+        <mapping resource="mappings/scheduler/JobTriggerMap.hbm.xml" />
+        <mapping resource="mappings/scheduler/JobTypeMaster.hbm.xml" />
+        <mapping resource="mappings/scheduler/StartTypeMaster.hbm.xml" />
+        <mapping resource="mappings/scheduler/StiJob.hbm.xml" />
+        <mapping resource="mappings/scheduler/StiTrigger.hbm.xml" />
+        <mapping resource="mappings/scheduler/JobTaskMapping.hbm.xml" />
+        <mapping resource="mappings/scheduler/JobLogs.hbm.xml" />
+
+        <mapping resource="mappings/config/Configuration.hbm.xml" />
+        <mapping resource="mappings/config/ConfigurationDetails.hbm.xml" />
+        <mapping resource="mappings/config/ModuleUrlMaster.hbm.xml" />
+        <mapping resource="mappings/config/DBConfigurations.hbm.xml" />
+        <mapping resource="mappings/config/ConfigurationFieldTypeMaster.hbm.xml" />
+        
+        <mapping resource="mappings/config/DynamicDatasource.hbm.xml" />
+
+    <!--  MAPPINGS SPECIFIC TO ALERTS (AMS)   -->
+        <mapping resource="mappings/config/alerts/AlertMaster.hbm.xml" />
+        <mapping resource="mappings/config/alerts/AlertMode.hbm.xml" />
+        <mapping resource="mappings/config/alerts/AlertModeMap.hbm.xml" />
+        <mapping resource="mappings/config/alerts/AlertNavigation.hbm.xml" />
+        <mapping resource="mappings/config/alerts/AlertPriority.hbm.xml" />
+        <mapping resource="mappings/config/alerts/AlertRouteMap.hbm.xml" />
+        <mapping resource="mappings/config/alerts/AlertSourceType.hbm.xml" />
+
+        <mapping resource="mappings/platform/alerts/AlertTransaction.hbm.xml" />
+        <mapping resource="mappings/platform/alerts/AlertAckTransaction.hbm.xml" />
+        <mapping resource="mappings/platform/AlertAcknowledge.hbm.xml" />
+
+        <mapping resource="mappings/cep/CorrelationAlias.hbm.xml" />
+        <mapping resource="mappings/cep/CorrelationConfiguration.hbm.xml" />
+        <mapping resource="mappings/cep/ListenerParameter.hbm.xml" />
+
+        <mapping resource="mappings/config/Rubberband.hbm.xml" />
+        <mapping resource="mappings/config/RubberbandCategory.hbm.xml" />
+        
+        <mapping resource="mappings/logger/LogAppender.hbm.xml" />
+        <mapping resource="mappings/logger/Logger.hbm.xml" />
+        
+
+    <!--  MAPPINGS SPECIFIC TO ALERTS (AMS)  End-->
+
+        <mapping resource="mappings/stem/Substation.hbm.xml" />
+        <mapping resource="mappings/stem/TieLine.hbm.xml" />
+<!--
+        <mapping resource="mappings/tiger/TigerDBModelAK.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelAL.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelAR.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelAZ.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelCA.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelCO.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelCT.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelDC.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelDE.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelFL.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelGA.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelHI.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelIA.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelID.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelIL.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelIN.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelKS.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelKY.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelLA.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelMA.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelMD.hbm.xml" />
+        <mapping resource="mappings/tiger/TigerDBModelME.hbm.xml" />
+-->
+        <mapping resource="mappings/scheduler/ServerEnvMaster.hbm.xml" />
+        <!--
+
+            <mapping resource="mappings/stem/SubstationPIData.hbm.xml"/> <mapping
+            resource="mappings/stem/TieLinePIData.hbm.xml"/> <mapping
+            resource="mappings/stem/PricingNode.hbm.xml"/> <mapping
+            resource="mappings/nature/WeatherStation.hbm.xml"/> <mapping
+            resource="mappings/nature/MesoWestStation.hbm.xml"/> <mapping
+            resource="mappings/nature/Lightning.hbm.xml"/>
+        -->
+        <!--  New cron jobs -->
+        <mapping resource="mappings/scheduler/StiTriggerDayTypeMaster.hbm.xml" />
+        <mapping resource="mappings/scheduler/StiTriggerMonthTypeMaster.hbm.xml" />
+        <mapping resource="mappings/scheduler/StiTriggerTypeMaster.hbm.xml" />
+        <mapping resource="mappings/scheduler/StiTriggerWeekTypeMaster.hbm.xml" />
+        <mapping resource="mappings/scheduler/StiTriggerCron.hbm.xml" />
+
+
+        <mapping resource="mappings/rules/RuleAttributeType.hbm.xml" />
+        <mapping resource="mappings/rules/RuleAlert.hbm.xml" />
+        <mapping resource="mappings/rules/RuleClassEvent.hbm.xml" />
+        <mapping resource="mappings/rules/RuleEvent.hbm.xml" />
+        <mapping resource="mappings/rules/RuleEventTypes.hbm.xml" />
+        <mapping resource="mappings/rules/RuleIncident.hbm.xml" />
+        <mapping resource="mappings/rules/RuleIncidentProperties.hbm.xml" />
+        <mapping resource="mappings/rules/RuleIncidentType.hbm.xml" />
+        <mapping resource="mappings/rules/RuleListener.hbm.xml" />
+        <mapping resource="mappings/rules/RuleMapEvent.hbm.xml" />
+        <mapping resource="mappings/rules/RuleStatement.hbm.xml" />
+        <mapping resource="mappings/rules/RuleViolation.hbm.xml" />
+        <mapping resource="mappings/rules/RuleXmlEvent.hbm.xml" />
+        <mapping resource="mappings/rules/RuleIncidentCondition.hbm.xml" />
+        <mapping resource="mappings/rules/RuleConditionConfiguration.hbm.xml" />
+
+        <mapping resource="mappings/compliance/ComplianceConfiguration.hbm.xml" />
+        <mapping resource="mappings/compliance/ComplianceIncidentConfigMap.hbm.xml" />
+        <mapping resource="mappings/compliance/ComplianceReportEOP004.hbm.xml" />
+        <mapping resource="mappings/compliance/ComplianceRASProcesses.hbm.xml" />
+        <mapping resource="mappings/masterdata/MasterData.hbm.xml" />
+        <mapping resource="mappings/config/XMLDataRendererModel.hbm.xml" />
+        <!-- SGIG specific Mappings -->
+        <!--
+        <mapping resource="mappings/arra/AuditInfo.hbm.xml" />
+        <mapping resource="mappings/arra/ElementTemplate.hbm.xml" />
+        <mapping resource="mappings/arra/ReportingElement.hbm.xml" />
+        <mapping resource="mappings/arra/ReportingElementHistory.hbm.xml" />
+        <mapping resource="mappings/arra/ChecklistItem.hbm.xml" />
+        <mapping resource="mappings/arra/OrganizationWBSMapping.hbm.xml" />
+        <mapping resource="mappings/arra/ReportingActivity.hbm.xml" />
+        <mapping resource="mappings/arra/ReportingAccomplishment.hbm.xml" />
+        <mapping resource="mappings/arra/ReportingChange.hbm.xml" />
+        <mapping resource="mappings/arra/ReportingIssue.hbm.xml" />
+        <mapping resource="mappings/arra/OrganizationActCodeMapping.hbm.xml" />
+        <mapping resource="mappings/arra/ReportingActivityAttachment.hbm.xml" />
+        <mapping resource="mappings/arra/SubRecipients.hbm.xml" />
+        <mapping resource="mappings/arra/Vendors.hbm.xml" />
+        <mapping resource="mappings/arra/ReportingMilestone.hbm.xml" />
+        -->
+        <!-- LOG4J specific Mappings -->
+        <mapping resource="mappings/log4j/Staslog.hbm.xml" />
+        <!-- RULES specific Mappings -->
+        <mapping resource="mappings/rules/RuleApplication.hbm.xml" />
+        <mapping resource="mappings/rules/RuleAssetTypes.hbm.xml" />
+        <mapping resource="mappings/rules/RulesetAssetMap.hbm.xml" />
+        <!-- Pi specific mappings -->
+        <mapping resource="mappings/pi/PIServerGroup.hbm.xml" />
+        <mapping resource="mappings/pi/PiEventConsumers.hbm.xml" />
+        <mapping resource="mappings/pi/PiEventGroup.hbm.xml" />
+        <mapping resource="mappings/pi/PIAFEventGroup.hbm.xml" />
+        <mapping resource="mappings/pi/PINotificationTypes.hbm.xml" />
+        <mapping resource="mappings/pi/PINotificationListener.hbm.xml" />
+        <!-- Dashboard Favorites mappings -->
+        <mapping resource="mappings/dashboard/Favorite.hbm.xml" />
+		<mapping resource="mappings/dashboard/FavoriteDisplayOrder.hbm.xml"/>        
+        <!-- Flex to be drepreciated -->
+        <mapping resource="mappings/dashboard/DashboardFavorites.hbm.xml" />
+    
+        <!-- Privileges -->
+        <mapping resource="mappings/privileges/RoleMaster.hbm.xml" />
+        <mapping resource="mappings/privileges/RoleGroupModuleMap.hbm.xml" />       
+        <mapping resource="mappings/privileges/RightsMaster.hbm.xml" />
+        <mapping resource="mappings/privileges/SubRightsMaster.hbm.xml" />      
+        <mapping resource="mappings/privileges/RoleRightsMap.hbm.xml" />
+        <!--  MAPPINGS SPECIFIC TO USER PREFERENCES-->
+        <mapping resource="mappings/preferences/UserPreferencesConfig.hbm.xml" />
+        <mapping resource="mappings/preferences/UserPreferencesData.hbm.xml" />
+
+        <mapping resource="mappings/security/AuditConfig.hbm.xml" />
+        <mapping resource="mappings/security/AuditLog.hbm.xml" />
+		<!-- Mapping for Lasso -->
+		<mapping resource="mappings/lasso/Lasso.hbm.xml" />
+		<mapping resource="mappings/lasso/LassoDisplayOrder.hbm.xml" />
+        <!-- 
+        <listener type="post-delete" class="com.spacetimeinsight.hibernate.listeners.HibernateCRUDListener"/>
+        <listener type="post-update" class="com.spacetimeinsight.hibernate.listeners.HibernateCRUDListener"/>
+        <listener type="post-insert" class="com.spacetimeinsight.hibernate.listeners.HibernateCRUDListener"/>
+        <listener type="post-load" class="com.spacetimeinsight.hibernate.listeners.HibernateCRUDListener"/>
+        -->
+    </session-factory>
+</hibernate-configuration>

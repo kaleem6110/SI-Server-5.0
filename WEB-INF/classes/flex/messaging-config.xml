@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="message-service" 
+    class="flex.messaging.services.MessageService">
+
+    <adapters>
+        <adapter-definition id="actionscript" class="flex.messaging.services.messaging.adapters.ActionScriptAdapter" default="true" />
+        <adapter-definition id="jms" class="flex.messaging.services.messaging.adapters.JMSAdapter"/> 
+    </adapters>
+ <!-- active MQ alert message topic -->
+   <destination id="alertmessaging">
+        <properties>
+            <jms>
+                <destination-type>Topic</destination-type>
+                <message-type>javax.jms.TextMessage</message-type>
+                <connection-factory>java:comp/env/jms/ConnectionFactory</connection-factory>
+                <destination-jndi-name>java:comp/env/jms/AlertMessagingTopic</destination-jndi-name>
+               
+            </jms>
+        </properties>
+       
+        <adapter ref="jms"/>
+    </destination>
+
+	<destination id="alertacknowledgment">
+        <properties>
+            <jms>
+                <destination-type>Topic</destination-type>
+                <message-type>javax.jms.TextMessage</message-type>
+                <connection-factory>java:comp/env/jms/ConnectionFactory</connection-factory>
+                <destination-jndi-name>java:comp/env/jms/AlertAcknowledgeTopic</destination-jndi-name>
+               
+            </jms>
+        </properties>
+       
+        <adapter ref="jms"/>
+    </destination>
+    <!-- event message topic -->
+   <destination id="eventmessaging">
+        <properties>
+            <jms>
+                <destination-type>Topic</destination-type>
+                <message-type>javax.jms.ObjectMessage</message-type>
+                <connection-factory>java:comp/env/jms/ConnectionFactory</connection-factory>
+                <destination-jndi-name>java:comp/env/jms/STASEventsTopic</destination-jndi-name>
+               
+            </jms>
+        </properties>
+       
+        <adapter ref="jms"/>
+    </destination>
+    
+    <destination id="genericeventmessaging">
+        <properties>
+            <jms>
+                <destination-type>Topic</destination-type>
+                <message-type>javax.jms.ObjectMessage</message-type>
+                <connection-factory>java:comp/env/jms/ConnectionFactory</connection-factory>
+                <destination-jndi-name>java:comp/env/jms/EcosystemEventsTopic</destination-jndi-name>               
+            </jms>
+        </properties>
+       
+        <adapter ref="jms"/>
+    </destination>
+	<destination id="messagingbox">
+        <properties>
+            <jms>
+                <destination-type>Topic</destination-type>
+                <message-type>javax.jms.ObjectMessage</message-type>
+                <connection-factory>java:comp/env/jms/ConnectionFactory</connection-factory>
+                <destination-jndi-name>java:comp/env/jms/MessageBoxEventsTopic</destination-jndi-name>
+		    </jms>
+        </properties>
+       
+        <adapter ref="jms"/>
+    </destination>
+    <default-channels>
+   		<channel ref="my-amf"/>
+        <channel ref="my-secure-amf"/>
+    </default-channels>
+
+</service>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.platform.alerts.model">
+    <class name="AlertNotification" table="STI_P_ALERT_NOTIFICATIONS">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        
+        <property name="description" type="string" column="DESCRIPTION" />
+        <property name="alertId" type="long" column="ALERT_ID" />
+        <property name="priorityId" type="long" column="PRIORITY_ID" />
+        <property name="alertNavigationId" type="long" column="ALERT_NAVAGATION_ID"/>
+        <property name="eventId" type="string" column="EVENT_ID" />        
+        <property name="eventDate" type="timestamp" column="EVENT_DATE"/>
+        <property name="message" type="string" column="MESSAGE" length="4000"/>
+        <property name="longitude" type="double" column="LONGITUDE"/>
+        <property name="latitude" type="double" column="LATITUDE"/>
+        <property name="referenceId" type="long" column="ALERT_REF_ID"/>
+        <property name="referenceName" type="string" column="ALERT_REF_NAME"/>     
+		<property name="jsFunction" type="string" column="JS_FUNC"/>  
+		<property name="favorite" type="string" column="FAVORITE"/>     
+     
+    </class>
+</hibernate-mapping>

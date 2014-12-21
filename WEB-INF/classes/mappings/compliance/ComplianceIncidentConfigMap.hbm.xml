@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+     
+<hibernate-mapping
+    package="com.spacetimeinsight.db.compliance.model">
+    <class name="ComplianceIncidentMap" table="STI_C_CMPL_INCIDENT_MAP">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="complianceConfigType" type="string" column="COMPLIANCE_CONFIG_TYPE" length="20" not-null="true"/>
+        <property name="incidentId" type="long" column="INCIDENT_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+    </class>
+</hibernate-mapping>

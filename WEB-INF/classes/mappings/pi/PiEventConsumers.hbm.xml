@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.pi.model">
+    <class name="PiEventConsumers" table="STI_P_PI_EVENT_CONSUMERS">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="eventGroupId" type="long" column="EVENT_GROUP_ID"/>
+        <property name="consumerClass" type="string" column="CONSUMER_CLASS" length="500"/>
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY" />
+		<property name="modifiedBy" type="string" column="MODIFIED_BY" />
+     </class>
+</hibernate-mapping>
+   
+
+
+ 

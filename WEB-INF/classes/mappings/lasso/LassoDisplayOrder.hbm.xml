@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.lasso.model">
+    
+        <class name="com.spacetimeinsight.db.lasso.model.LassoDisplayOrder" table="STI_R_LASSOS_DISPLAYORDER" >
+         <composite-id> 
+            <key-property name="displayOrder" type="long" column="Display_order" />
+            <key-property name="userLoginId"  type="string" column="User_Login_Id"/>
+            <key-property name="lassoId"  type="long" column="Lasso_id"/>
+          </composite-id>
+           
+         <property name="createdBy" type="string" column="CREATED_BY"/>
+		 <property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+         <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+         <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+       </class>
+       
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.geocoder.model">
+
+	<class name="TigerDBModelME" table="TIGER_ME">
+		<id name="id" type="long">
+            <generator class="native" />
+        </id>   
+		<property name="tlid" type="long" column="TLID" index="IDX0_TIGER_ME"/>
+        <property name="feDirp" type="string" column="FEDIRP" length="2"/>
+		<property name="feName" type="string" column="FENAME" length="30" index="IDX1_TIGER_ME"/>
+		<property name="feType" type="string" column="FETYPE" length="4"/>
+		<property name="feDirs" type="string" column="FEDIRS" length="2"/>
+		<property name="frAddl" type="string" column="FRADDL" length="11" index="IDX2_TIGER_ME"/>
+		<property name="toAddl" type="string" column="TOADDL" length="11" index="IDX3_TIGER_ME"/>
+		<property name="frAddr" type="string" column="FRADDR" length="11" index="IDX4_TIGER_ME"/>
+		<property name="toAddr" type="string" column="TOADDR" length="11" index="IDX5_TIGER_ME"/>
+		<property name="zipl" type="string" column="ZIPL" length="5" index="IDX6_TIGER_ME"/>
+		<property name="zipr" type="string" column="ZIPR" length="5" index="IDX7_TIGER_ME"/>
+		<property name="frLong" type="double" column="FRLONG"/>
+		<property name="frLat" type="double" column="FRLAT"/>
+		<property name="toLong" type="double" column="TOLONG"/>
+		<property name="toLat" type="double" column="TOLAT"/>
+		<property name="rtsq" type="double" column="RTSQ"/>
+		<property name="long1" type="double" column="LONG1"/>
+		<property name="lat1" type="double" column="LAT1"/>
+		<property name="long2" type="double" column="LONG2"/>
+		<property name="lat2" type="double" column="LAT2"/>
+		<property name="long3" type="double" column="LONG3"/>
+		<property name="lat3" type="double" column="LAT3"/>
+		<property name="long4" type="double" column="LONG4"/>
+		<property name="lat4" type="double" column="LAT4"/>
+		<property name="long5" type="double" column="LONG5"/>
+		<property name="lat5" type="double" column="LAT5"/>
+		<property name="long6" type="double" column="LONG6"/>
+		<property name="lat6" type="double" column="LAT6"/>
+		<property name="long7" type="double" column="LONG7"/>
+		<property name="lat7" type="double" column="LAT7"/>
+		<property name="long8" type="double" column="LONG8"/>
+		<property name="lat8" type="double" column="LAT8"/>
+		<property name="long9" type="double" column="LONG9"/>
+		<property name="lat9" type="double" column="LAT9"/>
+		<property name="long10" type="double" column="LONG10"/>
+		<property name="lat10" type="double" column="LAT10"/>
+	</class>
+</hibernate-mapping>

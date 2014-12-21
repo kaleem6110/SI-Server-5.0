@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+     
+<hibernate-mapping
+	package="com.spacetimeinsight.db.config.model">
+				
+	<class name="RubberbandCategory" table="STI_C_CATEGORY">		
+		<id name="id" type="long">
+            <generator class="native" />
+        </id>   
+        
+         <set name="subcategories" lazy="false" cascade="all" inverse="false">
+            <key column="PARENT_CATEGORY_ID" />
+            <one-to-many class="RubberbandCategory"/>
+         </set>  
+        
+         <set name="rubberbands" lazy="false" cascade="all" inverse="true">
+            <key column="RUBBERBAND_CATEGORY_ID" />
+             <one-to-many class="Rubberband"/>
+         </set>   
+          
+        <!-- ID of the folder’s parent for hierarchy, 0 for root -->     
+        <many-to-one name="parentCategoryId" column="PARENT_CATEGORY_ID" />  
+       
+        <!--  Label that is displayed to the user -->
+        <property name="label" type="string" column="LABEL" />  
+ 
+        <!--  Order of the folder -->        
+        <property name="categoryOrder"  type="long" column="CATEGORY_ORDER"/> 
+        
+        <property name="listType" type="string" column="LIST_TYPE"/>
+
+         <!-- Audit Fields : following fields will be updated on create and every change.--> 
+         <property name="userId" type="long" column="USER_ID"/>
+                
+        <property name="createdBy"  type="string" column="CREATED_BY"/>          
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        
+        <property name="modifiedBy"  type="string" column="MODIFIED_BY"/> 
+        <property name="modifiedDate"  type="timestamp" column="MODIFIED_DATE"/> 
+        
+        <property name="moduleId"  type="long" column="MODULE_ID" not-null="true"/>
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/> 
+        <property name="userUniqueId" column="USER_UNIQUE_ID" type="string"/>
+	</class>
+					
+</hibernate-mapping>

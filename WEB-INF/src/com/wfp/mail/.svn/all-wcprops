@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/mail
+END
+Renderable.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/mail/Renderable.java
+END
+Attachment.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/mail/Attachment.java
+END
+RenderableMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/mail/RenderableMessage.java
+END
+RenderablePlainText.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/mail/RenderablePlainText.java
+END

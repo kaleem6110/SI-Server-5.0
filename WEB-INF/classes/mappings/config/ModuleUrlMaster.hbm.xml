@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.config.model">
+    <class name="ModuleUrlMaster" table="STI_C_MODULE_URL_MASTER">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="name" column="NAME" type="string" not-null="true" unique="true"/>
+        <property name="description" type="string" column="DESCRIPTION" length="200"/>
+        <property name="url" type="string" column="URL" not-null="true" length="200"/>
+        <property name="parameters" type="string" column="PARAMETERS" length="5000"/>
+        <property name="viewerHelpUrl" type="string" column="VIEWER_HELP_URL" length="250"/>
+        <property name="businessViewHelpUrl" type="string" column="BUSINESS_VIEW_HELP_URL" length="250"/>
+        <property name="viewerPluginHelpUrl" type="string" column="VIEWER_PLUGIN_HELP_URL" length="250"/>
+        <property name="requiresGEKey" type="boolean" column="REQUIRES_GEKEY" />
+        <property name="isMappable" type="boolean" column="IS_MAPPABLE" />
+        <property name="isHtmlModuleType" type="boolean" column="IS_HTML_MODULE_TYPE" />
+
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+
+    </class>
+</hibernate-mapping>

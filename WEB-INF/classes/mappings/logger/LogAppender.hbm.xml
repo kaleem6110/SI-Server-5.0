@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.config.logger.model">
+        <class name="LogAppenderDetail" table="STI_C_LOGGER_APPENDER">
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="name" column="NAME" type="string" length="20" not-null="true" unique="true"/>
+        <property name="configuration" column="CONFIGURATION" length="1000" type="string" not-null="true"/>
+        <property name="type" column="TYPE" length="20" type="string" not-null="true"/>
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/> 
+    </class>
+</hibernate-mapping>

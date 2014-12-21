@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.config.model">
+
+    <class name="ShpToDBMapping" table="STI_C_SHAPE_TO_DB_MAPPING">
+    	<id name="id" type="long">
+        	<generator class="native"/>
+        </id>
+        <property name="dbModelName" type="string" column="DB_MODEL_NAME"/>
+        <property name="filePath" type="string" column="SHAPE_FILE_PATH"/>
+        <property name="mappingDefinition" type="text" column="MAPPING_DEFINITION"/>
+        
+        <property name="domainId" type="long" column="DOMAIN_ID" not-null="true"/>
+        <property name="languageId" type="long" column="LANGUAGE_ID" not-null="true"/>
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+    </class>
+
+</hibernate-mapping>

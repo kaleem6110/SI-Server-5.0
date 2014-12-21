@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.rules.model">
+	<class name="RuleEvent" table="STI_R_EVENT">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="eventType" type="long" column="EVENT_TYPE_ID" not-null="true"/>
+		<property name="eventName" type="string" column="EVENT_NAME" not-null="true"/>
+		<property name="createdOn" type="date" column="CREATED_ON" length="7" not-null="true" />
+		<property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+	</class>
+</hibernate-mapping>

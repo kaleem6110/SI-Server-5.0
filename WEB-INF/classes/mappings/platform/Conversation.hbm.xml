@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="com.spacetimeinsight.db.platform.model">
+
+	<class name="Conversation" table="STI_P_CONVERSATION">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="domainId" type="long" column="DOMAINID"/>		 
+		<property name="sourceArtifactId" type="long" column="SOURCE_ARTIFACT_ID" />
+		<property name="sourceArtifactTypeId" type="long" column="SOURCE_ARTIFACT_TYPE_ID" />
+		<property name="targetArtifactId" type="long" column="TARGET_ARTIFACT_ID" />
+		<property name="targetArtifactTypeId" type="long" column="TARGET_ARTIFACT_TYPE_ID" />
+		<property name="conversationTypeId" type="long" column="CONVERSATION_TYPE_ID" />
+	</class>
+</hibernate-mapping>

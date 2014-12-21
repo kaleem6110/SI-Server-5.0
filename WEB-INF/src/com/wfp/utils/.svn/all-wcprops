@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils
+END
+LDAPUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/LDAPUtils.java
+END
+EventServiceUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/EventServiceUtils.java
+END
+InboxReaderUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/InboxReaderUtils.java
+END
+WFPConfigUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/WFPConfigUtils.java
+END
+TimZoneTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/TimZoneTest.java
+END
+IEPICConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/IEPICConstants.java
+END
+PlanningUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/PlanningUtils.java
+END
+ValidateCertificateCall.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/ValidateCertificateCall.java
+END
+AlertServiceUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/AlertServiceUtils.java
+END
+CommonUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/CommonUtils.java
+END
+MailRetrieverUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/MailRetrieverUtils.java
+END
+RBRegionsUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/RBRegionsUtils.java
+END
+SensorServiceUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/wfp/utils/SensorServiceUtils.java
+END

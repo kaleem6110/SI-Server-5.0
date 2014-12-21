@@ -1,0 +1,36 @@
+<project name="MagmaWARBuilder" default="build" basedir=".">
+
+    <property file="../com.enterprisehorizons.magma.installer.scripts/build/build.properties" />
+    <property file="SIViewerHelp_war_deployer.properties" />
+
+    <target name="package" description="Packages ${war.name} file">
+        <echo message="Packaging the ${war.name} file...." />
+
+        <war destfile="${dist}/${war.name}" update="true" duplicate="preserve"  needxmlfile="false" >
+        	<fileset dir="${SIViewerHelp.dir}"/>
+        </war>
+
+        <delete includeemptydirs="true" quiet="true">
+            <fileset dir="${webapps.dir}${war.siviewerhelp}" />
+            <fileset dir="${work.dir}${war.siviewerhelp}" />
+        </delete>
+        <echo message="copying the ${war.name} jar...." />
+        <copy file="${dist}/${war.name}" todir="${dest.dir}/" />
+        <copy file="${dist}/${war.name}" todir="../com.enterprisehorizons.magma.installer.scripts//bundles/magma/server/tomcat/webapps"/>
+    </target>
+
+    <target name="clean" description="deletes the dist directory">
+        <delete dir="${dist}" />
+    </target>
+
+
+    <target name="prepare" description="Creates the required directories">
+        <echo message="Creating the required directories....." />
+        <mkdir dir="${dist}" />
+    </target>
+
+    <target name="build" depends="prepare,package,clean" />
+
+
+</project>
+

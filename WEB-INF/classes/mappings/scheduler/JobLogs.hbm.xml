@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+    package="com.spacetimeinsight.db.scheduler.model">
+
+    <class name="SchedulerLog" table="STI_JOB_LOG">
+ 
+        <id name="id" type="long">
+            <generator class="native" />
+        </id>
+        <property name="stiJobId" type="long" column="JOB_ID" not-null="true"/>
+        <property name="status" type="string" column="STATUS" not-null="true"/>
+        <property name="logFile" type="string" column="LOG_FILE" not-null="true" length="500"/>
+        <property name="startTime" type="timestamp" column="START_TIME"/>
+        <property name="endTime" type="timestamp" column="END_TIME"/>
+        
+        <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+        <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+        <property name="createdBy" type="string" column="CREATED_BY"/>
+		<property name="modifiedBy" type="string" column="MODIFIED_BY"/> 
+        
+    </class>
+</hibernate-mapping>

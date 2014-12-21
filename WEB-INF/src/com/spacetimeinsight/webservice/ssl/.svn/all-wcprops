@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/spacetimeinsight/webservice/ssl
+END
+EasyX509TrustManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/spacetimeinsight/webservice/ssl/EasyX509TrustManager.java
+END
+EasySSLProtocolSocketFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/spacetimeinsight/webservice/ssl/EasySSLProtocolSocketFactory.java
+END
+EasyX509SSLTrustManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/u/veladitya/code/!svn/ver/175/trunk/Server%20V%201.0/WEB-INF/src/com/spacetimeinsight/webservice/ssl/EasyX509SSLTrustManager.java
+END

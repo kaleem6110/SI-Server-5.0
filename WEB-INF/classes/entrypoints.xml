@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entrypoints>
+	<!-- creates the basic network links for the required entrypoints
+	for the application -->
+
+	<!-- entry point for all the artefacts -->
+	<entrypoint>
+		<name>Artefact</name>
+		<type>com.enterprisehorizons.magma.server.entrypoint.latest.BaseArtifactEntryPoint</type>
+        <datacontroller type="com.enterprisehorizons.magma.server.controller.ArtifactDataController"/>
+        <servicecontroller type="com.enterprisehorizons.magma.server.controller.ArtifactServiceController"/>
+		<layoutmanager type="com.enterprisehorizons.magma.server.layout.ArtifactLayoutManager"/>
+		<constraintmanager type="com.enterprisehorizons.magma.server.controller.ArtifactConstraintManager"/>
+		<dashboardcontroller type="com.enterprisehorizons.magma.server.layout.ArtifactDashboardController"/>
+	</entrypoint>
+	<entrypoint>
+		<name>HTMLEcosystem</name>
+		<type>com.spacetimeinsight.server.entrypoint.HTMLEcosystemEntryPoint</type>
+        <datacontroller type="com.spacetimeinsight.server.controller.HTMLEcosystemDataController"/>
+        <servicecontroller type="com.spacetimeinsight.server.controller.HTMLEcosystemServiceController"/>
+		<layoutmanager type="com.spacetimeinsight.server.layout.HTMLEcosystemLayoutManager"/>
+		<constraintmanager type="com.spacetimeinsight.server.controller.HTMLEcosystemConstraintManager"/>
+		<dashboardcontroller type="com.spacetimeinsight.server.layout.HTMLEcosystemWindowController"/>
+	</entrypoint>
+</entrypoints>

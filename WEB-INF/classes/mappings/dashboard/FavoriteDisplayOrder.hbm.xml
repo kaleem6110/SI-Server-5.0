@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spacetimeinsight.db.favorite.model">
+    
+        <class name="com.spacetimeinsight.db.favorite.model.FavoriteDisplayOrder" table="STI_R_FAVORITE_DISPLAYORDER" >
+        
+         <composite-id> 
+            <key-property name="displayOrder" type="long" column="DISPLAY_ORDER" />
+            <key-property name="userUniqueId"  type="string" column="USER_UNIQUE_ID"/>
+            <key-property name="favoriteId"  type="long" column="FAVORITE_ID"/>
+          </composite-id>
+         <property name="windowId"  type="string" column="WINDOW_ID"/>
+         <property name="moduleId"  type="long" column="MODULE_ID"/>
+ 
+         <property name="createdBy" type="string" column="CREATED_BY"/>
+		 <property name="modifiedBy" type="string" column="MODIFIED_BY"/>
+         <property name="createdDate" type="timestamp" column="CREATED_DATE"/>
+         <property name="modifiedDate" type="timestamp" column="MODIFIED_DATE"/>
+       </class>
+       
+</hibernate-mapping>
