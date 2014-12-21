@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="GlobalStyles">
+	<Style id="BlinkStyle">
+		<IconStyle>
+			<Icon/>
+			<color>0ffffff</color>
+			<scale>1.0</scale>
+			<heading>0.0</heading>
+		</IconStyle>
+		<LineStyle>
+			<color>0ffffff</color>
+			<width>0.0</width>
+		</LineStyle>
+		<LabelStyle>
+			<color>0ffffff</color>
+		</LabelStyle>
+		<PolyStyle>
+			<color>0ffffff</color>
+		</PolyStyle>
+	 </Style>  
+	</Document>
+</kml>

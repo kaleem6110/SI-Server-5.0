@@ -1,0 +1,20 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<script language ="javascript">
+		    function CallProxy() {
+		        mySearch = location.search.substr(1).split("&");
+		        if (mySearch != undefined && mySearch != null && mySearch.length == 3) {
+		            latitude = mySearch[0];
+		            longitude = mySearch[1];
+		            zoomLevel = mySearch[2];
+		        }
+		        window.parent.frames['filterIFrame'].ZoomToLocation(latitude, longitude, zoomLevel);
+		    }
+		</script>
+	</head>
+	<body onload = "CallProxy();">
+	
+	</body>
+</html>
