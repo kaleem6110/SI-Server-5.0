@@ -1,0 +1,77 @@
+@charset "ISO-8859-1";
+
+@media screen {
+  * { font-family: arial, helvetica, sans-serif; }
+
+  fieldset {
+    font-size: small;
+  }
+  
+  h1 {
+    font-size: 14pt;
+    font-weight: bold;
+ color: #fff;
+  }
+    h2 {
+    font-size: 10pt;
+    font-weight: bold;
+ color: green;
+  }
+  #directions-form fieldset,
+  #simulator-form fieldset {
+    height: 140px;
+  }
+  
+  #route-details {
+
+   padding-right: 50px !important;
+    position: relative;
+     
+	 color: #fff;
+  }
+
+  #route-details ol {
+    margin: 0;
+    padding: 0;
+  }
+
+  .dir-step {
+    list-style: decimal inside;
+    position: relative;
+    font-size: small;
+    padding-right: 50px !important;
+	 color: #fff;
+  }
+
+  .dir-step .note {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 3px;
+	
+  }
+
+  .dir-step,
+  #dir-start,
+  #dir-end {
+   font-size: 10pt;
+    margin: 0;
+    padding: 6px 3px;
+    cursor: pointer;
+  }
+
+  #dir-start,
+  #dir-end {
+    background-color: #888;
+    color: #fff;
+  }
+
+  #dir-start, .dir-step {
+    border-bottom: 1px solid #888;
+  }
+
+  .dir-step.sel {
+    background-color: #00f;
+    color: #fff;
+  }
+}

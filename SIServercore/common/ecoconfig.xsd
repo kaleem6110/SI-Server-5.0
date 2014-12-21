@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ecoconfig" type="ecoconfigType"></xs:element>
+
+	<xs:complexType name="ecoconfigType">
+		<xs:sequence>
+			<xs:element name="datasource" type="datasourceType"	maxOccurs="1" minOccurs="0" />
+			<xs:element name="styles" type="stylesType" maxOccurs="1"	minOccurs="0" />
+			<xs:element name="dashboards" type="dashboardsType"	maxOccurs="1" minOccurs="0" />
+			<xs:element name="defineAttribute" type="defineAttributeType" maxOccurs="1"	minOccurs="0" />
+			<xs:element name="features" type="featuresType" maxOccurs="1" minOccurs="0" />
+		</xs:sequence> 
+		<xs:attribute name="myPlaceId" type="xs:string" use="optional" />
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="ecoexpml" type="xs:string" />
+		<xs:attribute name="theme" type="xs:string" use="optional" />
+		<xs:attribute name="type" type="xs:string" use="optional" />
+	</xs:complexType>
+
+
+	<xs:complexType name="datasourceType">
+		<xs:sequence>
+			<xs:element name="file" type="xs:string" maxOccurs="1"	minOccurs="0"></xs:element>
+			<xs:element name="attributes" type="attributesType"	maxOccurs="1" minOccurs="0" />
+			<xs:element name="bindings" type="bindingsType" maxOccurs="1"		minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" />
+	</xs:complexType>
+	
+	<xs:complexType name="defineAttributeType">
+		<xs:sequence>			
+			<xs:element name="attribute" maxOccurs="unbounded" type="attributeType" minOccurs="0"/>			
+		</xs:sequence>		
+	</xs:complexType>
+
+	<xs:complexType name="attributesType">
+		<xs:sequence>
+			<xs:element name="attribute" type="attributeType"	maxOccurs="unbounded" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="bindingsType">
+		<xs:sequence>
+			<xs:element name="binding" maxOccurs="unbounded" type="bindingType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="bindingType">
+		<xs:attribute name="column" />
+		<xs:attribute name="type" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="stylesType">			
+		<xs:sequence>
+			<xs:element name="color" type="colorType" minOccurs="0" />	
+			<xs:element name="iconScale" type="xs:decimal"  minOccurs="0" />
+			<xs:element name="iconUrl" type="xs:string" minOccurs="0" />
+			<xs:element name="imageScale" type="xs:decimal" minOccurs="0" />
+			<xs:element name="imageUrl" type="xs:string" minOccurs="0" />
+			<xs:element name="labelAttribute" type="xs:string" minOccurs="0" />
+			<xs:element name="labelStyleAttribute" type="xs:string" minOccurs="0" />
+		</xs:sequence>		
+	</xs:complexType>
+
+	<xs:complexType name="colorType">
+		<xs:sequence>
+			<xs:element name="attrributeName" type="xs:string" minOccurs="0" />
+			<xs:element name="type" type="xs:string" minOccurs="0" />
+			<xs:element name="values" type="valuesType" minOccurs="0" />
+			<xs:element name="ranges" type="rangesType" minOccurs="0" />
+			<xs:element name="heatMaps" type="heatMapsType" minOccurs="0" />
+			<xs:element name="staticColor" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="valuesType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="value" type="valueType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="valueType">
+		<xs:attribute name="color" />
+		<xs:attribute name="title" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="rangesType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="range" type="rangeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="rangeType">
+		<xs:attribute name="color" type="xs:string" />
+		<xs:attribute name="maxValue" type="xs:integer" />
+		<xs:attribute name="minValue" type="xs:integer" />
+	</xs:complexType>
+
+	<xs:complexType name="heatMapsType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="heatMap" type="heatMapType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="heatMapType">
+		<xs:sequence>
+			<xs:element name="minValue" type="xs:integer" />
+			<xs:element name="maxValue" type="xs:integer" />
+			<xs:element name="minColor" type="xs:string" />
+			<xs:element name="maxColor" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="dashboardsType">
+		<xs:sequence>
+			<xs:element name="searchAttributes" type="searchAttributesType" minOccurs="0"/>
+			<xs:element name="groupAttributes" type="groupAttributesTypes" minOccurs="0"/>
+			<xs:element name="aggregateAttributes" type="aggregateAttributesType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="searchAttributesType">
+		<xs:sequence>
+			<xs:element name="attribute" maxOccurs="unbounded" type="attributeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="groupAttributesTypes">
+		<xs:sequence>
+			<xs:element name="attribute" maxOccurs="unbounded" type="attributeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="aggregateAttributesType">
+		<xs:sequence>
+			<xs:element name="attribute" maxOccurs="unbounded" type="attributeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="attributeType">
+		<xs:attribute name="displayFormat" type="xs:string" />
+		<xs:attribute name="displayName" type="xs:string" />
+		<xs:attribute name="hide" type="xs:boolean" />
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="type" type="xs:string" />
+	</xs:complexType>
+	
+	<xs:complexType name="featuresType">
+    <xs:sequence>     
+      <xs:element name="kmlLink" type="kmlLinkType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+    </xs:sequence>
+   </xs:complexType>
+  
+   <xs:complexType name="kmlLinkType">
+    <xs:attribute name="url" type="xs:string"></xs:attribute>
+    <xs:attribute name="zoom" type="xs:boolean"></xs:attribute>
+   </xs:complexType>
+
+</xs:schema>

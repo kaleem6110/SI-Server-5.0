@@ -1,0 +1,255 @@
+a.kk:active, a.kk:visited, a.kk:link{font-family:Verdana; font-size:11px; color:#000000; text-decoration:none;}
+a.kk:hover{font-family:Verdana; font-size:11px; color:#db2920; text-decoration:none;}
+
+.th,tr{font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#000000;
+	font-weight:bold;
+}
+
+.td,tr{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#000000;
+	font-weight: normal;
+}
+
+.mattblacktabs{
+width: 100%;
+overflow: hidden;
+border-bottom: 2px solid #678ba6; /*bottom horizontal line that runs beneath tabs*/
+}
+
+.mattblacktabs ul{
+margin: 0;
+padding: 0;
+padding-left: 10px; /*offset of tabs relative to browser left edge*/
+font: bold 11px Arial;
+list-style-type: none;
+}
+
+.mattblacktabs li{
+display: inline;
+margin: 0;
+}
+
+.mattblacktabs li a{
+float: left;
+display: block;
+text-decoration: none;
+margin: 0;
+padding: 7px 8px; /*padding inside each tab*/
+border-right: 1px solid white; /*right divider between tabs*/
+color: white;
+background: #8fb1cb; /*background of tabs (default state)*/
+}
+
+.mattblacktabs li a:visited{
+color: white;
+}
+
+.mattblacktabs li .mattblacktabs li.selected a{
+background: #525252; /*background of tabs for hover state, plus tab with "selected" class assigned to its LI */
+}
+
+.mattblacktabs li a:hover{
+text-decoration:underline;
+background-color:#698ca7;
+color:#272727;
+}
+
+.text{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#666666;
+	text-decoration:none;
+	}
+
+.formbutton{
+	cursor:pointer;
+	border:outset 1px #ccc;
+	background:#8fb1cb;
+	color:#2c2cc7;
+	font-weight:bold;
+	padding: 1px 2px;
+	background:url(images/formbg.gif) repeat-x left top;
+}
+
+.bigtext{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#020509;
+	}
+.tb-gradient {
+    border:0;
+    background: transparent url(images/gradient.gif) repeat ;
+    height: 16px;
+    width: 154px;
+	font-size:12px;
+    padding-top:2px;
+}
+
+select { font-family: Palatino Linotype,Verdana, Arial, Helvetica, sans-serif; font-size: 12px; border: #000000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;width: 200px}
+
+
+
+select.testClass {
+	border:1px solid blue;
+}
+
+.checkbox{
+	background-color:#e7f4fd;
+	border-collapse:collapse;
+	border-style:solid;
+	border-width:1px;
+	border-color:#8fb1cb;
+	}
+	
+
+.dataTable{ 
+		border: outset 1px #ccc; 
+		border-collapse:collapse; 
+}
+
+.dataHeaderCell { 
+
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#666666;
+	text-decoration:none;
+
+
+	background-color: #8fb1cb; 
+	border:outset 1px #ccc; 
+	padding:5px; 
+	
+}
+
+.dataRowOdd {
+	background-color: mintCream; 
+	border:BLACK 1px solid; 
+	padding:5px; 
+	font:normal 10pt verdana; 
+	color:black
+}
+	
+.dataRowEven{
+	background-color: white; 
+	border:BLACK 1px solid; 
+	padding:5px; 
+	font:normal 10pt verdana; 
+	color:black
+}
+.dataCell{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#666666;
+	text-decoration:none;
+	border:outset 1px #ccc;
+	padding:5px;
+}
+
+.dataRowOver {
+	background-color: navy; 
+	border:BLACK 1px solid; 
+	padding:5px; 
+	font:bold 10pt verdana; 
+	color: white
+}	
+
+.label {
+font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:black;
+	text-decoration:none;
+}
+
+.formbutton-focus{
+cursor:pointer;
+border:outset 1px #ccc;
+background:#8fb1cb;
+color:#666;
+font-weight:bold;
+padding: 1px 2px;
+background-color: #8fb1cb;
+}
+
+.tb-gradient-focus {
+   background-color: #8fb1cb;
+	border-collapse:collapse;
+	border-style:solid;
+	border-width:1px;
+	border-color:#6f7274;
+	width:154px;
+    padding-top:2px;
+}
+
+.normalcontent{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#000000;
+	font-weight:normal;
+}
+
+.border{
+	border-collapse:collapse;
+	border-style:solid;
+	border-color:#828f95;
+	border-width:1px;
+	}
+	
+	
+
+.textBold12 {
+	FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #000000
+}
+.noData {
+	FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #ff0000
+}
+.subHeaddings {
+	BACKGROUND: gray; FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #000000
+}
+.maroon12 {
+	FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #993300
+}
+.amount {
+	FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #0066ff
+}
+.textnormal12 {
+	FONT: 12px/20px Arial, Helvetica, sans-serif; COLOR: #000000
+}
+.textBold12_italic {
+	FONT: bold italic 12px Arial, Helvetica, sans-serif; COLOR: #000000
+}
+.bgcolorReports {
+	BACKGROUND-COLOR: #e1e1e1
+}
+.darkblue {
+	FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #000066
+}
+.bottomLine {
+	BORDER-RIGHT: #000000 0px; BORDER-TOP: #000000 1px solid; BACKGROUND: #ecf5eb; BORDER-LEFT: #000000 0px; BORDER-BOTTOM: #000000 1px solid
+}
+.success {
+	FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #0000FF
+}
+.error {
+	FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #FF0000
+}
+.headding16 {
+	FONT: bold 16px Arial, Helvetica, sans-serif; COLOR: #000000
+}
+.headding12 {
+    FONT: bold 12px Arial, Helvetica, sans-serif; COLOR: #000000
+}
+.headding14 {
+    FONT: bold 14px Arial, Helvetica, sans-serif; COLOR: #000000
+}
+.bgcolor {
+	BACKGROUND-COLOR: #FFFFFF
+}
+.tablebg{
+    border-collapse: collapse;
+    border-color: #e1e1e1;
+    border-style: outset;
+}
