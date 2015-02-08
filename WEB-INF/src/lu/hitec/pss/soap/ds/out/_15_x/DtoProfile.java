@@ -8,9 +8,13 @@
 package lu.hitec.pss.soap.ds.out._15_x;
 
 public class DtoProfile  implements java.io.Serializable {
-    private boolean missionsWildcard;
+    private boolean havingMissionsWildcard;
 
-    private boolean organizationsWildcard;
+    private boolean havingOrganizationsWildcard;
+
+    private boolean havingRelatedUserMissions;
+
+    private boolean havingRelatedUserOrganizations;
 
     private java.lang.String[] permissions;
 
@@ -20,54 +24,98 @@ public class DtoProfile  implements java.io.Serializable {
     }
 
     public DtoProfile(
-           boolean missionsWildcard,
-           boolean organizationsWildcard,
+           boolean havingMissionsWildcard,
+           boolean havingOrganizationsWildcard,
+           boolean havingRelatedUserMissions,
+           boolean havingRelatedUserOrganizations,
            java.lang.String[] permissions,
            java.lang.String uid) {
-           this.missionsWildcard = missionsWildcard;
-           this.organizationsWildcard = organizationsWildcard;
+           this.havingMissionsWildcard = havingMissionsWildcard;
+           this.havingOrganizationsWildcard = havingOrganizationsWildcard;
+           this.havingRelatedUserMissions = havingRelatedUserMissions;
+           this.havingRelatedUserOrganizations = havingRelatedUserOrganizations;
            this.permissions = permissions;
            this.uid = uid;
     }
 
 
     /**
-     * Gets the missionsWildcard value for this DtoProfile.
+     * Gets the havingMissionsWildcard value for this DtoProfile.
      * 
-     * @return missionsWildcard
+     * @return havingMissionsWildcard
      */
-    public boolean isMissionsWildcard() {
-        return missionsWildcard;
+    public boolean isHavingMissionsWildcard() {
+        return havingMissionsWildcard;
     }
 
 
     /**
-     * Sets the missionsWildcard value for this DtoProfile.
+     * Sets the havingMissionsWildcard value for this DtoProfile.
      * 
-     * @param missionsWildcard
+     * @param havingMissionsWildcard
      */
-    public void setMissionsWildcard(boolean missionsWildcard) {
-        this.missionsWildcard = missionsWildcard;
+    public void setHavingMissionsWildcard(boolean havingMissionsWildcard) {
+        this.havingMissionsWildcard = havingMissionsWildcard;
     }
 
 
     /**
-     * Gets the organizationsWildcard value for this DtoProfile.
+     * Gets the havingOrganizationsWildcard value for this DtoProfile.
      * 
-     * @return organizationsWildcard
+     * @return havingOrganizationsWildcard
      */
-    public boolean isOrganizationsWildcard() {
-        return organizationsWildcard;
+    public boolean isHavingOrganizationsWildcard() {
+        return havingOrganizationsWildcard;
     }
 
 
     /**
-     * Sets the organizationsWildcard value for this DtoProfile.
+     * Sets the havingOrganizationsWildcard value for this DtoProfile.
      * 
-     * @param organizationsWildcard
+     * @param havingOrganizationsWildcard
      */
-    public void setOrganizationsWildcard(boolean organizationsWildcard) {
-        this.organizationsWildcard = organizationsWildcard;
+    public void setHavingOrganizationsWildcard(boolean havingOrganizationsWildcard) {
+        this.havingOrganizationsWildcard = havingOrganizationsWildcard;
+    }
+
+
+    /**
+     * Gets the havingRelatedUserMissions value for this DtoProfile.
+     * 
+     * @return havingRelatedUserMissions
+     */
+    public boolean isHavingRelatedUserMissions() {
+        return havingRelatedUserMissions;
+    }
+
+
+    /**
+     * Sets the havingRelatedUserMissions value for this DtoProfile.
+     * 
+     * @param havingRelatedUserMissions
+     */
+    public void setHavingRelatedUserMissions(boolean havingRelatedUserMissions) {
+        this.havingRelatedUserMissions = havingRelatedUserMissions;
+    }
+
+
+    /**
+     * Gets the havingRelatedUserOrganizations value for this DtoProfile.
+     * 
+     * @return havingRelatedUserOrganizations
+     */
+    public boolean isHavingRelatedUserOrganizations() {
+        return havingRelatedUserOrganizations;
+    }
+
+
+    /**
+     * Sets the havingRelatedUserOrganizations value for this DtoProfile.
+     * 
+     * @param havingRelatedUserOrganizations
+     */
+    public void setHavingRelatedUserOrganizations(boolean havingRelatedUserOrganizations) {
+        this.havingRelatedUserOrganizations = havingRelatedUserOrganizations;
     }
 
 
@@ -130,8 +178,10 @@ public class DtoProfile  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            this.missionsWildcard == other.isMissionsWildcard() &&
-            this.organizationsWildcard == other.isOrganizationsWildcard() &&
+            this.havingMissionsWildcard == other.isHavingMissionsWildcard() &&
+            this.havingOrganizationsWildcard == other.isHavingOrganizationsWildcard() &&
+            this.havingRelatedUserMissions == other.isHavingRelatedUserMissions() &&
+            this.havingRelatedUserOrganizations == other.isHavingRelatedUserOrganizations() &&
             ((this.permissions==null && other.getPermissions()==null) || 
              (this.permissions!=null &&
               java.util.Arrays.equals(this.permissions, other.getPermissions()))) &&
@@ -149,8 +199,10 @@ public class DtoProfile  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        _hashCode += (isMissionsWildcard() ? Boolean.TRUE : Boolean.FALSE).hashCode();
-        _hashCode += (isOrganizationsWildcard() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isHavingMissionsWildcard() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isHavingOrganizationsWildcard() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isHavingRelatedUserMissions() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += (isHavingRelatedUserOrganizations() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getPermissions() != null) {
             for (int i=0;
                  i<java.lang.reflect.Array.getLength(getPermissions());
@@ -176,14 +228,26 @@ public class DtoProfile  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoProfile"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("missionsWildcard");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "missionsWildcard"));
+        elemField.setFieldName("havingMissionsWildcard");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "havingMissionsWildcard"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("organizationsWildcard");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "organizationsWildcard"));
+        elemField.setFieldName("havingOrganizationsWildcard");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "havingOrganizationsWildcard"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("havingRelatedUserMissions");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "havingRelatedUserMissions"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("havingRelatedUserOrganizations");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "havingRelatedUserOrganizations"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

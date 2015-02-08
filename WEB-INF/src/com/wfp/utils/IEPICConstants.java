@@ -203,11 +203,11 @@ public interface IEPICConstants {
 	public static final String TRN_TOKEN="adulovic-20131114-2478b95c6e23404685af7edfde315724";
 	
 	//kmohammed
-	public static final String LDAP_FILTER_URL =  "ldaps://ldap-dev.globalepic.lu:636/";
+	public static final String LDAP_FILTER_URL =  "ldaps://ldap.globalepic.lu:636/";
 	public static final String LDAP_USER_ID = "aleksandar.dulovic";
 	public static final String LDAP_USER_PWD_ENCRYPTED = "CCvmkG2dxAM=";
 	public static final String TOKEN=DEV_TOKEN;	
-	public static final String STAS_Engine ="STAS_Engine-dev";
+	public static final String STAS_Engine ="STAS_Engine";
 	public static final String MIDDLEWARE_ID="mw-a1";
 	
 	public static final String STAS_EVENT_TYPE ="Alert WARNING!!";
@@ -227,6 +227,10 @@ public interface IEPICConstants {
 	public static final String UNIT_ID ="unitId";
 	public static final String TYPE ="type";
 	public static final String MISSION ="mission";
+	
+	//Electrical
+	public static final String ELECTRICAL_URL_1="http://user.logicenergy.com/xml_feed/0050C2BE0D9A";
+	public static final String ELECTRICAL_URL_2="http://user.logicenergy.com/xml_feed/0050C2BE0309";
 	
 	
 	

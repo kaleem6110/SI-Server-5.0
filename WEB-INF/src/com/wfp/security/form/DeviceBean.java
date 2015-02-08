@@ -47,12 +47,51 @@ public class DeviceBean extends GeoArtifact implements Serializable,IArtifact, C
 	private String gender;
 	private String shortOrganization;
 	private List<String> vehicleID = null;
-	private String internalID;
+	private List<String> internalID;
 	private String locality;
 	private String country;
 	private String street;
 	private String postalCode;
+	private String totalWaypoints;
+	private String noOfDays;
+	private String firstReported;
 		
+	/**
+	 * @return the firstReported
+	 */
+	public String getFirstReported() {
+		return firstReported;
+	}
+	/**
+	 * @param firstReported the firstReported to set
+	 */
+	public void setFirstReported(String firstReported) {
+		this.firstReported = firstReported;
+	}
+	/**
+	 * @return the totalWaypoints
+	 */
+	public String getTotalWaypoints() {
+		return totalWaypoints;
+	}
+	/**
+	 * @param totalWaypoints the totalWaypoints to set
+	 */
+	public void setTotalWaypoints(String totalWaypoints) {
+		this.totalWaypoints = totalWaypoints;
+	}
+	/**
+	 * @return the noOfDays
+	 */
+	public String getNoOfDays() {
+		return noOfDays;
+	}
+	/**
+	 * @param noOfDays the noOfDays to set
+	 */
+	public void setNoOfDays(String noOfDays) {
+		this.noOfDays = noOfDays;
+	}
 	public String getCountry() {
 		return country;
 	}
@@ -334,15 +373,7 @@ public class DeviceBean extends GeoArtifact implements Serializable,IArtifact, C
 	/**
 	 * @return the internalID
 	 */
-	public String getInternalID() {
-		return internalID;
-	}
-	/**
-	 * @param internalID the internalID to set
-	 */
-	public void setInternalID(String internalID) {
-		this.internalID = internalID;
-	}
+	
 	public String getLocality() {
 		return locality;
 	}
@@ -360,6 +391,18 @@ public class DeviceBean extends GeoArtifact implements Serializable,IArtifact, C
 	}
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
+	}
+	/**
+	 * @return the internalID
+	 */
+	public List<String> getInternalID() {
+		return internalID;
+	}
+	/**
+	 * @param internalID the internalID to set
+	 */
+	public void setInternalID(List<String> internalID) {
+		this.internalID = internalID;
 	}
 	
 	

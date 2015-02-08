@@ -16,11 +16,11 @@ public class Notifier  implements java.io.Serializable {
 
     private lu.hitec.pss.soap.event.provider._21_x.NotifierRecipient[] recipients;
 
-    private long id;  // attribute
-
-    private java.lang.String name;  // attribute
+    private java.lang.String displayName;  // attribute
 
     private lu.hitec.pss.soap.event.provider._21_x.NotifierTypeEnum type;  // attribute
+
+    private long uniqueId;  // attribute
 
     public Notifier() {
     }
@@ -30,16 +30,16 @@ public class Notifier  implements java.io.Serializable {
            boolean havingNotifyRelatedUser,
            lu.hitec.pss.soap.event.provider._21_x.NotifierPropertyMapEntry[] properties,
            lu.hitec.pss.soap.event.provider._21_x.NotifierRecipient[] recipients,
-           long id,
-           java.lang.String name,
-           lu.hitec.pss.soap.event.provider._21_x.NotifierTypeEnum type) {
+           java.lang.String displayName,
+           lu.hitec.pss.soap.event.provider._21_x.NotifierTypeEnum type,
+           long uniqueId) {
            this.filter = filter;
            this.havingNotifyRelatedUser = havingNotifyRelatedUser;
            this.properties = properties;
            this.recipients = recipients;
-           this.id = id;
-           this.name = name;
+           this.displayName = displayName;
            this.type = type;
+           this.uniqueId = uniqueId;
     }
 
 
@@ -132,42 +132,22 @@ public class Notifier  implements java.io.Serializable {
 
 
     /**
-     * Gets the id value for this Notifier.
+     * Gets the displayName value for this Notifier.
      * 
-     * @return id
+     * @return displayName
      */
-    public long getId() {
-        return id;
+    public java.lang.String getDisplayName() {
+        return displayName;
     }
 
 
     /**
-     * Sets the id value for this Notifier.
+     * Sets the displayName value for this Notifier.
      * 
-     * @param id
+     * @param displayName
      */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
-    /**
-     * Gets the name value for this Notifier.
-     * 
-     * @return name
-     */
-    public java.lang.String getName() {
-        return name;
-    }
-
-
-    /**
-     * Sets the name value for this Notifier.
-     * 
-     * @param name
-     */
-    public void setName(java.lang.String name) {
-        this.name = name;
+    public void setDisplayName(java.lang.String displayName) {
+        this.displayName = displayName;
     }
 
 
@@ -188,6 +168,26 @@ public class Notifier  implements java.io.Serializable {
      */
     public void setType(lu.hitec.pss.soap.event.provider._21_x.NotifierTypeEnum type) {
         this.type = type;
+    }
+
+
+    /**
+     * Gets the uniqueId value for this Notifier.
+     * 
+     * @return uniqueId
+     */
+    public long getUniqueId() {
+        return uniqueId;
+    }
+
+
+    /**
+     * Sets the uniqueId value for this Notifier.
+     * 
+     * @param uniqueId
+     */
+    public void setUniqueId(long uniqueId) {
+        this.uniqueId = uniqueId;
     }
 
     private java.lang.Object __equalsCalc = null;
@@ -212,13 +212,13 @@ public class Notifier  implements java.io.Serializable {
             ((this.recipients==null && other.getRecipients()==null) || 
              (this.recipients!=null &&
               java.util.Arrays.equals(this.recipients, other.getRecipients()))) &&
-            this.id == other.getId() &&
-            ((this.name==null && other.getName()==null) || 
-             (this.name!=null &&
-              this.name.equals(other.getName()))) &&
+            ((this.displayName==null && other.getDisplayName()==null) || 
+             (this.displayName!=null &&
+              this.displayName.equals(other.getDisplayName()))) &&
             ((this.type==null && other.getType()==null) || 
              (this.type!=null &&
-              this.type.equals(other.getType())));
+              this.type.equals(other.getType()))) &&
+            this.uniqueId == other.getUniqueId();
         __equalsCalc = null;
         return _equals;
     }
@@ -256,13 +256,13 @@ public class Notifier  implements java.io.Serializable {
                 }
             }
         }
-        _hashCode += new Long(getId()).hashCode();
-        if (getName() != null) {
-            _hashCode += getName().hashCode();
+        if (getDisplayName() != null) {
+            _hashCode += getDisplayName().hashCode();
         }
         if (getType() != null) {
             _hashCode += getType().hashCode();
         }
+        _hashCode += new Long(getUniqueId()).hashCode();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -274,19 +274,19 @@ public class Notifier  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "notifier"));
         org.apache.axis.description.AttributeDesc attrField = new org.apache.axis.description.AttributeDesc();
-        attrField.setFieldName("id");
-        attrField.setXmlName(new javax.xml.namespace.QName("", "id"));
-        attrField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
-        typeDesc.addFieldDesc(attrField);
-        attrField = new org.apache.axis.description.AttributeDesc();
-        attrField.setFieldName("name");
-        attrField.setXmlName(new javax.xml.namespace.QName("", "name"));
+        attrField.setFieldName("displayName");
+        attrField.setXmlName(new javax.xml.namespace.QName("", "displayName"));
         attrField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         typeDesc.addFieldDesc(attrField);
         attrField = new org.apache.axis.description.AttributeDesc();
         attrField.setFieldName("type");
         attrField.setXmlName(new javax.xml.namespace.QName("", "type"));
         attrField.setXmlType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "notifierTypeEnum"));
+        typeDesc.addFieldDesc(attrField);
+        attrField = new org.apache.axis.description.AttributeDesc();
+        attrField.setFieldName("uniqueId");
+        attrField.setXmlName(new javax.xml.namespace.QName("", "uniqueId"));
+        attrField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         typeDesc.addFieldDesc(attrField);
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filter");

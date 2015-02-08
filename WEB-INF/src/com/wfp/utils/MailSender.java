@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeBodyPart;
 
+import com.enterprisehorizons.util.Logger;
+
 /**
  * @author kaleem.mohammed
  * 
@@ -84,8 +86,7 @@ public class MailSender implements IEPICConstants {
 	}
 	public static void sendHTMLEmail(List<String> toAddressList, String subject, String messageBody ) 
 	{
-		System.out
-				.println("@@@@@@@@@  START MailSender.sendHTMLEmail @@@@@@@@@@@@@@@@@@@@ ");
+		Logger.info("@@@@@@@@@  START MailSender.sendHTMLEmail @@@@@@@@@@@@@@@@@@@@ ", MailSender.class);
 
 		
 		Properties props = System.getProperties();
@@ -109,8 +110,7 @@ public class MailSender implements IEPICConstants {
 	    }
 	    catch(Exception e){ e.printStackTrace(); };
 
-		System.out
-				.println("@@@@@@@@@  END MailSender.sendHTMLEmail @@@@@@@@@@@@@@@@@@@@ ");
+		Logger.info("@@@@@@@@@  END MailSender.sendHTMLEmail @@@@@@@@@@@@@@@@@@@@ ", MailSender.class );
 	}
 
 }

@@ -12,7 +12,7 @@ public class NotifierFilter  implements java.io.Serializable {
 
     private lu.hitec.pss.soap.event.provider._21_x.Severity minSeverity;  // attribute
 
-    private java.lang.String missionName;  // attribute
+    private java.lang.String missionId;  // attribute
 
     private java.lang.String source;  // attribute
 
@@ -24,12 +24,12 @@ public class NotifierFilter  implements java.io.Serializable {
     public NotifierFilter(
            java.lang.String middlewareId,
            lu.hitec.pss.soap.event.provider._21_x.Severity minSeverity,
-           java.lang.String missionName,
+           java.lang.String missionId,
            java.lang.String source,
            java.lang.String type) {
            this.middlewareId = middlewareId;
            this.minSeverity = minSeverity;
-           this.missionName = missionName;
+           this.missionId = missionId;
            this.source = source;
            this.type = type;
     }
@@ -76,22 +76,22 @@ public class NotifierFilter  implements java.io.Serializable {
 
 
     /**
-     * Gets the missionName value for this NotifierFilter.
+     * Gets the missionId value for this NotifierFilter.
      * 
-     * @return missionName
+     * @return missionId
      */
-    public java.lang.String getMissionName() {
-        return missionName;
+    public java.lang.String getMissionId() {
+        return missionId;
     }
 
 
     /**
-     * Sets the missionName value for this NotifierFilter.
+     * Sets the missionId value for this NotifierFilter.
      * 
-     * @param missionName
+     * @param missionId
      */
-    public void setMissionName(java.lang.String missionName) {
-        this.missionName = missionName;
+    public void setMissionId(java.lang.String missionId) {
+        this.missionId = missionId;
     }
 
 
@@ -152,9 +152,9 @@ public class NotifierFilter  implements java.io.Serializable {
             ((this.minSeverity==null && other.getMinSeverity()==null) || 
              (this.minSeverity!=null &&
               this.minSeverity.equals(other.getMinSeverity()))) &&
-            ((this.missionName==null && other.getMissionName()==null) || 
-             (this.missionName!=null &&
-              this.missionName.equals(other.getMissionName()))) &&
+            ((this.missionId==null && other.getMissionId()==null) || 
+             (this.missionId!=null &&
+              this.missionId.equals(other.getMissionId()))) &&
             ((this.source==null && other.getSource()==null) || 
              (this.source!=null &&
               this.source.equals(other.getSource()))) &&
@@ -178,8 +178,8 @@ public class NotifierFilter  implements java.io.Serializable {
         if (getMinSeverity() != null) {
             _hashCode += getMinSeverity().hashCode();
         }
-        if (getMissionName() != null) {
-            _hashCode += getMissionName().hashCode();
+        if (getMissionId() != null) {
+            _hashCode += getMissionId().hashCode();
         }
         if (getSource() != null) {
             _hashCode += getSource().hashCode();
@@ -208,8 +208,8 @@ public class NotifierFilter  implements java.io.Serializable {
         attrField.setXmlType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "severity"));
         typeDesc.addFieldDesc(attrField);
         attrField = new org.apache.axis.description.AttributeDesc();
-        attrField.setFieldName("missionName");
-        attrField.setXmlName(new javax.xml.namespace.QName("", "missionName"));
+        attrField.setFieldName("missionId");
+        attrField.setXmlName(new javax.xml.namespace.QName("", "missionId"));
         attrField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         typeDesc.addFieldDesc(attrField);
         attrField = new org.apache.axis.description.AttributeDesc();

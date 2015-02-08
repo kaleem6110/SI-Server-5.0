@@ -50,6 +50,9 @@ public class LDAPWSUtils implements IEPICConstants {
 	
 	static SensorSrvClient_PortType sensorStub;
 	
+	/**
+	 * @return
+	 */
 	public static DirectoryServiceOutInterface_PortType getLDAPStub()
 	{
 		if( ldapStub==null  )
@@ -61,8 +64,10 @@ public class LDAPWSUtils implements IEPICConstants {
 				e.printStackTrace();
 			}
 		return ldapStub;
-	}
-	
+	}	
+	/**
+	 * @return
+	 */
 	public static SensorSrvClient_PortType getSensorStub()
 	{
 		if( sensorStub==null  )
@@ -73,14 +78,30 @@ public class LDAPWSUtils implements IEPICConstants {
 				e.printStackTrace();
 			}
 		return sensorStub;
-	}
-	
-
-	
+	}	
+	/**
+	 * @param token
+	 * @param deviceId
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static PssuUnit getUnitByDeviceId(String token , String deviceId ) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException
 	{
 		return getLDAPStub().getUnitAssignedToDeviceForCrud(token, deviceId, CrudEnum.fromString("READ") );	
 	}
+	/**
+	 * @param token
+	 * @param deviceId
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 * @throws ServiceException
+	 */
 	public static PssuUser getUserFromDevice(String token, String deviceId) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException, ServiceException
 	{	
 		PssuUnit  unit = getUnitByDeviceId(token, deviceId  );	 
@@ -89,6 +110,16 @@ public class LDAPWSUtils implements IEPICConstants {
 		
 		return user;
 	}
+	/**
+	 * @param token
+	 * @param deviceId
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 * @throws ServiceException
+	 */
 	public static PssuVehicle getVehicleFromDevice(String token, String deviceId ) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException, ServiceException
 	{	
 		PssuUnit  unit = getUnitByDeviceId(token, deviceId  );	 
@@ -98,20 +129,82 @@ public class LDAPWSUtils implements IEPICConstants {
 		return vehicle;
 	}
 	//unitType - USER, VEHICLE
+	/**
+	 * @param token
+	 * @param placeId
+	 * @param unitType
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static DtoMission[] getMissionsForPlace(String token, String placeId,   UnitType unitType) throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
 		 return getLDAPStub().getMissionsAssignedToUnitForCrud(token, new UnitId( placeId, unitType )
 				, CrudEnum.fromString("READ") );
 	}
+	public static List<String> getOrganizationByUnit(  String unitId )
+	{ 	List<String> list = new ArrayList<String>();
+		try {
+			String[] o= getLDAPStub().getOrganizationIdsAssignedToUnitForCrud(EventServiceUtils.getLDAPToken(), new UnitId( unitId, UnitType.USER ), CrudEnum.READ );			
+			 if(o!=null&&o.length>0 )list=(List<String>) java.util.Arrays.asList( o ); // Collections.addAll(anotherList, numbers);
+		} catch (AuthorizationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (AuthenticationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ResourceNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	/**
+	 * @param token
+	 * @param deviceId
+	 * @param unitType
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static DtoMission[] getMissionsForDevice(String token, String deviceId,   UnitType unitType) throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
 		 return getLDAPStub().getMissionsAssignedToUnitForCrud(token, 
 				new UnitId( getUnitByDeviceId(token, deviceId).getUid(), unitType ), CrudEnum.fromString("READ") );
 	}
+	/**
+	 * @param token
+	 * @param uid
+	 * @param unitType
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static DtoMission[] getMissionsForUser(String token, String uid,   UnitType unitType) throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
 		 return getLDAPStub().getMissionsAssignedToUnitForCrud(token, new UnitId( uid, UnitType.fromValue(UnitType._USER)), CrudEnum.fromString("READ") );
 	}
+	/**
+	 * @param token
+	 * @param uid
+	 * @param deviceBean
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static void getUserByUID(String token, String uid ,  DeviceBean deviceBean ) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException
 	{
 		PssuUser user =  getLDAPStub().getUser(token, uid ) ;
@@ -121,20 +214,53 @@ public class LDAPWSUtils implements IEPICConstants {
 		deviceBean.setSn( user.getLastname() );
 		
 	}
+	/**
+	 * @param token
+	 * @param unitId
+	 * @param unitType
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static String getDeviceByUID( String token, String unitId, String unitType ) throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
 			String[] deviceId = getLDAPStub().getDeviceIdsAssignedToUnitForCrud(token, new UnitId(  unitId, UnitType.fromString(unitType  ) ),
 					CrudEnum.fromValue( CrudEnum._READ ) );			
 			return deviceId!=null?deviceId[0]:null;
 	}
+	/**
+	 * @param uid
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static String[] getUserProfilesByUid(  String uid  ) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException 
 	{	
 			return getLDAPStub().getProfileIdsAssignedToUserForCrud( EventServiceUtils.getLDAPToken(), uid, CrudEnum.fromValue( CrudEnum._READ ) );	
 	}
+	/**
+	 * @param token
+	 * @param placeId
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static DtoMission[] getMissionAssignedToPlace( String token, String placeId  ) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException 
 	{	if( token==null ) token = EventServiceUtils.getLDAPToken();
 			return getLDAPStub().getMissionsAssignedToUnitForCrud( token, new UnitId(  placeId, UnitType.fromString(UnitType._PLACE )  ), CrudEnum.fromValue( CrudEnum._READ ) );	
 	}
+	/**
+	 * @param placeId
+	 * @param userMissionList
+	 * @return
+	 */
 	public static boolean validatePlaceByUserMissions(String placeId, List<String> userMissionList)
 	{
 		Logger.info("Validating Places ["+placeId+"] by user missionsList ["+userMissionList+"]", LDAPWSUtils.class);
@@ -157,17 +283,21 @@ public class LDAPWSUtils implements IEPICConstants {
 		return isValid;
 	}
 	
+	/**
+	 * @param userMissionList
+	 * @return
+	 */
 	public static List<String>  getUserPlacesList(  List<String> userMissionList )
 	{
 		List<String> userPlacesList =null;
 		try
 		{	
 			if( userMissionList!=null&& userMissionList.size()>0 )
-			{	String token = EventServiceUtils.getLDAPToken();
+			{	//String token = "kaleem_moh-20150120-15f5c0d563a5411fa438934a21c58bdb";//EventServiceUtils.getLDAPToken();
 				userPlacesList = new ArrayList<String>();
 				for(String missionId: userMissionList )
 				{
-					PssuUnit[] pssunit = getLDAPStub().getUnitsAssignedToMissionForCrud( token, missionId, UnitType.fromValue(UnitType._PLACE),
+					PssuUnit[] pssunit = getLDAPStub().getUnitsAssignedToMissionForCrud( EventServiceUtils.getLDAPToken(), missionId, UnitType.fromValue(UnitType._PLACE),
 							CrudEnum.fromValue( CrudEnum._READ ) );
 					if(pssunit!=null&&pssunit.length>0)
 					{
@@ -182,11 +312,52 @@ public class LDAPWSUtils implements IEPICConstants {
 		return userPlacesList;
 		
 	}
+	public static List<String>  getUserPlacesList(  List<String> userMissionList, String userId )
+	{
+		List<String> userPlacesList =null;
+		try
+		{	
+			if( userMissionList!=null&& userMissionList.size()>0 )
+			{	//String token = "kaleem_moh-20150120-15f5c0d563a5411fa438934a21c58bdb";//EventServiceUtils.getLDAPToken();
+				userPlacesList = new ArrayList<String>();
+				for(String missionId: userMissionList )
+				{
+					PssuUnit[] pssunit = getLDAPStub().getUnitsAssignedToMissionForCrud( EventServiceUtils.getLDAPToken(), missionId, UnitType.fromValue(UnitType._PLACE),
+					CrudEnum.fromValue( CrudEnum._READ ) );
+					if(pssunit!=null&&pssunit.length>0)
+					{
+						for(PssuUnit unit: pssunit)
+						{
+							userPlacesList.add( unit.getUid() );
+						}
+					}
+				}			
+			}
+		}catch(Exception e){}
+		return userPlacesList;
+		
+	}
+	/**
+	 * @param token
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static DtoMission[] getAllMissions( String token ) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException
 	{
 		return getLDAPStub().getMissionsForCrud(token, CrudEnum.fromValue( CrudEnum._READ ) );
 		
 	}
+	/**
+	 * @param token
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static MissionFenceWrapper getAllFencesWrapper( String token ) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException
 	{
 		MissionFenceWrapper wrapper = new MissionFenceWrapper();
@@ -207,6 +378,10 @@ public class LDAPWSUtils implements IEPICConstants {
 		return wrapper;
 		
 	}
+	/**
+	 * @param token
+	 * @return
+	 */
 	public static List<PssuFence> getAllFences( String token ){
 		List<PssuFence> wrapper = new ArrayList<PssuFence>();
 		try{
@@ -230,6 +405,10 @@ public class LDAPWSUtils implements IEPICConstants {
 		return wrapper;
 		
 	}
+	/**
+	 * @param token
+	 * @return
+	 */
 	public static List<PssuPolygonalFence> getAllPolygonFences( String token ){
 		List<PssuPolygonalFence> wrapper = new ArrayList<PssuPolygonalFence>();
 		try{		
@@ -244,6 +423,11 @@ public class LDAPWSUtils implements IEPICConstants {
 		return wrapper;
 		
 	}
+	/**
+	 * @param token
+	 * @param missions
+	 * @return
+	 */
 	public static List<PssuPolygonalFence> getAllFencesByMission( String token, List<String> missions){
 		List<PssuPolygonalFence> wrapper = new ArrayList<PssuPolygonalFence>();
 		try{
@@ -266,22 +450,38 @@ public class LDAPWSUtils implements IEPICConstants {
 										wrapper.add( p   );
 									}
 								}
-							}
-							
+							}							
 						}
-					}
-				
+					}				
 			}
 		}
 		}catch(Exception e){ e.printStackTrace() ; }
-		return wrapper;
-		
+		return wrapper;		
 	}
+	/**
+	 * @param token
+	 * @param missionId
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static String[]  getUnitIdsByMission(String token,String missionId) throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
 		return  getLDAPStub().getUnitIdsAssignedToMissionForCrud(token, missionId, UnitType.fromValue(UnitType._PLACE ), CrudEnum.fromValue( CrudEnum._READ ) );
 		
 	}
+	/**
+	 * @param token
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static Map<String, String> getAllMissionsMap(String token )throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
 		Map<String, String> map = new HashMap<String, String>();
@@ -295,6 +495,16 @@ public class LDAPWSUtils implements IEPICConstants {
 		}		
 		return map;
 	}
+	/**
+	 * @param token
+	 * @param missionId
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static String getMissionNameById(String token,String missionId )throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
 		DtoMission mission = getLDAPStub().getMission(token, missionId ); 
@@ -307,12 +517,31 @@ public class LDAPWSUtils implements IEPICConstants {
 		if( resourceType!=null && resourceType.getDescription()!="" )return resourceType.getDescription();
 		return null;
 	}
+	/**
+	 * @param token
+	 * @param resourceTypeId
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static String getOrganizationById(String token,String resourceTypeId )throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
-		PssuResourceType resourceType = getLDAPStub().getResourceType(token, ResourcesTypesEnum.ORGANIZATION_TYPES , resourceTypeId); 
+		PssuResourceType resourceType = getLDAPStub().getResourceType(token, ResourcesTypesEnum.PLACE_TYPES , resourceTypeId); 
 		if( resourceType!=null && resourceType.getDescription()!="" )return resourceType.getDescription();
 		return null;
 	}
+	/**
+	 * @param token
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws ResourceNotFoundException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static Map<String,String> getCountriesMap(String token )throws AuthorizationException, AuthenticationException, ResourceNotFoundException, RemoteException, IllegalArgumentException
 	{
 		Map<String, String> map = null;
@@ -328,26 +557,28 @@ public class LDAPWSUtils implements IEPICConstants {
 		}
 		return map;
 	}
-	public static void main(String a[])
-	{		
-		
-		 try {String token = EventServiceUtils.getLDAPToken() ;
-			//System.out.println( getMissionUnitsMap(token ) );
-		 List<PssuFence> fences = getAllFences(token);
-		 if(fences!=null && fences.size() >0 )
-		 {
-			 for( PssuFence f : fences )
-			 {
-				 System.out.println( f.getUid() + " : "+f.getDescription() +" :" + f.getSeverity() );
-			 }
-		 }
+	public static void main(String a[]){
+
+		 try {
+			List<String> l =new ArrayList<String>();
+			l.add("PK");
+		  System.out.println(getOrganizationByUnit(  "aleksandar.dulovic" ) );
 			
 		}  catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+			
 	}
+	
+	/**
+	 * @param token
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws AuthenticationException
+	 * @throws RemoteException
+	 * @throws IllegalArgumentException
+	 */
 	public static Map<DtoMission, List<String>> getMissionUnitsMap( String token) throws AuthorizationException, AuthenticationException, RemoteException, IllegalArgumentException
 	{
 		Map<DtoMission, List<String>> missionUnitsMap = new HashMap<DtoMission, List<String>>();
@@ -376,6 +607,9 @@ public class LDAPWSUtils implements IEPICConstants {
 		return missionUnitsMap;
 		
 	}
+	/**
+	 * @param placesMap
+	 */
 	public static void setMissionToPlaces( Map placesMap )
 	{
 		Logger.debug( " ## START LDAPWSUtils.setMissionToPlaces :"+CommonUtils.getUTCdatetimeAsString(), LDAPWSUtils.class );
@@ -419,6 +653,14 @@ public class LDAPWSUtils implements IEPICConstants {
 		Logger.debug( " ## END LDAPWSUtils.setMissionToPlaces :"+CommonUtils.getUTCdatetimeAsString(), LDAPWSUtils.class );
 		
 	}
+	/**
+	 * @param unitId
+	 * @param token
+	 * @param missionId
+	 * @param unitType
+	 * @return LocationValue
+	 * @throws RemoteException
+	 */
 	public static LocationValue getUnitLastLocation( String unitId, String token, String missionId, 
 			lu.hitec.pss.soap.sensor.client._15_x.UnitType unitType  ) throws RemoteException
 	{  // System.out.println(" 320 : unitId "+unitId+" unitType " + unitType );
@@ -426,6 +668,11 @@ public class LDAPWSUtils implements IEPICConstants {
 		//System.out.println(" unitIdObj "+unitIdObj + " mission :" + missionId );  
 		return getSensorStub().getUnitLastLocation(token, unitIdObj, missionId  );
 	}
+	/**
+	 * @param token
+	 * @param missionId
+	 * @return
+	 */
 	public static PssuFence[] getAllMiddlewareFencesForMission(String token, String missionId)
 	{
 		PssuFence[] fences =null;
@@ -449,7 +696,12 @@ public class LDAPWSUtils implements IEPICConstants {
 		}
 		return fences;
 	}
-	public static List<DeviceBean> getUnitHistorical( String collectingDeviceId  )
+	/**
+	 * @param collectingDeviceId
+	 * @param type
+	 * @return
+	 */
+	public static List<DeviceBean> getUnitHistorical( String collectingDeviceId , String type )
 	{
 		String token = EventServiceUtils.getLDAPToken();
 		 List<String> mList = LDAPUtils.getLDAPUserDtlsMap().get( collectingDeviceId ).getAuthorizedGroupsList();	
@@ -458,7 +710,15 @@ public class LDAPWSUtils implements IEPICConstants {
 		 
 		 lu.hitec.pss.soap.sensor.client._15_x.UnitId unitId = new lu.hitec.pss.soap.sensor.client._15_x.UnitId();
 		 try {
-			PssuUnit userUnit = getUnitByDeviceId(token, collectingDeviceId  );
+			 PssuUnit userUnit = null;
+			  if( type.equalsIgnoreCase( KEY_STAFF )){
+			 userUnit = getUnitByDeviceId(token, collectingDeviceId  );
+			 unitId.setUnitType(  lu.hitec.pss.soap.sensor.client._15_x.UnitType.fromString( "USER" )  );
+			  }
+			  else if( type.equalsIgnoreCase( KEY_VEHICLE )){
+				  userUnit= getVehicleFromDevice(token, collectingDeviceId );
+				  unitId.setUnitType(  lu.hitec.pss.soap.sensor.client._15_x.UnitType.fromString( "VEHICLE" )  );
+			  }
 			unitId.setUid( userUnit.getUid() );
 		} catch (AuthorizationException e1) {
 			// TODO Auto-generated catch block
@@ -472,29 +732,36 @@ public class LDAPWSUtils implements IEPICConstants {
 		} catch (IllegalArgumentException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		 
-		 unitId.setUnitType(  lu.hitec.pss.soap.sensor.client._15_x.UnitType.fromString( "USER" )  );
-		 
 		List<DeviceBean> allStaffDevices = new ArrayList<DeviceBean>();
-		RangeLimit rl = SensorServiceUtils.getRangeLimit( getStartDate().getTime(), getEndDate().getTime(), SubRangeType.CONTINUOUS_LATEST	, 10000 );
+		RangeLimit rl = SensorServiceUtils.getRangeLimit( getStartDate().getTime(), getEndDate().getTime(), SubRangeType.CONTINUOUS_LATEST	, 30000 );
 		try {
 			LocationRange lr = getSensorStub().getUnitLocationRangeForDevice( token,
 					unitId, missionId , rl, collectingDeviceId );
 			SensorServiceUtils.setAllEmergencyHotspots(  token, unitId.getUid() ,
-					lr, allStaffDevices , UnitType._USER );
+					lr, allStaffDevices , unitId.getUnitType().getValue() );
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return allStaffDevices;
 	}
+	/**
+	 * @return
+	 */
 	static Calendar getEndDate(){
 		Calendar endDate = Calendar.getInstance();
 		
 		return endDate;
 	}
 	
+	/**
+	 * @return
+	 */
 	static Calendar getStartDate(){
 		Calendar startDate = Calendar.getInstance();
 		startDate.add(Calendar.MONTH, -3 );

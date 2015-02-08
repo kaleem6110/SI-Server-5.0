@@ -56,6 +56,18 @@ public class EventSrvClientProxy implements lu.hitec.pss.soap.event.client._25_x
     return eventSrvClient_PortType.getNotifier(token, notifierId);
   }
   
+  public lu.hitec.pss.soap.event.client._25_x.Project getProjectDetails() throws java.rmi.RemoteException{
+    if (eventSrvClient_PortType == null)
+      _initEventSrvClientProxy();
+    return eventSrvClient_PortType.getProjectDetails();
+  }
+  
+  public lu.hitec.pss.soap.event.client._25_x.Event[] searchEventsByString(java.lang.String token, java.lang.String missionId, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.client._25_x.AuthorizationException, lu.hitec.pss.soap.event.client._25_x.MissionClosedException, lu.hitec.pss.soap.event.client._25_x.AuthenticationException, lu.hitec.pss.soap.event.client._25_x.ResourceNotFoundException{
+    if (eventSrvClient_PortType == null)
+      _initEventSrvClientProxy();
+    return eventSrvClient_PortType.searchEventsByString(token, missionId, searchString);
+  }
+  
   public lu.hitec.pss.soap.event.client._25_x.MissionStatus[] getMissionStatus(java.lang.String token) throws java.rmi.RemoteException{
     if (eventSrvClient_PortType == null)
       _initEventSrvClientProxy();
@@ -68,16 +80,10 @@ public class EventSrvClientProxy implements lu.hitec.pss.soap.event.client._25_x
     return eventSrvClient_PortType.searchEventsByFence(token, missionId, fenceId);
   }
   
-  public lu.hitec.pss.soap.event.client._25_x.Event[] searchEventsByString(java.lang.String token, java.lang.String missionId, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.client._25_x.AuthorizationException, lu.hitec.pss.soap.event.client._25_x.MissionClosedException, lu.hitec.pss.soap.event.client._25_x.AuthenticationException, lu.hitec.pss.soap.event.client._25_x.ResourceNotFoundException{
+  public lu.hitec.pss.soap.event.client._25_x.MissionUpdate getEventUpdatesByMission(java.lang.String token, java.lang.String mission, java.util.Calendar since, java.lang.String[] filter, int maxEventsPerMission) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.client._25_x.AuthorizationException, lu.hitec.pss.soap.event.client._25_x.MissionClosedException, lu.hitec.pss.soap.event.client._25_x.AuthenticationException, lu.hitec.pss.soap.event.client._25_x.ResourceNotFoundException{
     if (eventSrvClient_PortType == null)
       _initEventSrvClientProxy();
-    return eventSrvClient_PortType.searchEventsByString(token, missionId, searchString);
-  }
-  
-  public lu.hitec.pss.soap.event.client._25_x.Project getProjectDetails() throws java.rmi.RemoteException{
-    if (eventSrvClient_PortType == null)
-      _initEventSrvClientProxy();
-    return eventSrvClient_PortType.getProjectDetails();
+    return eventSrvClient_PortType.getEventUpdatesByMission(token, mission, since, filter, maxEventsPerMission);
   }
   
   public lu.hitec.pss.soap.event.client._25_x.ListOfMissionUpdates getEventUpdatesForMyMissions(java.lang.String token, java.util.Calendar since, java.lang.String[] filter, int maxEventsPerMission) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.client._25_x.AuthorizationException, lu.hitec.pss.soap.event.client._25_x.AuthenticationException{
@@ -86,16 +92,16 @@ public class EventSrvClientProxy implements lu.hitec.pss.soap.event.client._25_x
     return eventSrvClient_PortType.getEventUpdatesForMyMissions(token, since, filter, maxEventsPerMission);
   }
   
+  public lu.hitec.pss.soap.event.client._25_x.MissionNotifiersStatus getMissionNotifiersStatus(java.lang.String token, java.lang.String missionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.client._25_x.AuthorizationException, lu.hitec.pss.soap.event.client._25_x.MissionClosedException, lu.hitec.pss.soap.event.client._25_x.AuthenticationException, lu.hitec.pss.soap.event.client._25_x.ResourceNotFoundException{
+    if (eventSrvClient_PortType == null)
+      _initEventSrvClientProxy();
+    return eventSrvClient_PortType.getMissionNotifiersStatus(token, missionId);
+  }
+  
   public lu.hitec.pss.soap.event.client._25_x.Event[] searchEventsByCircleZone(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.event.client._25_x.SimpleCircularZone circle) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.client._25_x.AuthorizationException, lu.hitec.pss.soap.event.client._25_x.MissionClosedException, lu.hitec.pss.soap.event.client._25_x.AuthenticationException, lu.hitec.pss.soap.event.client._25_x.ResourceNotFoundException{
     if (eventSrvClient_PortType == null)
       _initEventSrvClientProxy();
     return eventSrvClient_PortType.searchEventsByCircleZone(token, missionId, circle);
-  }
-  
-  public lu.hitec.pss.soap.event.client._25_x.MissionUpdate getEventUpdatesByMission(java.lang.String token, java.lang.String mission, java.util.Calendar since, java.lang.String[] filter, int maxEventsPerMission) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.client._25_x.AuthorizationException, lu.hitec.pss.soap.event.client._25_x.MissionClosedException, lu.hitec.pss.soap.event.client._25_x.AuthenticationException, lu.hitec.pss.soap.event.client._25_x.ResourceNotFoundException{
-    if (eventSrvClient_PortType == null)
-      _initEventSrvClientProxy();
-    return eventSrvClient_PortType.getEventUpdatesByMission(token, mission, since, filter, maxEventsPerMission);
   }
   
   public lu.hitec.pss.soap.event.client._25_x.Event[] searchEventsByPolygonZone(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.event.client._25_x.SimplePolygonZone polygon) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.client._25_x.AuthorizationException, lu.hitec.pss.soap.event.client._25_x.MissionClosedException, lu.hitec.pss.soap.event.client._25_x.AuthenticationException, lu.hitec.pss.soap.event.client._25_x.ResourceNotFoundException{

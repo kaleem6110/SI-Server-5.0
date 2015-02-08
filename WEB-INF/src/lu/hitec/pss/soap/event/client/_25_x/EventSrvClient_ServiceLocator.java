@@ -22,7 +22,7 @@ public class EventSrvClient_ServiceLocator extends org.apache.axis.client.Servic
     }
 
     // Use to get a proxy class for EventSrvClientPort
-    private java.lang.String EventSrvClientPort_address = "http://middleware-dev.globalepic.lu:80/eventservice/out/soap/EventService";
+    private java.lang.String EventSrvClientPort_address = "http://middleware.globalepic.lu:80/eventservice/out/soap/EventService";
 
     public java.lang.String getEventSrvClientPortAddress() {
         return EventSrvClientPort_address;

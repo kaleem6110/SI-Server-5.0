@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import lu.hitec.pss.soap.sensor.client._15_x.LocationValue;
+import lu.hitec.pss.soap.sensor.client._15_x.RangeLimit;
+import lu.hitec.pss.soap.sensor.client._15_x.SubRangeType;
 import lu.hitec.pss.soap.sensor.client._15_x.UnitId;
 
 import org.jdom.Element;
@@ -15,6 +17,7 @@ import com.enterprisehorizons.magma.ecosystem.model.Cache;
 import com.enterprisehorizons.util.Logger;
 import com.enterprisehorizons.util.StringUtils;
 import com.enterprisehorizons.util.XMLUtils;
+import com.primavera.a.c.a.u;
 import com.primavera.integration.client.bo.enm.UnitType;
 import com.spacetimeinsight.config.scheduler.Parameter;
 import com.spacetimeinsight.config.scheduler.Parameters;
@@ -27,6 +30,8 @@ import com.wfp.utils.EventServiceUtils;
 import com.wfp.utils.IEPICConstants;
 import com.wfp.utils.LDAPUtils;
 import com.wfp.utils.LDAPWSUtils;
+import com.wfp.utils.SensorServiceUtils;
+import com.wfp.utils.SoapUtils;
 import com.wfp.utils.ValidateCertificateCall;
 /**
  * 
@@ -66,11 +71,15 @@ public class RestTrackingJob implements CustomJobTask,IEPICConstants
 	private void getRestTrackingDtls()
 	{	
 		List<DeviceBean> staffList =new ArrayList<DeviceBean>();;
-		List<DeviceBean> vehicleList =new ArrayList<DeviceBean>();;
+		List<DeviceBean> vehicleList =new ArrayList<DeviceBean>();
+		List<DeviceBean> terminalList =new ArrayList<DeviceBean>();
 		List<DeviceBean> airplaneList =new ArrayList<DeviceBean>();
 		//Getting the middleware token.
 		String token = EventServiceUtils.getLDAPToken();
-		int devices=0,staff=0,vehicle=0,airplane=0;
+		int devices=0,staff=0,vehicle=0,airplane=0,nosaco=0;
+		
+		RangeLimit rl = SensorServiceUtils.getRangeLimit( SoapUtils.getStartDate().getTime(), SoapUtils.getEndDate().getTime() ,
+				SubRangeType.CONTINUOUS_LATEST, 30000 );
 		
 		//Getting all the ldap devices from the Cache.
 		List<String> ldapDeviceList =( List<String>)LDAPCacheJob.getLDAPCacheData(PARAM_ALLGROUPS);	
@@ -84,27 +93,35 @@ public class RestTrackingJob implements CustomJobTask,IEPICConstants
 		{
 			for (Map.Entry<String, LDAPUserBean> entry : ldapUserMap.entrySet()) 
 			{	devices++;
-				//System.out.println("Key : " + entry.getKey() + " Value : "+ entry.getValue());
 				
 				LDAPUserBean userBean = entry.getValue();
 				List<String> deviceMissionList = LDAPUtils.getLDAPUserDtlsMap().get( userBean.getDeviceId() ).getAuthorizedGroupsList();
-				//Logger.info(" ### userBean.getDeviceId() "+ userBean.getDeviceId() +" deviceMissionList :  "+deviceMissionList , RestTrackingJob.class );
 				if( deviceMissionList!=null&& userBean!=null && userBean.getUnit().equals( KEY_STAFF )&&
 						userBean.getDeviceId()!=null&& !userBean.getDeviceId().isEmpty())
 				{			
 					staff++;
-					addLocalization( userBean, staffList,KEY_STAFF , token,
+					addLocalization( rl, userBean, staffList,KEY_STAFF , token,
 							deviceMissionList.size()>0?deviceMissionList.get(0):"AE" ,lu.hitec.pss.soap.sensor.client._15_x.UnitType.USER );				
 				}
-				else if( userBean!=null && userBean.getUnit().equals( KEY_VEHICLE )&& userBean.getDeviceId()!=null&& !userBean.getDeviceId().isEmpty())
-				{	vehicle++;
-					addLocalization( userBean, vehicleList ,KEY_VEHICLE , token, 
+				else if( userBean!=null && userBean.getUnit().equals( KEY_NOSACO_TERMINALS )&& userBean.getDeviceId()!=null&& !userBean.getDeviceId().isEmpty())
+				{
+					nosaco++;
+					//Logger.info(userBean.getCn()+" : ### userBean.getDeviceId() "+ userBean.getDeviceId() +" deviceMissionList :  "+deviceMissionList , RestTrackingJob.class );
+					
+					addLocalization(rl, userBean, terminalList ,KEY_NOSACO_TERMINALS , token, 
 							deviceMissionList.size()>0?deviceMissionList.get(0):"AE", lu.hitec.pss.soap.sensor.client._15_x.UnitType.VEHICLE );
+				}
+				else if( userBean!=null && userBean.getUnit().equals( KEY_VEHICLE )&& userBean.getDeviceId()!=null&& !userBean.getDeviceId().isEmpty())
+				{	
+					vehicle++;
+						addLocalization( rl, userBean, vehicleList ,KEY_VEHICLE , token, 
+								deviceMissionList.size()>0?deviceMissionList.get(0):"AE", lu.hitec.pss.soap.sensor.client._15_x.UnitType.VEHICLE );
 					
 				}
+				
 				else if( userBean!=null && userBean.getUnit().equals( KEY_AIRPLANE )&& userBean.getDeviceId()!=null&& !userBean.getDeviceId().isEmpty())
 				{	airplane++;
-					addLocalization( userBean, airplaneList,KEY_AIRPLANE , token, 
+					addLocalization(rl,  userBean, airplaneList,KEY_AIRPLANE , token, 
 							deviceMissionList.size()>0?deviceMissionList.get(0):"AE", lu.hitec.pss.soap.sensor.client._15_x.UnitType.VEHICLE );
 				}
 			}			
@@ -137,19 +154,21 @@ public class RestTrackingJob implements CustomJobTask,IEPICConstants
 		Logger.debug("Before putting Staff to Cache :staffList : "+staffList.size() ,RestTrackingJob.class );	
 		getRestServiceMapCache().put(KEY_STAFF, staffList);
 		
+		getRestServiceMapCache().put(KEY_NOSACO_TERMINALS, terminalList );
+		
 		Logger.debug("Before putting Airplanes to Cache : airplaneList :"+airplaneList.size() ,RestTrackingJob.class );
 		getRestServiceMapCache().put(KEY_AIRPLANE, airplaneList);	
 		
 		if( ! (LDAPCacheJob.getDeviceOffsetMap().size() >0 ) )		
 				LDAPCacheJob.setDeviceOffsetMap( deviceOffset  );
 		
-		Logger.info( " Count :Devices "+devices+" : Staff :"+staff+": Vehicles :"+vehicle+" :Airplanes :"+airplane, RestTrackingJob.class );
+		Logger.info( " Count :Devices "+devices+" : Staff :"+staff+": Vehicles :"+vehicle+" :Airplanes :"+airplane +" terminals :"+terminalList.size()+" : nosaco :"+nosaco, RestTrackingJob.class );
 		
 	}
 	
 	
-	private void addLocalization( LDAPUserBean userBean, List<DeviceBean> indigoList, String type, String token ,String missionId,
-			lu.hitec.pss.soap.sensor.client._15_x.UnitType unitType)
+	private void addLocalization( RangeLimit rl ,LDAPUserBean userBean, List<DeviceBean> indigoList, String type, String token ,String missionId,
+			lu.hitec.pss.soap.sensor.client._15_x.UnitType unitType )
 	{
 		
 		try 
@@ -161,6 +180,8 @@ public class RestTrackingJob implements CustomJobTask,IEPICConstants
 			//LocationValue lv = LDAPWSUtils.getUnitLastLocation(id , token, missionId, unitType);
 			LocationValue lv = LDAPWSUtils.getSensorStub().getUnitLastLocationForDevice(token, new UnitId( id, unitType) , missionId, 
 					userBean.getDeviceId() );
+			//if( userBean.getCn().contains("nreg")|| userBean.getCn().contains("nrap"))
+				//Logger.info(" lv :"+lv +" : missionId :"+missionId +" : deviceId :"+userBean.getDeviceId() , RestTrackingJob.class );
 			if( lv!=null )
 			{
 				is.setLatitude( ""+lv.getLat() );
@@ -168,6 +189,23 @@ public class RestTrackingJob implements CustomJobTask,IEPICConstants
 				is.setTime( CommonUtils.formatDate( lv.getTime().getTime() )  );
 				is.setName( userBean.getDeviceId() );
 				String offset=null;	
+				String p = SoapUtils.getAllWaypointsCount(rl,  id , type, missionId, 30000, is.getName(), token );
+				is.setTotalWaypoints( "1" );
+				is.setNoOfDays( "1" );
+				is.setFirstReported( is.getTime() );				
+				if(p!=null&& !p.isEmpty())
+				{
+					if(p.contains("DELIM")) 
+					{
+						String s[] =p.split("DELIM");
+						is.setTotalWaypoints( s[1] );
+						is.setNoOfDays(s[2] );
+						String d = s[2];
+						if(d=="0") is.setNoOfDays("1" );
+						
+						is.setFirstReported( s[0] );
+					}
+				}				
 				//System.out.println( missionId + " : "+ userBean.getDeviceId()+" "+ is.getTime() );
 				if( LDAPCacheJob.getDeviceOffsetMap().size() >0 && LDAPCacheJob.getDeviceOffsetMap().containsKey(is.getName() ) )
 				{

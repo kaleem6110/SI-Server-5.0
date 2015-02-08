@@ -112,7 +112,7 @@ public class RBRegionsUtils implements IEPICConstants {
 	public static  String getDanzerZoneName(Rubberbandregions rubberBandedRegions,
 			com.enterprisehorizons.magma.models.util.Coordinate coord) {
 		if(rubberBandedRegions != null ){
-			Rubberbandregion rbRegion = null;
+			Rubberbandregion rbRegion = null; 
 			for (int i=0;i <rubberBandedRegions.getRubberbandregionCount();i++){
 				rbRegion =rubberBandedRegions.getRubberbandregion(i);
 				//checking whether the region is inside or outside the region

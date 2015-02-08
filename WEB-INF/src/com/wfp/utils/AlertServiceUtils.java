@@ -12,6 +12,11 @@ import com.spacetimeinsight.alerts.utils.AlertUtils;
 import com.spacetimeinsight.db.config.alerts.model.AlertPriority;
 import com.spacetimeinsight.db.model.util.DataModelsCache;
 import com.spacetimeinsight.db.model.util.SecurityDBUtils;
+import com.spacetimeinsight.filter.CompositeCriteria;
+import com.spacetimeinsight.filter.ICriteria;
+import com.spacetimeinsight.filter.SimpleCriteria;
+import com.spacetimeinsight.filter.ICriteria.EType;
+import com.spacetimeinsight.filter.ISimpleCriteria.EOperator;
 import com.wfp.db.platform.model.AlertService;
 import com.wfp.db.platform.model.MessageTemplate;
 import com.wfp.db.util.PostgresSearchCriteriaDateFormatter;
@@ -41,7 +46,7 @@ public class AlertServiceUtils implements IEPICConstants {
 				try {
 					long templateId = getTemplateId(dangerZoneName);
 					Date date = new Date();
-					boolean isDuplicate = validateAlert(templateId, uid, mt,   new Date());System.out.println(" isDuplicate "+ isDuplicate );
+					boolean isDuplicate = validateAlert(templateId, uid, mt,   new Date());//System.out.println(" isDuplicate "+ isDuplicate );
 					if(!isDuplicate ){
 					//if( 2>1){
 					
@@ -124,27 +129,27 @@ public class AlertServiceUtils implements IEPICConstants {
 		subject="";
 		if(deviceId!=null&& deviceId.startsWith("trackMe-")&& deviceId.length()==16 )
 		{
-			System.out.println("Sending email to radio........");
+			Logger.info("Sending email to radio........", AlertServiceUtils.class );
 			//For dev,qa,prd
 			//String toEmail = "dmr-"+deviceId.substring(8, 12)+"@globalepic.lu";
 			List<String> toEmailAddress = new ArrayList<String>();
 			//for TRN
 			String toEmail = LDAPUtils.getRadioServerEmail( deviceId.substring(8, 12) );//
-			System.out.println("132: toEmail : "+toEmail );
+			Logger.info("132: toEmail : "+toEmail, AlertServiceUtils.class );
 			if( toEmail==null || toEmail.isEmpty() ) toEmail = "dmr-comm@globalepic.lu";
 			else if( toEmail.indexOf(",")==-1 ) toEmailAddress.add( toEmail );
 			else{
 				String s[] = toEmail.split(",");
 				for(String t: s )toEmailAddress.add( t);
 			}
-			System.out.println(" toEmail "+ toEmail );
+			Logger.info(" toEmail "+ toEmail , AlertServiceUtils.class );
 			String messageBodyPrefix= ":"+deviceId.substring(12,16)+" "; //subject prefixed to message.
 			messageBody =  messageBodyPrefix+ subject + messageBody;
 			
 			
 			MailSender.sendEmail(toEmailAddress, subject, messageBody );
-			System.out.println(" Email sent to Radio VHF Callsign: "+deviceId.substring(8,16) +": @ address :"+toEmail );
-			System.out.println(": subject: "+subject+": body : "+messageBody ); emailSent=true;
+			Logger.info(" Email sent to Radio VHF Callsign: "+deviceId.substring(8,16) +": @ address :"+toEmail , AlertServiceUtils.class );
+			Logger.info(": subject: "+subject+": body : "+messageBody , AlertServiceUtils.class ); emailSent=true;
 		}
 		
 		return emailSent;
@@ -281,31 +286,57 @@ public class AlertServiceUtils implements IEPICConstants {
 	private static boolean validateAlert(long templateId, String mailId, MessageTemplate mt, Date date) {
 		// TODO Auto-generated method stub
 		AlertService alertService = new AlertService();
-		SearchCriteria criteria = new SearchCriteria();
-		criteria.setSearchCriteriaFormatter(new PostgresSearchCriteriaDateFormatter());
-		criteria.addCritirea(PROPERTY_TEMPLATE_ID, SearchCriteria.EQUALS, templateId);
-		criteria.addCritirea(PROPERTY_MSG_TO, SearchCriteria.EQUALS, mailId);
-		criteria.addCritirea(PROPERTY_SEND_ON, SearchCriteria.EQUALS, date);
+		
+		List<ICriteria> criteriaList = new ArrayList<ICriteria>();
 		
 		//TODO Kaleem
 		
-//		List list  = alertService.searchData(criteria);
-//		if(list != null && list.size()> 0){
-//			return true;
-//		}
-//		date.setHours(0);
-//		date.setMinutes(0);
-//		date.setSeconds(0);
-//		criteria.clearAll();
-//		criteria.addCritirea(PROPERTY_SEND_ON, SearchCriteria.GREATER_THAN_EQUALS, date);
-//		criteria.addCritirea(PROPERTY_TEMPLATE_ID, SearchCriteria.EQUALS, templateId);
-//		criteria.addCritirea(PROPERTY_MSG_TO, SearchCriteria.EQUALS, mailId);
-//		
-//		List msgperDayFilterList  = alertService.searchData(criteria);
-//		if(msgperDayFilterList != null && msgperDayFilterList.size()> 0 && ((mt.getRecurPerDay()!= null &&  mt.getRecurPerDay().intValue() != 0) 
-//				&& mt.getRecurPerDay() < msgperDayFilterList.size())){
-//			return true;
-//		}
+		CompositeCriteria compositeCriteria = new CompositeCriteria (EType.All );
+		
+		SimpleCriteria simpleCriteria1 = new SimpleCriteria();
+		simpleCriteria1.setFieldName( PROPERTY_TEMPLATE_ID );
+		simpleCriteria1.setOperator(EOperator.Equals);
+		simpleCriteria1.setValue(templateId );
+		criteriaList.add( simpleCriteria1 );
+		
+		SimpleCriteria simpleCriteria2 = new SimpleCriteria();
+		simpleCriteria2.setFieldName( PROPERTY_MSG_TO );
+		simpleCriteria2.setOperator(EOperator.Equals);
+		simpleCriteria2.setValue(mailId );
+		criteriaList.add( simpleCriteria2 );
+		
+		SimpleCriteria simpleCriteria3 = new SimpleCriteria();
+		simpleCriteria3.setFieldName( PROPERTY_SEND_ON );
+		simpleCriteria3.setOperator(EOperator.Equals);
+		simpleCriteria3.setValue( date );
+		criteriaList.add( simpleCriteria3 );
+		
+		compositeCriteria.setCriterias( criteriaList );
+		
+		List list  = alertService.searchData( compositeCriteria );
+		if(list != null && list.size()> 0){
+			return true;
+		}
+		criteriaList.remove( simpleCriteria3 );
+		
+		date.setHours(0);
+		date.setMinutes(0);
+		date.setSeconds(0);
+		simpleCriteria3 = new SimpleCriteria();
+		simpleCriteria3.setFieldName( PROPERTY_SEND_ON );
+		simpleCriteria3.setOperator(EOperator.GreaterThanEquals);
+		simpleCriteria3.setValue( date );
+		criteriaList.add( simpleCriteria3 );
+		
+		compositeCriteria.setCriterias( criteriaList );
+		
+		
+		
+		List msgperDayFilterList  = alertService.searchData( compositeCriteria );
+		if(msgperDayFilterList != null && msgperDayFilterList.size()> 0 && ((mt.getRecurPerDay()!= null &&  mt.getRecurPerDay().intValue() != 0) 
+				&& mt.getRecurPerDay() < msgperDayFilterList.size())){
+			return true;
+		}
 		
 		return false;
 	}

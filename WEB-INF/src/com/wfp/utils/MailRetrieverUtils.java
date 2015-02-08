@@ -161,6 +161,7 @@ public class MailRetrieverUtils {
 
 		Renderable[] msg = getMessages("pop.service.emergency.lu", "sti",
 				"gXx8eyJ6OO6DzJRlnZEz", "pop3");
+		System.out.println(" msg "+msg.length);
 		for (int i = 0; i < msg.length; i++) {
 			System.out.println("Subject:" + msg[i].getSubject());
 			System.out.println("Ref Id:" + msg[i].getReferenceId());

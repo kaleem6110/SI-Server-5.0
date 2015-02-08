@@ -19,10 +19,12 @@ public class DeviceCapabilityEnum implements java.io.Serializable {
 
     public static final java.lang.String _CAMERA = "CAMERA";
     public static final java.lang.String _GPS = "GPS";
+    public static final java.lang.String _SR_HEARTBEATRATE = "SR_HEARTBEATRATE";
     public static final java.lang.String _SR_RSSIPOWER = "SR_RSSIPOWER";
     public static final java.lang.String _SR_TEMPERATURE = "SR_TEMPERATURE";
     public static final DeviceCapabilityEnum CAMERA = new DeviceCapabilityEnum(_CAMERA);
     public static final DeviceCapabilityEnum GPS = new DeviceCapabilityEnum(_GPS);
+    public static final DeviceCapabilityEnum SR_HEARTBEATRATE = new DeviceCapabilityEnum(_SR_HEARTBEATRATE);
     public static final DeviceCapabilityEnum SR_RSSIPOWER = new DeviceCapabilityEnum(_SR_RSSIPOWER);
     public static final DeviceCapabilityEnum SR_TEMPERATURE = new DeviceCapabilityEnum(_SR_TEMPERATURE);
     public java.lang.String getValue() { return _value_;}

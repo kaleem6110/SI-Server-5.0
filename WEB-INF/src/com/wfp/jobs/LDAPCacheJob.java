@@ -63,7 +63,7 @@ public class LDAPCacheJob implements CustomJobTask, IEPICConstants {
 	//public static boolean executeCustomTask()
 	{
 		Logger.info("### START LDAP service Job: "+CommonUtils.getUTCdatetimeAsString(), LDAPCacheJob.class );
-		int staff=0,vehicle=0,plane=0;
+		int staff=0,vehicle=0,plane=0,nosaco=0;
 		String token = EventServiceUtils.getLDAPToken();
 		DirectoryServiceOutInterface_PortType stub=null;
 		try {
@@ -118,6 +118,11 @@ public class LDAPCacheJob implements CustomJobTask, IEPICConstants {
 			try
 			{
 				for(String device: allVehicleDevices ){vehicle++;
+				if( device.contains("nreg") || device.contains("nrap") )
+				{	LDAPUtils.setLDAPUserDtls( device , KEY_NOSACO_TERMINALS , token, stub );
+				  nosaco++;
+				}
+				else	
 				LDAPUtils.setLDAPUserDtls( device , KEY_VEHICLE , token, stub );				
 				}
 			}
@@ -141,7 +146,7 @@ public class LDAPCacheJob implements CustomJobTask, IEPICConstants {
 		
 		lastRefreshTime = CommonUtils.getUTCdatetimeAsString();
 		if(allDevices!=null )Logger.info("### , LDAPCacheJob.class LDAP Devices count :"+ allDevices.size(), LDAPCacheJob.class );
-		Logger.info("### , LDAPCacheJob.classStaff : "+staff+": Vehicle: "+vehicle+" : Plane :"+plane , LDAPCacheJob.class );
+		Logger.info("### , LDAPCacheJob.classStaff : "+staff+": Vehicle: "+vehicle+" nosaco :"+nosaco+" : Plane :"+plane , LDAPCacheJob.class );
 		Logger.info("### , LDAPCacheJob.class END LDAP service Job : "+lastRefreshTime, LDAPCacheJob.class );
 		return true;
 	}

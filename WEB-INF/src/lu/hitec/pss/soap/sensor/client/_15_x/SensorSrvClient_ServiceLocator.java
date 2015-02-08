@@ -22,7 +22,7 @@ public class SensorSrvClient_ServiceLocator extends org.apache.axis.client.Servi
     }
 
     // Use to get a proxy class for SensorSrvClientPort
-    private java.lang.String SensorSrvClientPort_address = "http://middleware-dev.globalepic.lu:80/sensorservice/out/soap/SensorService";
+    private java.lang.String SensorSrvClientPort_address = "http://middleware.globalepic.lu:80/sensorservice/out/soap/SensorService";
 
     public java.lang.String getSensorSrvClientPortAddress() {
         return SensorSrvClientPort_address;

@@ -49,7 +49,7 @@ public class SensorServiceUtils implements IEPICConstants {
 	public static Map<String, List<DeviceBean>> getEmergencySpotDtls(
 			Date startDate, Date endDate, int lpCount, 	Map<String, String> paramsMap ) 
 	{
-		System.out.println(CommonUtils.getUTCdatetimeAsString()+ ": START : SensorServiceUtils.getEmergencySpotDtls  " );
+		//System.out.println(CommonUtils.getUTCdatetimeAsString()+ ": START : SensorServiceUtils.getEmergencySpotDtls  " );
 		SensorSrvClientPortBindingStub stub = null;
 		Map<String, List<DeviceBean>> map = new HashMap<String, List<DeviceBean>>();
 		try 
@@ -58,16 +58,16 @@ public class SensorServiceUtils implements IEPICConstants {
 			List<DeviceBean> allStaffDevices = new ArrayList<DeviceBean>();
 			List<DeviceBean> allVehicleDevices = new ArrayList<DeviceBean>();
 			List<DeviceBean> allAirplaneDevices = new ArrayList<DeviceBean>();
-			String token = EventServiceUtils.getLDAPToken();System.out.println("61 token :"+token );
+			String token = EventServiceUtils.getLDAPToken();//System.out.println("61 token :"+token );
 			List<String> allMissions = LDAPUtils.getAllMissions();
-			System.out.println(" allMissions : "+ allMissions );
+			//System.out.println(" allMissions : "+ allMissions );
 			//LDAPUtils.getAllDeviceInDomain();
 		
 			if (allMissions != null) 
 			{
 				map = new HashMap<String, List<DeviceBean>>();
 				for (String mission : allMissions)
-				{	System.out.println(" mission : "+ mission );
+				{	//System.out.println(" mission : "+ mission );
 					UnitsReports unitReports= stub.getAllUnitsReports( token , mission );	
 					
 					//System.out.println(" unitReports : "+ unitReports );
@@ -147,7 +147,7 @@ public class SensorServiceUtils implements IEPICConstants {
 		} finally {
 			stub = null;
 		}
-		System.out.println(CommonUtils.getUTCdatetimeAsString()+ ": END : SensorServiceUtils.getEmergencySpotDtls  " );
+		//System.out.println(CommonUtils.getUTCdatetimeAsString()+ ": END : SensorServiceUtils.getEmergencySpotDtls  " );
 		return map;
 	}
 
@@ -416,13 +416,11 @@ public class SensorServiceUtils implements IEPICConstants {
 	}
 
 	public static SensorSrvClientPortBindingStub getServiceLocatorStub() {
-		Logger.error("START - SensorServiceUtils.getServiceLocatorStub",
-				SensorServiceUtils.class);
-		System.out.println("START - SensorServiceUtils.getServiceLocatorStub"
-				+ WFPConfigUtils.getWFPConfigValue("soapgps"));
+		//Logger.info("START - SensorServiceUtils.getServiceLocatorStub",SensorServiceUtils.class);
+		//System.out.println("START - SensorServiceUtils.getServiceLocatorStub"
+			//	+ WFPConfigUtils.getWFPConfigValue("soapgps"));
 		// AxisProperties.setProperty("axis.socketSecureFactory","com.spacetimeinsght.webservice.ssl.factory.CertSSLSocketFactory");
 		SensorSrvClient_Service service = new SensorSrvClient_ServiceLocator();
-		System.out.println("service : " + service);
 		SensorSrvClientPortBindingStub sensorSrvClientPortBindingStub = null;
 		try {
 			sensorSrvClientPortBindingStub = new SensorSrvClientPortBindingStub(
@@ -440,8 +438,7 @@ public class SensorServiceUtils implements IEPICConstants {
 					+ "]", SensorServiceUtils.class);
 			e.printStackTrace();
 		}
-		System.out.println("sensorSrvClientPortBindingStub : "
-				+ sensorSrvClientPortBindingStub);
+		//System.out.println("sensorSrvClientPortBindingStub : "+ sensorSrvClientPortBindingStub);
 		return sensorSrvClientPortBindingStub;
 
 	}

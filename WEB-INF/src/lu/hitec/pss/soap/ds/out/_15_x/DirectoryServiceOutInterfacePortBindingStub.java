@@ -16,7 +16,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[100];
+        _operations = new org.apache.axis.description.OperationDesc[105];
         _initOperationDesc1();
         _initOperationDesc2();
         _initOperationDesc3();
@@ -27,6 +27,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _initOperationDesc8();
         _initOperationDesc9();
         _initOperationDesc10();
+        _initOperationDesc11();
     }
 
     private static void _initOperationDesc1(){
@@ -93,24 +94,21 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[1] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getProfileIdsForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.setName("authenticate");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "uid"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "credential"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sessionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "token"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
@@ -120,18 +118,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[2] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getDeviceIdsAssignedToUnitForCrud");
+        oper.setName("getOrganization");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "organizationId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoOrganization"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoOrganization.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -156,18 +151,42 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[3] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getDevicesAssignedToUnitForCrud");
+        oper.setName("getProfileIdsForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[4] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getDevice");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "deviceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -189,48 +208,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[4] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getDevicesWithAssignmentForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDeviceWithAssignment"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
         _operations[5] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getFenceIdsAssignedToMissionForCrud");
+        oper.setName("getCasualty");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "casualtyId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoCasualty"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoCasualty.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -255,18 +244,12 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[6] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getFencesAssignedToMissionForCrud");
+        oper.setName("getMyDetails");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuFence"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuFence[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -291,15 +274,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[7] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getInternalIdsAssignedToKit");
+        oper.setName("getUser");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "internalId"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -324,25 +307,34 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[8] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("authenticateWithSurfaceId");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "surfaceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.setName("getPlace");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "credential"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "placeId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sessionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "token"));
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuPlace"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuPlace.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
         _operations[9] = oper;
@@ -353,15 +345,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getInternalIdsAssignedToUnit");
+        oper.setName("getDevicesForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "internalId"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -375,61 +367,16 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
         _operations[10] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getEquipmentIdsAssignedToKitForCrud");
+        oper.setName("getKit");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[11] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getKitAssignedToEquipmentForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoKit"));
@@ -455,18 +402,51 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[12] = oper;
+        _operations[11] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getCasualtiesByMission");
+        oper.setName("getFence");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "fenceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoCasualty"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuFence"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuFence.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[12] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getProfile");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoProfile"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoProfile.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -491,18 +471,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[13] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getEquipmentsAssignedToKitForCrud");
+        oper.setName("getRefugee");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "refugeeId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoEquipment"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoRefugee"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoRefugee.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -527,18 +504,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[14] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getDeviceCapabilitiesByUnitId");
+        oper.setName("getUsersForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "excludeDeviceCapabilities"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "deviceCapabilityEnum"), lu.hitec.pss.soap.ds.out._15_x.DeviceCapabilityEnum[].class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -554,27 +528,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
         _operations[15] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionIdsAssignedToFenceForCrud");
+        oper.setName("getMiddleware");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "fenceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "middlewareId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMiddleware"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -599,18 +564,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[16] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUnitIdAssignedToKitForCrud");
+        oper.setName("getKitsForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.UnitId.class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoKit"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoKit[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -626,20 +588,38 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
         _operations[17] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getKitIdsAssignedToUnitForCrud");
+        oper.setName("getEquipmentsForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoEquipment"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[18] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionIdsForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
@@ -662,20 +642,67 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
+        _operations[19] = oper;
+
+    }
+
+    private static void _initOperationDesc3(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMyPicture");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
+        oper.setReturnClass(byte[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
                       "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[18] = oper;
+        _operations[20] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionsAssignedToUnitForCrud");
+        oper.setName("getThresholdsForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoThreshold"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[21] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionsForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
@@ -698,137 +725,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[19] = oper;
-
-    }
-
-    private static void _initOperationDesc3(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getPictureAssignedToUser");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
-        oper.setReturnClass(byte[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[20] = oper;
+        _operations[22] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getProfilesAssignedToUserForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoProfile"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoProfile[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[21] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getKitIdAssignedToEquipmentForCrud");
+        oper.setName("getEquipment");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[22] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getProfileIdsAssignedToUserForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoEquipment"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoEquipment.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -853,24 +761,24 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[23] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUnitIdsAssignedToMissionForCrud");
+        oper.setName("getPlaceLight");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "placeId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitType"), lu.hitec.pss.soap.ds.out._15_x.UnitType.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnitLight"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "Exception"),
+                      "lu.hitec.pss.soap.ds.out._15_x.Exception",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "Exception"), 
+                      true
+                     ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
@@ -892,18 +800,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[24] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUsersAssignedToProfileForCrud");
+        oper.setName("getPlacesForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuPlace"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuPlace[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -919,24 +824,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
         _operations[25] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getPictureAssignedToMission");
+        oper.setName("getMission");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
-        oper.setReturnClass(byte[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -961,18 +860,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[26] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUnitIdAssignedToDeviceForCrud");
+        oper.setName("searchPlaces");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "deviceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.UnitId.class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuPlace"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuPlace[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -986,26 +882,20 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
         _operations[27] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getPictureAssignedToEquipment");
+        oper.setName("getWidgetsForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
-        oper.setReturnClass(byte[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoWidget"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoWidget[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1021,27 +911,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
         _operations[28] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUnitAssignedToDeviceForCrud");
+        oper.setName("getVehicle");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "deviceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "vehicleId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnit"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUnit.class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuVehicle"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuVehicle.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1071,21 +952,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUnitsAssignedToMissionForCrud");
+        oper.setName("getVehiclesForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitType"), lu.hitec.pss.soap.ds.out._15_x.UnitType.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnit"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUnit[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuVehicle"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1099,62 +974,36 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
         _operations[30] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getPrimaryLocalisationDevice");
+        oper.setName("logout");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
         _operations[31] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionsAssignedToProfileForCrud");
+        oper.setName("searchFences");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuFence"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuFence[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1170,27 +1019,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
         _operations[32] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUserIdsAssignedToProfileForCrud");
+        oper.setName("getWidget");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "widgetId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoWidget"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoWidget.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1215,18 +1055,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[33] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionIdsAssignedToUnitForCrud");
+        oper.setName("searchUsers");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1240,29 +1077,20 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
         _operations[34] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionsAssignedToFenceForCrud");
+        oper.setName("searchDevices");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "fenceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1278,27 +1106,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
         _operations[35] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionIdsAssignedToProfileForCrud");
+        oper.setName("getInternalIdsAssignedToEquipment");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "internalId"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1359,15 +1178,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _operations[37] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getInternalIdsAssignedToEquipment");
+        oper.setName("getPictureAssignedToOrganization");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "organizationId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "internalId"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
+        oper.setReturnClass(byte[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1391,6 +1210,38 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                      ));
         _operations[38] = oper;
 
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionIdsByMiddlewareMember");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mwId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[39] = oper;
+
+    }
+
+    private static void _initOperationDesc5(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getOrganizationIdsAssignedToProfileForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1425,13 +1276,8 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[39] = oper;
+        _operations[40] = oper;
 
-    }
-
-    private static void _initOperationDesc5(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getUsersAssignedToCertification");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1466,7 +1312,115 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[40] = oper;
+        _operations[41] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getOrganizationsAssignedToProfileForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoOrganization"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[42] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getOrganizationsAssignedToUnitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoOrganization"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[43] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionIdsAssignedToProfileForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[44] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getOrganizationIdsAssignedToUnitForCrud");
@@ -1502,135 +1456,21 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[41] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionIdsByMiddlewareMember");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mwId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[42] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionIdsForCrudFiltered");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "status"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "workflowStatus"), lu.hitec.pss.soap.ds.out._15_x.WorkflowStatus.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[43] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionsForCrudFiltered");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "status"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "workflowStatus"), lu.hitec.pss.soap.ds.out._15_x.WorkflowStatus.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[44] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMyCertifications");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoCertification"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoCertification[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
         _operations[45] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getCertifications");
+        oper.setName("getProfilesAssignedToUserForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoCertification"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoCertification[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoProfile"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoProfile[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1654,6 +1494,1181 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                      ));
         _operations[46] = oper;
 
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUnitIdsAssignedToMissionForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitType"), lu.hitec.pss.soap.ds.out._15_x.UnitType.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[47] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUnitIdAssignedToDeviceForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "deviceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.UnitId.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[48] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUserIdsAssignedToProfileForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[49] = oper;
+
+    }
+
+    private static void _initOperationDesc6(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUnitIdAssignedToKitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.UnitId.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[50] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUsersAssignedToProfileForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[51] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUnitsAssignedToMissionForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitType"), lu.hitec.pss.soap.ds.out._15_x.UnitType.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnit"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUnit[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[52] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getProfileIdsAssignedToUserForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[53] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUnitAssignedToDeviceForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "deviceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnit"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUnit.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[54] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getPrimaryLocalisationDevice");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[55] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getFencesAssignedToMissionForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuFence"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuFence[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[56] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getInternalIdsAssignedToKit");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "internalId"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[57] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getInternalIdsAssignedToUnit");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "internalId"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[58] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getEquipmentsAssignedToKitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoEquipment"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[59] = oper;
+
+    }
+
+    private static void _initOperationDesc7(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getKitIdAssignedToEquipmentForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[60] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getCasualtiesByMission");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoCasualty"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[61] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getDeviceCapabilitiesByUnitId");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "excludeDeviceCapabilities"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "deviceCapabilityEnum"), lu.hitec.pss.soap.ds.out._15_x.DeviceCapabilityEnum[].class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[62] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getDeviceIdsAssignedToUnitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[63] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getEquipmentIdsAssignedToKitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[64] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getFenceIdsAssignedToMissionForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[65] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getKitAssignedToEquipmentForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoKit"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoKit.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[66] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getDevicesWithAssignmentForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDeviceWithAssignment"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[67] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("authenticateWithSurfaceId");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "surfaceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "credential"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sessionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "token"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[68] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getDevicesAssignedToUnitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[69] = oper;
+
+    }
+
+    private static void _initOperationDesc8(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getKitIdsAssignedToUnitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[70] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionIdsAssignedToFenceForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "fenceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[71] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionsAssignedToUnitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[72] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getPictureAssignedToMission");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
+        oper.setReturnClass(byte[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[73] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getPictureAssignedToUser");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
+        oper.setReturnClass(byte[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[74] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionIdsAssignedToUnitForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[75] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionsAssignedToProfileForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[76] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getPictureAssignedToEquipment");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
+        oper.setReturnClass(byte[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[77] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMissionsAssignedToFenceForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "fenceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[78] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getDevicesAssignedToUnitForCrudAndCapabilities");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "deviceCapabilities"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "deviceCapabilityEnum"), lu.hitec.pss.soap.ds.out._15_x.DeviceCapabilityEnum[].class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[79] = oper;
+
+    }
+
+    private static void _initOperationDesc9(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getKitsAssignedToUnitForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1688,15 +2703,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[47] = oper;
+        _operations[80] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMyPermissions");
+        oper.setName("getMyDashboardWidgets");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnClass(java.lang.String.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1718,18 +2733,21 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[48] = oper;
+        _operations[81] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getOrganizationIdsForCrud");
+        oper.setName("getMissionsForCrudFiltered");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String[].class);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "status"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "workflowStatus"), lu.hitec.pss.soap.ds.out._15_x.WorkflowStatus.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -1745,13 +2763,35 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        _operations[49] = oper;
+        _operations[82] = oper;
 
-    }
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getPolygonalFencesForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuPolygonalFence"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[83] = oper;
 
-    private static void _initOperationDesc6(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getCertification");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -1783,118 +2823,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[50] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMiddlewaresForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMiddleware"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[51] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getCircularFencesForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuCircularFence"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[52] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMyDashboardWidgets");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[53] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("searchMissions");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[54] = oper;
+        _operations[84] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getResourceType");
@@ -1930,130 +2859,26 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[55] = oper;
+        _operations[85] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getResourceTypesForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.setName("getUidBySurfaceId");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "surfaceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "typeType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "resourcesTypesEnum"), lu.hitec.pss.soap.ds.out._15_x.ResourcesTypesEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuResourceType"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        _operations[56] = oper;
+        _operations[86] = oper;
 
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getSleekPlaces");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnitLight"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "return"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "Exception"),
-                      "lu.hitec.pss.soap.ds.out._15_x.Exception",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "Exception"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[57] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getPolygonalFencesForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuPolygonalFence"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[58] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUnAssignedUsersForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "rest"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[59] = oper;
-
-    }
-
-    private static void _initOperationDesc7(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getUnAssignedPlacesForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -2079,7 +2904,156 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        _operations[60] = oper;
+        _operations[87] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMyCertifications");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoCertification"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoCertification[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[88] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getPlacesLightForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnitLight"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "Exception"),
+                      "lu.hitec.pss.soap.ds.out._15_x.Exception",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "Exception"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[89] = oper;
+
+    }
+
+    private static void _initOperationDesc10(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUnAssignedUsersForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "rest"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[90] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getUnAssignedVehiclesForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuVehicle"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[91] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getOrganizationsForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoOrganization"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[92] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getUnitAssignedToKitForCrud");
@@ -2115,45 +3089,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[61] = oper;
+        _operations[93] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("searchVehicles");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuVehicle"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[62] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUnAssignedVehiclesForCrud");
+        oper.setName("getMiddlewaresForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuVehicle"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMiddleware"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -2169,26 +3116,136 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        _operations[63] = oper;
+        _operations[94] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUidBySurfaceId");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "surfaceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.setName("getResourceTypesForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "typeType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "resourcesTypesEnum"), lu.hitec.pss.soap.ds.out._15_x.ResourcesTypesEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuResourceType"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
         oper.addFault(new org.apache.axis.description.FaultDesc(
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
                       "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        _operations[64] = oper;
+        _operations[95] = oper;
 
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("searchMissions");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[96] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getProjectDetails");
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "project"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.Project.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[97] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getOrganizationIdsForCrud");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[98] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getMyPermissions");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[99] = oper;
+
+    }
+
+    private static void _initOperationDesc11(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getRefugeesByMission");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -2220,188 +3277,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[65] = oper;
+        _operations[100] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getProjectDetails");
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "project"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.Project.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[66] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("authenticate");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "uid"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "credential"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sessionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "token"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[67] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getDevice");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "deviceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[68] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getEquipment");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "equipmentId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoEquipment"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoEquipment.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[69] = oper;
-
-    }
-
-    private static void _initOperationDesc8(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getFence");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "fenceId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuFence"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuFence.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[70] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getCasualty");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "casualtyId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoCasualty"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoCasualty.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[71] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getDevicesForCrud");
+        oper.setName("getCircularFencesForCrud");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuCircularFence"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -2417,460 +3304,17 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        _operations[72] = oper;
+        _operations[101] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getEquipmentsForCrud");
+        oper.setName("getMissionIdsForCrudFiltered");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoEquipment"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[73] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getRefugee");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "refugeeId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoRefugee"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoRefugee.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[74] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getVehicle");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "vehicleId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuVehicle"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuVehicle.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[75] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMiddleware");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "middlewareId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMiddleware"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[76] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionsForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[77] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMyDetails");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[78] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getKit");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "kitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoKit"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoKit.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[79] = oper;
-
-    }
-
-    private static void _initOperationDesc9(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getProfile");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "profileId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoProfile"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoProfile.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[80] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getVehiclesForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuVehicle"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[81] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getWidget");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "widgetId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoWidget"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoWidget.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[82] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getSleekPlace");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnitLight"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "return"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "Exception"),
-                      "lu.hitec.pss.soap.ds.out._15_x.Exception",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "Exception"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[83] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUsersForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[84] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getPlace");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "placeId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuPlace"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuPlace.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[85] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getUser");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[86] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMissionIdsForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "status"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "workflowStatus"), lu.hitec.pss.soap.ds.out._15_x.WorkflowStatus.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -2890,104 +3334,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        _operations[87] = oper;
+        _operations[102] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getKitsForCrud");
+        oper.setName("getCertifications");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoKit"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoKit[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[88] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getPlacesForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuPlace"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuPlace[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[89] = oper;
-
-    }
-
-    private static void _initOperationDesc10(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getThresholdsForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoThreshold"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[90] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMission");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoMission.class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoCertification"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoCertification[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -3009,42 +3367,18 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[91] = oper;
+        _operations[103] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getMyPicture");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
-        oper.setReturnClass(byte[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[92] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("searchPlaces");
+        oper.setName("searchVehicles");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuPlace"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuPlace[].class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuVehicle"));
+        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -3060,170 +3394,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
                       true
                      ));
-        _operations[93] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("logout");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[94] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("searchFences");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuFence"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuFence[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[95] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("searchDevices");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[96] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("searchUsers");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "searchString"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUser"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[97] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getWidgetsForCrud");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoWidget"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.DtoWidget[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[98] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getDevicesAssignedToUnitForCrudAndCapabilities");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "unitId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"), lu.hitec.pss.soap.ds.out._15_x.UnitId.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "crud"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "crudEnum"), lu.hitec.pss.soap.ds.out._15_x.CrudEnum.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "deviceCapabilites"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "deviceCapabilityEnum"), lu.hitec.pss.soap.ds.out._15_x.DeviceCapabilityEnum[].class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuDevice"));
-        oper.setReturnClass(lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("", "res"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthorizationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthorizationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "AuthenticationException"), 
-                      true
-                     ));
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"),
-                      "lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "ResourceNotFoundException"), 
-                      true
-                     ));
-        _operations[99] = oper;
+        _operations[104] = oper;
 
     }
 
@@ -3343,6 +3514,13 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
             qName = new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoMission");
             cachedSerQNames.add(qName);
             cls = lu.hitec.pss.soap.ds.out._15_x.DtoMission.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "dtoOrganization");
+            cachedSerQNames.add(qName);
+            cls = lu.hitec.pss.soap.ds.out._15_x.DtoOrganization.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -3744,12 +3922,102 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public java.lang.String[] getProfileIdsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public java.lang.String authenticate(java.lang.String uid, java.lang.String credential, java.lang.String sessionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[2]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "authenticate"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {uid, credential, sessionId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoOrganization getOrganization(java.lang.String token, java.lang.String organizationId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[3]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getOrganization"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, organizationId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoOrganization) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoOrganization) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoOrganization.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getProfileIdsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[4]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -3789,103 +4057,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public java.lang.String[] getDeviceIdsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[3]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDeviceIdsAssignedToUnitForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice[] getDevicesAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[4]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevicesAssignedToUnitForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[] getDevicesWithAssignmentForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice getDevice(java.lang.String token, java.lang.String deviceId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -3897,1250 +4069,11 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevicesWithAssignmentForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevice"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getFenceIdsAssignedToMissionForCrud(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[6]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getFenceIdsAssignedToMissionForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuFence[] getFencesAssignedToMissionForCrud(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[7]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getFencesAssignedToMissionForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuFence[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.InternalId[] getInternalIdsAssignedToKit(java.lang.String token, java.lang.String kitId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[8]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getInternalIdsAssignedToKit"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String authenticateWithSurfaceId(java.lang.String surfaceId, java.lang.String credential, java.lang.String sessionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[9]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "authenticateWithSurfaceId"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {surfaceId, credential, sessionId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.InternalId[] getInternalIdsAssignedToUnit(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[10]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getInternalIdsAssignedToUnit"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getEquipmentIdsAssignedToKitForCrud(java.lang.String token, java.lang.String kitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[11]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getEquipmentIdsAssignedToKitForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoKit getKitAssignedToEquipmentForCrud(java.lang.String token, java.lang.String equipmentId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[12]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKitAssignedToEquipmentForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoKit.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[] getCasualtiesByMission(java.lang.String token, java.lang.String missionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[13]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCasualtiesByMission"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[] getEquipmentsAssignedToKitForCrud(java.lang.String token, java.lang.String kitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[14]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getEquipmentsAssignedToKitForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getDeviceCapabilitiesByUnitId(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.DeviceCapabilityEnum[] excludeDeviceCapabilities) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[15]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDeviceCapabilitiesByUnitId"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, excludeDeviceCapabilities});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getMissionIdsAssignedToFenceForCrud(java.lang.String token, java.lang.String fenceId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[16]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsAssignedToFenceForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, fenceId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.UnitId getUnitIdAssignedToKitForCrud(java.lang.String token, java.lang.String kitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[17]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitIdAssignedToKitForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.UnitId) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.UnitId) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.UnitId.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getKitIdsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId arg1, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[18]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKitIdsAssignedToUnitForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, arg1, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[19]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsAssignedToUnitForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public byte[] getPictureAssignedToUser(java.lang.String token, java.lang.String userId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[20]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPictureAssignedToUser"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, userId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (byte[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoProfile[] getProfilesAssignedToUserForCrud(java.lang.String token, java.lang.String userId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[21]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getProfilesAssignedToUserForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, userId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoProfile[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoProfile[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoProfile[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String getKitIdAssignedToEquipmentForCrud(java.lang.String token, java.lang.String equipmentId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[22]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKitIdAssignedToEquipmentForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getProfileIdsAssignedToUserForCrud(java.lang.String token, java.lang.String userId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[23]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getProfileIdsAssignedToUserForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, userId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getUnitIdsAssignedToMissionForCrud(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.ds.out._15_x.UnitType unitType, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[24]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitIdsAssignedToMissionForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, unitType, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUser[] getUsersAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[25]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUsersAssignedToProfileForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public byte[] getPictureAssignedToMission(java.lang.String token, java.lang.String missionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[26]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPictureAssignedToMission"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (byte[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.UnitId getUnitIdAssignedToDeviceForCrud(java.lang.String token, java.lang.String deviceId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[27]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitIdAssignedToDeviceForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, deviceId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.UnitId) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.UnitId) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.UnitId.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public byte[] getPictureAssignedToEquipment(java.lang.String token, java.lang.String equipmentId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[28]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPictureAssignedToEquipment"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (byte[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUnit getUnitAssignedToDeviceForCrud(java.lang.String token, java.lang.String deviceId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[29]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitAssignedToDeviceForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, deviceId, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnit) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnit) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUnit.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUnit[] getUnitsAssignedToMissionForCrud(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.ds.out._15_x.UnitType unitType, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[30]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitsAssignedToMissionForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, unitType, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnit[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnit[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUnit[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice getPrimaryLocalisationDevice(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[31]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPrimaryLocalisationDevice"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, deviceId});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5172,7 +4105,1209 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public lu.hitec.pss.soap.ds.out._15_x.DtoCasualty getCasualty(java.lang.String token, java.lang.String casualtyId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[6]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCasualty"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, casualtyId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCasualty) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCasualty) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCasualty.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUser getMyDetails(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[7]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMyDetails"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUser getUser(java.lang.String token, java.lang.String userId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[8]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUser"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, userId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuPlace getPlace(java.lang.String token, java.lang.String placeId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[9]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPlace"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, placeId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuPlace.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice[] getDevicesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[10]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevicesForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoKit getKit(java.lang.String token, java.lang.String kitId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[11]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKit"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoKit.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuFence getFence(java.lang.String token, java.lang.String fenceId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[12]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getFence"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, fenceId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuFence.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoProfile getProfile(java.lang.String token, java.lang.String profileId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[13]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getProfile"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoProfile) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoProfile) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoProfile.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoRefugee getRefugee(java.lang.String token, java.lang.String refugeeId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[14]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getRefugee"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, refugeeId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoRefugee) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoRefugee) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoRefugee.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUser[] getUsersForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[15]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUsersForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware getMiddleware(java.lang.String token, java.lang.String middlewareId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[16]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMiddleware"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, middlewareId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoKit[] getKitsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[17]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKitsForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoKit[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[] getEquipmentsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[18]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getEquipmentsForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getMissionIdsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[19]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public byte[] getMyPicture(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[20]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMyPicture"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (byte[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[] getThresholdsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[21]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getThresholdsForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[22]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoEquipment getEquipment(java.lang.String token, java.lang.String equipmentId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[23]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getEquipment"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoEquipment.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight getPlaceLight(java.lang.String token, java.lang.String placeId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.Exception, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[24]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPlaceLight"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, placeId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.Exception) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.Exception) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuPlace[] getPlacesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[25]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPlacesForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuPlace[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMission getMission(java.lang.String token, java.lang.String missionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[26]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMission"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuPlace[] searchPlaces(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[27]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchPlaces"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuPlace[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoWidget[] getWidgetsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[28]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getWidgetsForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoWidget[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoWidget[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoWidget[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuVehicle getVehicle(java.lang.String token, java.lang.String vehicleId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[29]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getVehicle"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, vehicleId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuVehicle.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[] getVehiclesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[30]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getVehiclesForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public void logout(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[31]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "logout"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        extractAttachments(_call);
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuFence[] searchFences(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -5184,11 +5319,11 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsAssignedToProfileForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchFences"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5196,9 +5331,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuFence[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -5212,15 +5347,12 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
    }
   throw axisFaultException;
 }
     }
 
-    public java.lang.String[] getUserIdsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public lu.hitec.pss.soap.ds.out._15_x.DtoWidget getWidget(java.lang.String token, java.lang.String widgetId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -5232,11 +5364,11 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUserIdsAssignedToProfileForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getWidget"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, widgetId});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5244,9 +5376,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (java.lang.String[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoWidget) _resp;
             } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoWidget) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoWidget.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -5268,7 +5400,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public java.lang.String[] getMissionIdsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUser[] searchUsers(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -5280,11 +5412,11 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsAssignedToUnitForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchUsers"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5292,9 +5424,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (java.lang.String[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -5308,15 +5440,12 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
    }
   throw axisFaultException;
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsAssignedToFenceForCrud(java.lang.String token, java.lang.String fenceId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice[] searchDevices(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -5328,11 +5457,11 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsAssignedToFenceForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchDevices"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, fenceId, crud});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5340,9 +5469,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -5356,15 +5485,12 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
          }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
    }
   throw axisFaultException;
 }
     }
 
-    public java.lang.String[] getMissionIdsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public lu.hitec.pss.soap.ds.out._15_x.InternalId[] getInternalIdsAssignedToEquipment(java.lang.String token, java.lang.String equipmentId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -5376,11 +5502,11 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsAssignedToProfileForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getInternalIdsAssignedToEquipment"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5388,9 +5514,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (java.lang.String[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -5460,7 +5586,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.InternalId[] getInternalIdsAssignedToEquipment(java.lang.String token, java.lang.String equipmentId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public byte[] getPictureAssignedToOrganization(java.lang.String token, java.lang.String organizationId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -5472,11 +5598,11 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getInternalIdsAssignedToEquipment"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPictureAssignedToOrganization"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, organizationId});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5484,9 +5610,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) _resp;
+                return (byte[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
+                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -5508,12 +5634,57 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public java.lang.String[] getOrganizationIdsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public java.lang.String[] getMissionIdsByMiddlewareMember(java.lang.String token, java.lang.String mwId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[39]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsByMiddlewareMember"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, mwId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getOrganizationIdsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[40]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -5561,7 +5732,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[40]);
+        _call.setOperation(_operations[41]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -5604,12 +5775,156 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
+    public lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[] getOrganizationsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[42]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getOrganizationsAssignedToProfileForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[] getOrganizationsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[43]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getOrganizationsAssignedToUnitForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getMissionIdsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[44]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsAssignedToProfileForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
     public java.lang.String[] getOrganizationIdsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[41]);
+        _call.setOperation(_operations[45]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -5652,23 +5967,71 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public java.lang.String[] getMissionIdsByMiddlewareMember(java.lang.String token, java.lang.String mwId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public lu.hitec.pss.soap.ds.out._15_x.DtoProfile[] getProfilesAssignedToUserForCrud(java.lang.String token, java.lang.String userId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[42]);
+        _call.setOperation(_operations[46]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsByMiddlewareMember"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getProfilesAssignedToUserForCrud"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, mwId});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, userId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoProfile[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoProfile[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoProfile[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getUnitIdsAssignedToMissionForCrud(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.ds.out._15_x.UnitType unitType, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[47]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitIdsAssignedToMissionForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, unitType, crud});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5692,28 +6055,79 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
          }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
    }
   throw axisFaultException;
 }
     }
 
-    public java.lang.String[] getMissionIdsForCrudFiltered(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud, lu.hitec.pss.soap.ds.out._15_x.WorkflowStatus status) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public lu.hitec.pss.soap.ds.out._15_x.UnitId getUnitIdAssignedToDeviceForCrud(java.lang.String token, java.lang.String deviceId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[43]);
+        _call.setOperation(_operations[48]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsForCrudFiltered"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitIdAssignedToDeviceForCrud"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud, status});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, deviceId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.UnitId) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.UnitId) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.UnitId.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getUserIdsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[49]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUserIdsAssignedToProfileForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5737,28 +6151,1078 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
          }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
    }
   throw axisFaultException;
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsForCrudFiltered(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud, lu.hitec.pss.soap.ds.out._15_x.WorkflowStatus status) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public lu.hitec.pss.soap.ds.out._15_x.UnitId getUnitIdAssignedToKitForCrud(java.lang.String token, java.lang.String kitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[44]);
+        _call.setOperation(_operations[50]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsForCrudFiltered"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitIdAssignedToKitForCrud"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud, status});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.UnitId) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.UnitId) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.UnitId.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUser[] getUsersAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[51]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUsersAssignedToProfileForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUnit[] getUnitsAssignedToMissionForCrud(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.ds.out._15_x.UnitType unitType, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[52]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitsAssignedToMissionForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, unitType, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnit[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnit[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUnit[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getProfileIdsAssignedToUserForCrud(java.lang.String token, java.lang.String userId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[53]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getProfileIdsAssignedToUserForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, userId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUnit getUnitAssignedToDeviceForCrud(java.lang.String token, java.lang.String deviceId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[54]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnitAssignedToDeviceForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, deviceId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnit) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnit) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUnit.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice getPrimaryLocalisationDevice(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[55]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPrimaryLocalisationDevice"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuFence[] getFencesAssignedToMissionForCrud(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[56]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getFencesAssignedToMissionForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuFence[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.InternalId[] getInternalIdsAssignedToKit(java.lang.String token, java.lang.String kitId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[57]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getInternalIdsAssignedToKit"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.InternalId[] getInternalIdsAssignedToUnit(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[58]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getInternalIdsAssignedToUnit"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.InternalId[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.InternalId[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[] getEquipmentsAssignedToKitForCrud(java.lang.String token, java.lang.String kitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[59]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getEquipmentsAssignedToKitForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String getKitIdAssignedToEquipmentForCrud(java.lang.String token, java.lang.String equipmentId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[60]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKitIdAssignedToEquipmentForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[] getCasualtiesByMission(java.lang.String token, java.lang.String missionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[61]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCasualtiesByMission"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCasualty[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getDeviceCapabilitiesByUnitId(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.DeviceCapabilityEnum[] excludeDeviceCapabilities) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[62]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDeviceCapabilitiesByUnitId"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, excludeDeviceCapabilities});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getDeviceIdsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[63]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDeviceIdsAssignedToUnitForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getEquipmentIdsAssignedToKitForCrud(java.lang.String token, java.lang.String kitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[64]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getEquipmentIdsAssignedToKitForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getFenceIdsAssignedToMissionForCrud(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[65]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getFenceIdsAssignedToMissionForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoKit getKitAssignedToEquipmentForCrud(java.lang.String token, java.lang.String equipmentId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[66]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKitAssignedToEquipmentForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoKit.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[] getDevicesWithAssignmentForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[67]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevicesWithAssignmentForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDeviceWithAssignment[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String authenticateWithSurfaceId(java.lang.String surfaceId, java.lang.String credential, java.lang.String sessionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[68]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "authenticateWithSurfaceId"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {surfaceId, credential, sessionId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice[] getDevicesAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[69]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevicesAssignedToUnitForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getKitIdsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId arg1, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[70]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKitIdsAssignedToUnitForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, arg1, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getMissionIdsAssignedToFenceForCrud(java.lang.String token, java.lang.String fenceId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[71]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsAssignedToFenceForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, fenceId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[72]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsAssignedToUnitForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5782,28 +7246,31 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
          }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
    }
   throw axisFaultException;
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.DtoCertification[] getMyCertifications(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public byte[] getPictureAssignedToMission(java.lang.String token, java.lang.String missionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[45]);
+        _call.setOperation(_operations[73]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMyCertifications"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPictureAssignedToMission"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5811,9 +7278,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification[]) _resp;
+                return (byte[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCertification[].class);
+                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -5835,23 +7302,23 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.DtoCertification[] getCertifications(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public byte[] getPictureAssignedToUser(java.lang.String token, java.lang.String userId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[46]);
+        _call.setOperation(_operations[74]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCertifications"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPictureAssignedToUser"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, userId});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -5859,9 +7326,249 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification[]) _resp;
+                return (byte[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCertification[].class);
+                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getMissionIdsAssignedToUnitForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[75]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsAssignedToUnitForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsAssignedToProfileForCrud(java.lang.String token, java.lang.String profileId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[76]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsAssignedToProfileForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public byte[] getPictureAssignedToEquipment(java.lang.String token, java.lang.String equipmentId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[77]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPictureAssignedToEquipment"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (byte[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsAssignedToFenceForCrud(java.lang.String token, java.lang.String fenceId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[78]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsAssignedToFenceForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, fenceId, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice[] getDevicesAssignedToUnitForCrudAndCapabilities(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud, lu.hitec.pss.soap.ds.out._15_x.DeviceCapabilityEnum[] deviceCapabilities) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[79]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevicesAssignedToUnitForCrudAndCapabilities"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud, deviceCapabilities});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -5888,7 +7595,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[47]);
+        _call.setOperation(_operations[80]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -5931,243 +7638,12 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public java.lang.String[] getMyPermissions(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[48]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMyPermissions"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getOrganizationIdsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[49]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getOrganizationIdsForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoCertification getCertification(java.lang.String token, java.lang.String certificationId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[50]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCertification"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, certificationId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCertification.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[] getMiddlewaresForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[51]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMiddlewaresForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[] getCircularFencesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[52]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCircularFencesForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
     public java.lang.String getMyDashboardWidgets(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[53]);
+        _call.setOperation(_operations[81]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -6210,23 +7686,23 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] searchMissions(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsForCrudFiltered(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud, lu.hitec.pss.soap.ds.out._15_x.WorkflowStatus status) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[54]);
+        _call.setOperation(_operations[82]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchMissions"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsForCrudFiltered"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud, status});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -6255,12 +7731,105 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
+    public lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[] getPolygonalFencesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[83]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPolygonalFencesForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoCertification getCertification(java.lang.String token, java.lang.String certificationId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[84]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCertification"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, certificationId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCertification.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
     public lu.hitec.pss.soap.ds.out._15_x.PssuResourceType getResourceType(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.ResourcesTypesEnum typeType, java.lang.String resourceTypeId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[55]);
+        _call.setOperation(_operations[85]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -6303,23 +7872,23 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[] getResourceTypesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.ResourcesTypesEnum typeType, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public java.lang.String getUidBySurfaceId(java.lang.String surfaceId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[56]);
+        _call.setOperation(_operations[86]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getResourceTypesForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUidBySurfaceId"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, typeType, crud});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {surfaceId});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -6327,156 +7896,15 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[]) _resp;
+                return (java.lang.String) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[].class);
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
     if (axisFaultException.detail != null) {
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[] getSleekPlaces(java.lang.String arg0, lu.hitec.pss.soap.ds.out._15_x.CrudEnum arg1) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.Exception, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[57]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getSleekPlaces"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {arg0, arg1});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.Exception) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.Exception) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[] getPolygonalFencesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[58]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPolygonalFencesForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuPolygonalFence[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUser[] getUnAssignedUsersForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[59]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnAssignedUsersForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
          }
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
@@ -6491,7 +7919,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[60]);
+        _call.setOperation(_operations[87]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -6531,12 +7959,243 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
+    public lu.hitec.pss.soap.ds.out._15_x.DtoCertification[] getMyCertifications(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[88]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMyCertifications"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCertification[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[] getPlacesLightForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.Exception, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[89]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPlacesLightForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.Exception) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.Exception) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuUser[] getUnAssignedUsersForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[90]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnAssignedUsersForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[] getUnAssignedVehiclesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[91]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnAssignedVehiclesForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[] getOrganizationsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[92]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getOrganizationsForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoOrganization[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
     public lu.hitec.pss.soap.ds.out._15_x.PssuUnit getUnitAssignedToKitForCrud(java.lang.String token, java.lang.String kitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[61]);
+        _call.setOperation(_operations[93]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -6579,64 +8238,19 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[] searchVehicles(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[] getMiddlewaresForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[62]);
+        _call.setOperation(_operations[94]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchVehicles"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[] getUnAssignedVehiclesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[63]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUnAssignedVehiclesForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMiddlewaresForCrud"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -6648,9 +8262,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -6669,23 +8283,23 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public java.lang.String getUidBySurfaceId(java.lang.String surfaceId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[] getResourceTypesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.ResourcesTypesEnum typeType, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[64]);
+        _call.setOperation(_operations[95]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUidBySurfaceId"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getResourceTypesForCrud"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {surfaceId});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, typeType, crud});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -6693,9 +8307,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (java.lang.String) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuResourceType[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -6703,8 +8317,183 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         if (axisFaultException.detail instanceof java.rmi.RemoteException) {
               throw (java.rmi.RemoteException) axisFaultException.detail;
          }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] searchMissions(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[96]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchMissions"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.ds.out._15_x.Project getProjectDetails() throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[97]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getProjectDetails"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.ds.out._15_x.Project) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.ds.out._15_x.Project) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.Project.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getOrganizationIdsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[98]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getOrganizationIdsForCrud"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String[] getMyPermissions(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[99]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMyPermissions"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
          }
    }
   throw axisFaultException;
@@ -6716,7 +8505,7 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[65]);
+        _call.setOperation(_operations[100]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -6759,287 +8548,19 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.Project getProjectDetails() throws java.rmi.RemoteException {
+    public lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[] getCircularFencesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[66]);
+        _call.setOperation(_operations[101]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getProjectDetails"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.Project) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.Project) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.Project.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String authenticate(java.lang.String uid, java.lang.String credential, java.lang.String sessionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[67]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "authenticate"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {uid, credential, sessionId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice getDevice(java.lang.String token, java.lang.String deviceId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[68]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevice"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, deviceId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoEquipment getEquipment(java.lang.String token, java.lang.String equipmentId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[69]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getEquipment"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, equipmentId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoEquipment.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuFence getFence(java.lang.String token, java.lang.String fenceId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[70]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getFence"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, fenceId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuFence.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoCasualty getCasualty(java.lang.String token, java.lang.String casualtyId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[71]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCasualty"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, casualtyId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCasualty) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoCasualty) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCasualty.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice[] getDevicesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[72]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevicesForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCircularFencesForCrud"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7051,9 +8572,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuCircularFence[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -7072,686 +8593,23 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[] getEquipmentsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public java.lang.String[] getMissionIdsForCrudFiltered(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud, lu.hitec.pss.soap.ds.out._15_x.WorkflowStatus status) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[73]);
+        _call.setOperation(_operations[102]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getEquipmentsForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsForCrudFiltered"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoEquipment[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoRefugee getRefugee(java.lang.String token, java.lang.String refugeeId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[74]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getRefugee"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, refugeeId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoRefugee) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoRefugee) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoRefugee.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuVehicle getVehicle(java.lang.String token, java.lang.String vehicleId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[75]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getVehicle"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, vehicleId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuVehicle.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware getMiddleware(java.lang.String token, java.lang.String middlewareId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[76]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMiddleware"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, middlewareId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMiddleware.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMission[] getMissionsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[77]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionsForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUser getMyDetails(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[78]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMyDetails"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoKit getKit(java.lang.String token, java.lang.String kitId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[79]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKit"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, kitId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoKit.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoProfile getProfile(java.lang.String token, java.lang.String profileId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[80]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getProfile"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, profileId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoProfile) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoProfile) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoProfile.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[] getVehiclesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[81]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getVehiclesForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoWidget getWidget(java.lang.String token, java.lang.String widgetId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[82]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getWidget"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, widgetId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoWidget) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoWidget) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoWidget.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight getSleekPlace(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.Exception, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[83]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getSleekPlace"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {arg0, arg1});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUnitLight.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.Exception) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.Exception) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUser[] getUsersForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[84]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUsersForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuPlace getPlace(java.lang.String token, java.lang.String placeId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[85]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPlace"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, placeId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuPlace.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUser getUser(java.lang.String token, java.lang.String userId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[86]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getUser"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, userId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.String[] getMissionIdsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[87]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMissionIdsForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud, status});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -7780,19 +8638,19 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public lu.hitec.pss.soap.ds.out._15_x.DtoKit[] getKitsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
+    public lu.hitec.pss.soap.ds.out._15_x.DtoCertification[] getCertifications(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[88]);
+        _call.setOperation(_operations[103]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getKitsForCrud"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getCertifications"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -7804,144 +8662,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoKit[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoKit[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuPlace[] getPlacesForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[89]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getPlacesForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuPlace[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[] getThresholdsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[90]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getThresholdsForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoThreshold[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoMission getMission(java.lang.String token, java.lang.String missionId) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[91]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMission"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoMission) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoMission.class);
+                return (lu.hitec.pss.soap.ds.out._15_x.DtoCertification[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoCertification[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -7963,64 +8686,19 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
 }
     }
 
-    public byte[] getMyPicture(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
+    public lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[] searchVehicles(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[92]);
+        _call.setOperation(_operations[104]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getMyPicture"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (byte[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuPlace[] searchPlaces(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[93]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchPlaces"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchVehicles"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -8032,9 +8710,9 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
         else {
             extractAttachments(_call);
             try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace[]) _resp;
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) _resp;
             } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuPlace[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuPlace[].class);
+                return (lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuVehicle[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -8047,269 +8725,6 @@ public class DirectoryServiceOutInterfacePortBindingStub extends org.apache.axis
          }
         if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
               throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public void logout(java.lang.String token) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[94]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "logout"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        extractAttachments(_call);
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuFence[] searchFences(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[95]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchFences"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuFence[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuFence[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice[] searchDevices(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[96]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchDevices"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuUser[] searchUsers(java.lang.String token, java.lang.String searchString) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[97]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "searchUsers"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, searchString});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuUser[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuUser[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.DtoWidget[] getWidgetsForCrud(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[98]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getWidgetsForCrud"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, crud});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoWidget[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.DtoWidget[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.DtoWidget[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public lu.hitec.pss.soap.ds.out._15_x.PssuDevice[] getDevicesAssignedToUnitForCrudAndCapabilities(java.lang.String token, lu.hitec.pss.soap.ds.out._15_x.UnitId unitId, lu.hitec.pss.soap.ds.out._15_x.CrudEnum crud, lu.hitec.pss.soap.ds.out._15_x.DeviceCapabilityEnum[] deviceCapabilites) throws java.rmi.RemoteException, lu.hitec.pss.soap.ds.out._15_x.AuthorizationException, lu.hitec.pss.soap.ds.out._15_x.AuthenticationException, lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[99]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "getDevicesAssignedToUnitForCrudAndCapabilities"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, unitId, crud, deviceCapabilites});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (lu.hitec.pss.soap.ds.out._15_x.PssuDevice[]) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.ds.out._15_x.PssuDevice[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthorizationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.AuthenticationException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) {
-              throw (lu.hitec.pss.soap.ds.out._15_x.ResourceNotFoundException) axisFaultException.detail;
          }
    }
   throw axisFaultException;

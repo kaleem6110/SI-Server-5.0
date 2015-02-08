@@ -35,7 +35,6 @@ public class ResourcesTypesEnum implements java.io.Serializable {
     public static final java.lang.String _MISSION_SEVERITY_TYPES = "MISSION_SEVERITY_TYPES";
     public static final java.lang.String _MISSION_STATUS_TYPES = "MISSION_STATUS_TYPES";
     public static final java.lang.String _MISSION_URGENCY_TYPES = "MISSION_URGENCY_TYPES";
-    public static final java.lang.String _ORGANIZATION_TYPES = "ORGANIZATION_TYPES";
     public static final java.lang.String _PERSONAL_TITLE_TYPES = "PERSONAL_TITLE_TYPES";
     public static final java.lang.String _PHONE_TYPES = "PHONE_TYPES";
     public static final java.lang.String _PLACE_TYPES = "PLACE_TYPES";
@@ -66,7 +65,6 @@ public class ResourcesTypesEnum implements java.io.Serializable {
     public static final ResourcesTypesEnum MISSION_SEVERITY_TYPES = new ResourcesTypesEnum(_MISSION_SEVERITY_TYPES);
     public static final ResourcesTypesEnum MISSION_STATUS_TYPES = new ResourcesTypesEnum(_MISSION_STATUS_TYPES);
     public static final ResourcesTypesEnum MISSION_URGENCY_TYPES = new ResourcesTypesEnum(_MISSION_URGENCY_TYPES);
-    public static final ResourcesTypesEnum ORGANIZATION_TYPES = new ResourcesTypesEnum(_ORGANIZATION_TYPES);
     public static final ResourcesTypesEnum PERSONAL_TITLE_TYPES = new ResourcesTypesEnum(_PERSONAL_TITLE_TYPES);
     public static final ResourcesTypesEnum PHONE_TYPES = new ResourcesTypesEnum(_PHONE_TYPES);
     public static final ResourcesTypesEnum PLACE_TYPES = new ResourcesTypesEnum(_PLACE_TYPES);

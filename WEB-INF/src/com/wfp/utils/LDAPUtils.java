@@ -2,6 +2,7 @@ package com.wfp.utils;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -499,7 +500,7 @@ public class LDAPUtils implements IEPICConstants {
 		if(StringUtils.isNull(node)) node = FILTER_LDAP_USERS;
 		//Logger.info("Retrieving User ["+userDomain+"] attributes from Node ["+node+"]", LDAPUtils.class);
 		return parseDataAsMap(getSearchResults(CONSTRAINT_ATTR_USERS, node, userDomain), 
-				"mail,communicationUri,otherPhones,personalTitle,o,ou,primaryMail");
+				"mail,communicationUri,otherPhones,personalTitle,o,ou,primaryMail,internalID");
 	}
 	public static Map<String, Object> getVehicleAttributes(String vehicleDomain, String node)
 	{		
@@ -532,7 +533,7 @@ public class LDAPUtils implements IEPICConstants {
 				//Logger.info("Available Mission from  ["+deviceId+"] are ["+missionsList+"]", LDAPUtils.class);
 			}
 		}
-		else  if(KEY_VEHICLE.equalsIgnoreCase(type) || KEY_AIRPLANE.equalsIgnoreCase(type))
+		else  if(KEY_VEHICLE.equalsIgnoreCase(type) || KEY_AIRPLANE.equalsIgnoreCase(type) || KEY_NOSACO_TERMINALS.equalsIgnoreCase( type ))
 		{
 			Logger.debug(" 1 :" , LDAPUtils.class );
 			List<String> membersList = getVehicleByDevice(deviceId); 
@@ -564,7 +565,8 @@ public class LDAPUtils implements IEPICConstants {
 	 */
 	public static void setLDAPUserDtls(DeviceBean deviceBean, String type)
 	{
-		if(KEY_STAFF.equalsIgnoreCase(type)){
+		if(KEY_STAFF.equalsIgnoreCase( type ))
+		{
 			String userDomain = getUserDomain(deviceBean.getName());
 			if(userDomain != null){
 				retrieveLDAPUserDtls(getUserAttributes(userDomain, null), deviceBean);
@@ -610,6 +612,7 @@ public class LDAPUtils implements IEPICConstants {
 			deviceBean.setLocality( userbean.getLocality() );
 			deviceBean.setPostalCode( userbean.getPostalCode() );
 			deviceBean.setCountry( userbean.getCountry() );
+			deviceBean.setInternalID( userbean.getInternalID() );
 		}
 	}
 	/**
@@ -643,6 +646,7 @@ public class LDAPUtils implements IEPICConstants {
 				deviceBean.setLocality( userbean.getLocality() );
 				deviceBean.setPostalCode( userbean.getPostalCode() );
 				deviceBean.setCountry( userbean.getCountry() );
+				deviceBean.setInternalID( userbean.getInternalID() );
 			} //System.out.println(" ### "+deviceBean.getCn()+" "+deviceBean.getSn()+" "+deviceBean.getPrimaryEmail() );
 		}		
 	}
@@ -680,6 +684,7 @@ public class LDAPUtils implements IEPICConstants {
 			deviceBean.setPhotoString( getUserImageAsString( deviceBean.getUid()) );
 			deviceBean.setGender(userAttributes.get(PROPERTY_GENDER)== null?"":userAttributes.get(PROPERTY_GENDER).toString() );
 			deviceBean.setShortOrganization(deviceBean.getOrganization() );
+			deviceBean.setInternalID( userAttributes.get(PROPERTY_INTERNAL_ID)== null?null:(List<String>) userAttributes.get(PROPERTY_INTERNAL_ID));
 	}
 	public static void retrieveFences( Map<String,Object> fenceAttributes)
 	{
@@ -781,7 +786,7 @@ public class LDAPUtils implements IEPICConstants {
 				userBean.setOrganization(userAttributes.get(PROPERTY_ORGANIZATION)== null?"":((List<String>)userAttributes.get(PROPERTY_ORGANIZATION)).get(0));
 				//Kaleem - 
 				//System.out.println("b4 userbean.getOrg"+userBean.getOrganization() + "getOrgMap() "+getOrgMap() );
-				userBean.setShortOrganization(userBean.getOrganization());
+				userBean.setShortOrganization(userBean.getOrganization()); 
 				if( getOrgMap()==null)  LDAPUtils.getAllOrganizations(); 
 				else  userBean.setOrganization(getOrgMap().get(userBean.getOrganization() ) );
 				
@@ -804,7 +809,7 @@ public class LDAPUtils implements IEPICConstants {
 			//System.out.println(" Pager: "+userBean.getSkypePager()   );
 			userBean.setGender( userAttributes.get(PROPERTY_GENDER)== null?"":userAttributes.get(PROPERTY_GENDER).toString() );
 			userBean.setPhotoString( getUserImageAsString( userBean.getUid()) );
-			userBean.setInternalID( userAttributes.get(PROPERTY_INTERNAL_ID)== null?"":userAttributes.get(PROPERTY_INTERNAL_ID).toString() );
+			userBean.setInternalID( userAttributes.get(PROPERTY_INTERNAL_ID)== null?null:(List<String>)userAttributes.get(PROPERTY_INTERNAL_ID));
 			
 			return userBean;
 		}
@@ -1755,6 +1760,47 @@ public class LDAPUtils implements IEPICConstants {
 		}
 		return base64String;
 	}
+	public static String getMissionFullName(String mission )
+	{ 
+	  if( mission==null ) return "-";
+	  else{
+	         String s =missionsMap.get(mission.toUpperCase()) ;
+	         if(s==null) s=mission;
+	         return s;
+	       }
+	}
+	public static String getAllMissionFromList (List<String> missionList)
+	{  
+		if(missionList!=null &&missionList.size()>0 )
+		{	
+			String missions="";
+			Collections.sort( missionList );int i=0;
+			for(String m : missionList )
+			{ 	++i;
+				missions += getMissionFullName( m ) ; 
+				if( i<missionList.size() ) missions+=", ";
+				
+			}
+			return missions;
+		}
+		else return "";
+	}
+	public static String getTrackerName(String deviceId )
+	{
+	    if( deviceId.indexOf("trackMe")>=0 ) return "<a href=http://trackme.globalepic.lu target=_blank >TRACKME</a>"; 
+	    else if( deviceId.indexOf("VISMO")>=0 ) return "<a href=http://vismo.com target=_blank >VISMO</a>";
+	    else if( deviceId.indexOf("Novacom")>=0 ) return "<a href=http://platform.novacom-services.com/ target=_blank >NOVACOM</a>";
+	    else if( deviceId.indexOf("findmespot")>=0 ) return "<a href=http://http://international.findmespot.com/ target=_blank >findmespot</a>";
+	    else return "-NOT AVAILABLE";
+	 
+	 }
+	public static String getDeviceType( String id )
+	{
+
+	   if( id.indexOf("trackMe-")>=0 && id.length()==16 ) return "Digital Radio";
+	   else return "Smartphone";
+	}
+
 	public static String getRadioServerEmail(String value)
 	{
 		

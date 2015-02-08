@@ -30,7 +30,7 @@ public class LDAPUserBean {
     private String gender;
     private String shortOrganization;
     private List<String> vehicleID = null;
-    private String internalID;
+    private List<String> internalID;
     private String locality;
     private String country;
     private String street;
@@ -43,18 +43,7 @@ public class LDAPUserBean {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	/**
-	 * @return the internalID
-	 */
-	public String getInternalID() {
-		return internalID;
-	}
-	/**
-	 * @param internalID the internalID to set
-	 */
-	public void setInternalID(String internalID) {
-		this.internalID = internalID;
-	}
+	
 	/**
 	 * @return the shortOrganization
 	 */
@@ -267,6 +256,18 @@ public class LDAPUserBean {
 	}
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
+	}
+	/**
+	 * @return the internalID
+	 */
+	public List<String> getInternalID() {
+		return internalID;
+	}
+	/**
+	 * @param internalID the internalID to set
+	 */
+	public void setInternalID(List<String> internalID) {
+		this.internalID = internalID;
 	}
 	
 	

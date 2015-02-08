@@ -34,8 +34,47 @@ public class LassoTemplate extends BaseModel implements ICacheableModel {
 	private String userUniqueId;
 	private Date startDate;
 	private Date endDate;
+	private String layers;
+	private String organization;
+	private String mission;
 	
 	
+	/**
+	 * @return the layers
+	 */
+	public String getLayers() {
+		return layers;
+	}
+	/**
+	 * @param layers the layers to set
+	 */
+	public void setLayers(String layers) {
+		this.layers = layers;
+	}
+	/**
+	 * @return the organization
+	 */
+	public String getOrganization() {
+		return organization;
+	}
+	/**
+	 * @param organization the organization to set
+	 */
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
+	/**
+	 * @return the mission
+	 */
+	public String getMission() {
+		return mission;
+	}
+	/**
+	 * @param mission the mission to set
+	 */
+	public void setMission(String mission) {
+		this.mission = mission;
+	}
 	/**
 	 * @return the name
 	 */

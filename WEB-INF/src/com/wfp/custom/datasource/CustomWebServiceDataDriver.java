@@ -64,7 +64,7 @@ public class CustomWebServiceDataDriver extends BaseGeoDataDriver implements
 			List<DeviceBean> currentDeviceList = null;
 			setCustomSearchCriteria();
 			currentDeviceList = getList();
-			System.out.println(" currentDeviceList : "+ currentDeviceList.size() );
+			if(currentDeviceList!=null ) System.out.println(" currentDeviceList : "+ currentDeviceList.size() );
 			Logger.info(
 					"Actual number of objects before filtering for the layer ["
 							+ dataSource.getLayerName()
@@ -122,56 +122,35 @@ public class CustomWebServiceDataDriver extends BaseGeoDataDriver implements
 	private List<DeviceBean> getList()
 	{
 		List<DeviceBean> currentDeviceList = null;
-		Logger.info( " 124 dataSource.getLayerName() "+dataSource.getLayerName() , CustomWebServiceDataDriver.class );
-		Logger.info(" 125   LIST : " , CustomWebServiceDataDriver.class );
- 		if (dataSource.getLayerName().toLowerCase().contains(KEY_STAFF)) {
- 			Logger.info(" 126 : before getting staff from cache ", CustomWebServiceDataDriver.class );
-			currentDeviceList = RestTrackingJob.getInstance().getRestServiceMapCache().get(KEY_STAFF);
-			Logger.info(" 127 STAFF LIST : "+ currentDeviceList.size() , CustomWebServiceDataDriver.class );
-		} else if (dataSource.getLayerName().toLowerCase().contains(
-				KEY_VEHICLE)) {
-
- 			Logger.info(" 132 : before getting vehicle from cache ", CustomWebServiceDataDriver.class );
-			currentDeviceList = RestTrackingJob.getInstance()
-					.getRestServiceList(KEY_VEHICLE);
-			System.out.println("132  KEY_VEHICLE LIST : "+ currentDeviceList!=null?currentDeviceList.size():"0" );
-		} else if (dataSource.getLayerName().toLowerCase().contains(
-				KEY_AIRPLANE)) {
-
- 			Logger.info(" 126 : before getting airplane from cache ", CustomWebServiceDataDriver.class );
-			currentDeviceList = RestTrackingJob.getInstance()
-					.getRestServiceList(KEY_AIRPLANE);
-			System.out.println("137  KEY_AIRPLANE LIST : "+ currentDeviceList!=null?currentDeviceList.size():"0" );
-		}
-		else if (dataSource.getLayerName().toLowerCase().contains(
-				KEY_NOSACO_RAPID)) {
-
- 			Logger.info(" 126 : before getting nosaco from cache ", CustomWebServiceDataDriver.class );
-			currentDeviceList = RestTrackingJob.getInstance()
-					.getRestServiceList(KEY_NOSACO_RAPID);
-			
-			System.out.println("139  KEY_NOSACO_REGULAR : "+ currentDeviceList!=null?currentDeviceList.size():"0" );
+		
+		if (dataSource.getLayerName().toLowerCase().contains(KEY_STAFF))
+		{
+ 			currentDeviceList = RestTrackingJob.getInstance().getRestServiceMapCache().get(KEY_STAFF);
 		} 
-		else if (dataSource.getLayerName().toLowerCase().contains(
-				KEY_NOSACO_REGULAR )) {
-
- 			currentDeviceList = RestTrackingJob.getInstance()
-					.getRestServiceList(KEY_NOSACO_REGULAR);
-			
-			System.out.println("140  KEY_NOSACO_REGULAR: "+ currentDeviceList!=null?currentDeviceList.size():"0" );
+		else if (dataSource.getLayerName().toLowerCase().contains( KEY_VEHICLE)) 
+		{
+			currentDeviceList = RestTrackingJob.getInstance().getRestServiceList(KEY_VEHICLE);
+		} 
+		else if (dataSource.getLayerName().toLowerCase().contains( KEY_AIRPLANE))
+		{
+			currentDeviceList = RestTrackingJob.getInstance().getRestServiceList(KEY_AIRPLANE);
 		}
-		else if (dataSource.getLayerName().toLowerCase().contains(
-				KEY_NOSACO ) {
-
- 			Logger.info(" 126 : before getting nosaco from cache ", CustomWebServiceDataDriver.class );
-			currentDeviceList = RestTrackingJob.getInstance()
-					.getRestServiceList(KEY_NOSACO_REGULAR);
-			currentDeviceList.add( RestTrackingJob.getInstance()
-					.getRestServiceList(KEY_NOSACO_RAPID ); )
-			
-			System.out.println("140  KEY_NOSACO_REGULAR: "+ currentDeviceList!=null?currentDeviceList.size():"0" );
+		else if (dataSource.getLayerName().toLowerCase().contains( 	KEY_NOSACO_RAPID)) 
+		{
+			currentDeviceList = RestTrackingJob.getInstance().getRestServiceList(KEY_NOSACO_RAPID);
+		} 
+		else if (dataSource.getLayerName().toLowerCase().contains( 	KEY_NOSACO_REGULAR )) 
+		{
+			currentDeviceList = RestTrackingJob.getInstance().getRestServiceList(KEY_NOSACO_REGULAR);
 		}
- 		if( currentDeviceList!=null) System.out.println(" currentDeviceList :"+currentDeviceList.size() );
+		else if (dataSource.getLayerName().toLowerCase().contains( KEY_NOSACO_TERMINALS ) )
+		{	
+			currentDeviceList = RestTrackingJob.getInstance().getRestServiceList(KEY_NOSACO_TERMINALS);
+			Logger.info(" Inside : nosaco : currentDeviceList: "+ currentDeviceList, CustomWebServiceDataDriver.class ) ;
+			
+		}
+ 		if( currentDeviceList!=null) Logger.info(" currentDeviceList :"+currentDeviceList.size(), CustomWebServiceDataDriver.class );
+ 		
  		return currentDeviceList;
 	}
 

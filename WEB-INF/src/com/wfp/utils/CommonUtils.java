@@ -3,13 +3,11 @@ package com.wfp.utils;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringReader;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -26,11 +24,13 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
 import com.enterprisehorizons.magma.designtime.artifact.IGeoArtifact;
-import com.enterprisehorizons.magma.server.util.ServerUtils;
 import com.enterprisehorizons.util.Logger;
 import com.enterprisehorizons.util.StringUtils;
+import com.wfp.beans.Legend;
+import com.wfp.beans.Messaging;
+import com.wfp.beans.Tab;
+import com.wfp.beans.Telephone;
 import com.wfp.jobs.RestTrackingJob;
-import com.wfp.beans.*;
 /**
  * Common Utility class 
  * @author kaleem.mohammed
@@ -119,6 +119,9 @@ public class CommonUtils implements IEPICConstants{
 		} catch (ParseException e) {
 			Logger.error("Error ocurred while formatting date ["+datetime+"]", CommonUtils.class, e);
 		}  
+		catch (Exception e) {
+			Logger.error("Error ocurred while parsing date ["+datetime+"]", CommonUtils.class, e);
+		} 
           
        return null;
 	}
@@ -809,6 +812,16 @@ public class CommonUtils implements IEPICConstants{
 		 } 
 		 return title;
 	 }
-	
+	public static boolean isOrgMatches(List<String> userOrgList, String unitORg )
+	{
+		if(userOrgList!=null&&userOrgList.size()>0 )
+		{ 
+			for( String o:userOrgList )
+			{			  
+			   if( LDAPUtils.getOrgMap().get( o ).equalsIgnoreCase( unitORg  ) ) return true;
+			}
+		}
+		return false;
+	}
 	
 }

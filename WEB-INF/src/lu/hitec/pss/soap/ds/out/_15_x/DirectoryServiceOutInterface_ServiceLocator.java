@@ -22,7 +22,7 @@ public class DirectoryServiceOutInterface_ServiceLocator extends org.apache.axis
     }
 
     // Use to get a proxy class for DirectoryServiceOutInterfacePort
-    private java.lang.String DirectoryServiceOutInterfacePort_address = "http://middleware-dev.globalepic.lu:80/ldapdirectoryservice/out/soap/DirectoryService";
+    private java.lang.String DirectoryServiceOutInterfacePort_address = "http://middleware.globalepic.lu:80/ldapdirectoryservice/out/soap/DirectoryService";
 
     public java.lang.String getDirectoryServiceOutInterfacePortAddress() {
         return DirectoryServiceOutInterfacePort_address;

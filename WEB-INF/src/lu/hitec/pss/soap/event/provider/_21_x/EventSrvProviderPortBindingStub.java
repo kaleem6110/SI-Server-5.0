@@ -16,7 +16,7 @@ public class EventSrvProviderPortBindingStub extends org.apache.axis.client.Stub
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[5];
+        _operations = new org.apache.axis.description.OperationDesc[7];
         _initOperationDesc1();
     }
 
@@ -84,25 +84,6 @@ public class EventSrvProviderPortBindingStub extends org.apache.axis.client.Stub
         _operations[1] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("deleteNotifier");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "notifierId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), java.lang.Long.class, false, false);
-        param.setOmittable(true);
-        oper.addParameter(param);
-        oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthenticationException"),
-                      "lu.hitec.pss.soap.event.provider._21_x.AuthenticationException",
-                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthenticationException"), 
-                      true
-                     ));
-        _operations[2] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getEventStatusSummary");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
@@ -139,7 +120,7 @@ public class EventSrvProviderPortBindingStub extends org.apache.axis.client.Stub
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "ResourceNotFoundException"), 
                       true
                      ));
-        _operations[3] = oper;
+        _operations[2] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteEventByRef");
@@ -176,7 +157,87 @@ public class EventSrvProviderPortBindingStub extends org.apache.axis.client.Stub
                       new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "ResourceNotFoundException"), 
                       true
                      ));
+        _operations[3] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("deleteNotifier");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "notifierId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), java.lang.Long.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.event.provider._21_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthenticationException"), 
+                      true
+                     ));
         _operations[4] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("updateNotifier");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "notifierWithTemplates"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "notifierWithTemplates"), lu.hitec.pss.soap.event.provider._21_x.NotifierWithTemplates.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "notifier"));
+        oper.setReturnClass(lu.hitec.pss.soap.event.provider._21_x.Notifier.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "notifier"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.event.provider._21_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthenticationException"), 
+                      true
+                     ));
+        _operations[5] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("updateMissionNotifiersStatus");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "token"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "missionNotifiersStatus"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "missionNotifiersStatus"), lu.hitec.pss.soap.event.provider._21_x.MissionNotifiersStatus.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthorizationException"),
+                      "lu.hitec.pss.soap.event.provider._21_x.AuthorizationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthorizationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "MissionClosedException"),
+                      "lu.hitec.pss.soap.event.provider._21_x.MissionClosedException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "MissionClosedException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthenticationException"),
+                      "lu.hitec.pss.soap.event.provider._21_x.AuthenticationException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "AuthenticationException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "ResourceNotFoundException"),
+                      "lu.hitec.pss.soap.event.provider._21_x.ResourceNotFoundException",
+                      new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "ResourceNotFoundException"), 
+                      true
+                     ));
+        _operations[6] = oper;
 
     }
 
@@ -261,6 +322,13 @@ public class EventSrvProviderPortBindingStub extends org.apache.axis.client.Stub
             qName = new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "MissionClosedException");
             cachedSerQNames.add(qName);
             cls = lu.hitec.pss.soap.event.provider._21_x.MissionClosedException.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "missionNotifiersStatus");
+            cachedSerQNames.add(qName);
+            cls = lu.hitec.pss.soap.event.provider._21_x.MissionNotifiersStatus.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -552,47 +620,12 @@ public class EventSrvProviderPortBindingStub extends org.apache.axis.client.Stub
 }
     }
 
-    public void deleteNotifier(java.lang.String token, java.lang.Long notifierId) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.provider._21_x.AuthenticationException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[2]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "deleteNotifier"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, notifierId});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        extractAttachments(_call);
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof lu.hitec.pss.soap.event.provider._21_x.AuthenticationException) {
-              throw (lu.hitec.pss.soap.event.provider._21_x.AuthenticationException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
     public lu.hitec.pss.soap.event.provider._21_x.StatusSummary getEventStatusSummary(java.lang.String token, java.lang.String eventRef) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.provider._21_x.AuthorizationException, lu.hitec.pss.soap.event.provider._21_x.MissionClosedException, lu.hitec.pss.soap.event.provider._21_x.AuthenticationException, lu.hitec.pss.soap.event.provider._21_x.ResourceNotFoundException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[3]);
+        _call.setOperation(_operations[2]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -643,7 +676,7 @@ public class EventSrvProviderPortBindingStub extends org.apache.axis.client.Stub
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[4]);
+        _call.setOperation(_operations[3]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -655,6 +688,127 @@ public class EventSrvProviderPortBindingStub extends org.apache.axis.client.Stub
         setRequestHeaders(_call);
         setAttachments(_call);
  try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, eventRef});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        extractAttachments(_call);
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.event.provider._21_x.AuthorizationException) {
+              throw (lu.hitec.pss.soap.event.provider._21_x.AuthorizationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.event.provider._21_x.MissionClosedException) {
+              throw (lu.hitec.pss.soap.event.provider._21_x.MissionClosedException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.event.provider._21_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.event.provider._21_x.AuthenticationException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.event.provider._21_x.ResourceNotFoundException) {
+              throw (lu.hitec.pss.soap.event.provider._21_x.ResourceNotFoundException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public void deleteNotifier(java.lang.String token, java.lang.Long notifierId) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.provider._21_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[4]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "deleteNotifier"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, notifierId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        extractAttachments(_call);
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.event.provider._21_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.event.provider._21_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public lu.hitec.pss.soap.event.provider._21_x.Notifier updateNotifier(java.lang.String token, lu.hitec.pss.soap.event.provider._21_x.NotifierWithTemplates notifierWithTemplates) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.provider._21_x.AuthenticationException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[5]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "updateNotifier"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, notifierWithTemplates});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (lu.hitec.pss.soap.event.provider._21_x.Notifier) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (lu.hitec.pss.soap.event.provider._21_x.Notifier) org.apache.axis.utils.JavaUtils.convert(_resp, lu.hitec.pss.soap.event.provider._21_x.Notifier.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof lu.hitec.pss.soap.event.provider._21_x.AuthenticationException) {
+              throw (lu.hitec.pss.soap.event.provider._21_x.AuthenticationException) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public void updateMissionNotifiersStatus(java.lang.String token, java.lang.String missionId, lu.hitec.pss.soap.event.provider._21_x.MissionNotifiersStatus missionNotifiersStatus) throws java.rmi.RemoteException, lu.hitec.pss.soap.event.provider._21_x.AuthorizationException, lu.hitec.pss.soap.event.provider._21_x.MissionClosedException, lu.hitec.pss.soap.event.provider._21_x.AuthenticationException, lu.hitec.pss.soap.event.provider._21_x.ResourceNotFoundException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[6]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/event/provider/21.x", "updateMissionNotifiersStatus"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {token, missionId, missionNotifiersStatus});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;

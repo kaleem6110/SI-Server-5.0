@@ -10,23 +10,19 @@ package lu.hitec.pss.soap.ds.out._15_x;
 public class PssuUnitLight  implements java.io.Serializable {
     private lu.hitec.pss.soap.ds.out._15_x.UnitId unitId;
 
-    private java.lang.String name;  // attribute
+    private java.lang.String displayName;  // attribute
 
-    private java.lang.String id;  // attribute
-
-    private lu.hitec.pss.soap.ds.out._15_x.UnitType type;  // attribute
+    private java.lang.String type;  // attribute
 
     public PssuUnitLight() {
     }
 
     public PssuUnitLight(
            lu.hitec.pss.soap.ds.out._15_x.UnitId unitId,
-           java.lang.String name,
-           java.lang.String id,
-           lu.hitec.pss.soap.ds.out._15_x.UnitType type) {
+           java.lang.String displayName,
+           java.lang.String type) {
            this.unitId = unitId;
-           this.name = name;
-           this.id = id;
+           this.displayName = displayName;
            this.type = type;
     }
 
@@ -52,42 +48,22 @@ public class PssuUnitLight  implements java.io.Serializable {
 
 
     /**
-     * Gets the name value for this PssuUnitLight.
+     * Gets the displayName value for this PssuUnitLight.
      * 
-     * @return name
+     * @return displayName
      */
-    public java.lang.String getName() {
-        return name;
+    public java.lang.String getDisplayName() {
+        return displayName;
     }
 
 
     /**
-     * Sets the name value for this PssuUnitLight.
+     * Sets the displayName value for this PssuUnitLight.
      * 
-     * @param name
+     * @param displayName
      */
-    public void setName(java.lang.String name) {
-        this.name = name;
-    }
-
-
-    /**
-     * Gets the id value for this PssuUnitLight.
-     * 
-     * @return id
-     */
-    public java.lang.String getId() {
-        return id;
-    }
-
-
-    /**
-     * Sets the id value for this PssuUnitLight.
-     * 
-     * @param id
-     */
-    public void setId(java.lang.String id) {
-        this.id = id;
+    public void setDisplayName(java.lang.String displayName) {
+        this.displayName = displayName;
     }
 
 
@@ -96,7 +72,7 @@ public class PssuUnitLight  implements java.io.Serializable {
      * 
      * @return type
      */
-    public lu.hitec.pss.soap.ds.out._15_x.UnitType getType() {
+    public java.lang.String getType() {
         return type;
     }
 
@@ -106,7 +82,7 @@ public class PssuUnitLight  implements java.io.Serializable {
      * 
      * @param type
      */
-    public void setType(lu.hitec.pss.soap.ds.out._15_x.UnitType type) {
+    public void setType(java.lang.String type) {
         this.type = type;
     }
 
@@ -125,12 +101,9 @@ public class PssuUnitLight  implements java.io.Serializable {
             ((this.unitId==null && other.getUnitId()==null) || 
              (this.unitId!=null &&
               this.unitId.equals(other.getUnitId()))) &&
-            ((this.name==null && other.getName()==null) || 
-             (this.name!=null &&
-              this.name.equals(other.getName()))) &&
-            ((this.id==null && other.getId()==null) || 
-             (this.id!=null &&
-              this.id.equals(other.getId()))) &&
+            ((this.displayName==null && other.getDisplayName()==null) || 
+             (this.displayName!=null &&
+              this.displayName.equals(other.getDisplayName()))) &&
             ((this.type==null && other.getType()==null) || 
              (this.type!=null &&
               this.type.equals(other.getType())));
@@ -148,11 +121,8 @@ public class PssuUnitLight  implements java.io.Serializable {
         if (getUnitId() != null) {
             _hashCode += getUnitId().hashCode();
         }
-        if (getName() != null) {
-            _hashCode += getName().hashCode();
-        }
-        if (getId() != null) {
-            _hashCode += getId().hashCode();
+        if (getDisplayName() != null) {
+            _hashCode += getDisplayName().hashCode();
         }
         if (getType() != null) {
             _hashCode += getType().hashCode();
@@ -168,25 +138,19 @@ public class PssuUnitLight  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "pssuUnitLight"));
         org.apache.axis.description.AttributeDesc attrField = new org.apache.axis.description.AttributeDesc();
-        attrField.setFieldName("name");
-        attrField.setXmlName(new javax.xml.namespace.QName("", "name"));
-        attrField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        typeDesc.addFieldDesc(attrField);
-        attrField = new org.apache.axis.description.AttributeDesc();
-        attrField.setFieldName("id");
-        attrField.setXmlName(new javax.xml.namespace.QName("", "id"));
+        attrField.setFieldName("displayName");
+        attrField.setXmlName(new javax.xml.namespace.QName("", "displayName"));
         attrField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         typeDesc.addFieldDesc(attrField);
         attrField = new org.apache.axis.description.AttributeDesc();
         attrField.setFieldName("type");
         attrField.setXmlName(new javax.xml.namespace.QName("", "type"));
-        attrField.setXmlType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitType"));
+        attrField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         typeDesc.addFieldDesc(attrField);
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("unitId");
         elemField.setXmlName(new javax.xml.namespace.QName("", "unitId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://hitec.lu/pss/soap/ds/out/15.x", "unitId"));
-        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

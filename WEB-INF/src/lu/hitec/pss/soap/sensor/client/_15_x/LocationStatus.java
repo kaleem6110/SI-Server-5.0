@@ -18,8 +18,10 @@ public class LocationStatus implements java.io.Serializable {
     }
 
     public static final java.lang.String _STATUS_UNSAFE = "STATUS_UNSAFE";
+    public static final java.lang.String _STATUS_NEUTRAL = "STATUS_NEUTRAL";
     public static final java.lang.String _STATUS_SAFE = "STATUS_SAFE";
     public static final LocationStatus STATUS_UNSAFE = new LocationStatus(_STATUS_UNSAFE);
+    public static final LocationStatus STATUS_NEUTRAL = new LocationStatus(_STATUS_NEUTRAL);
     public static final LocationStatus STATUS_SAFE = new LocationStatus(_STATUS_SAFE);
     public java.lang.String getValue() { return _value_;}
     public static LocationStatus fromValue(java.lang.String value)

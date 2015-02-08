@@ -21,7 +21,7 @@ public class WFPConfigUtils implements IEPICConstants{
 	 * @return
 	 */
 	public static String getConfigValue(String configName) { 
-		return GenericConfigurationManager.getInstance().getProperty(LDAP, configName);
+		return GenericConfigurationManager.getInstance().getProperty( LDAP, configName);
 	}
 
 	/**
